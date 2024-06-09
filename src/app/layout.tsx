@@ -1,8 +1,7 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import { Wrapper } from "@/components/wrapper";
 import { theme } from "@/themes/theme";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider, Flex } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -23,8 +22,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <ChakraProvider theme={theme}>
           <Navbar />
-          <Wrapper>{children}</Wrapper>
-          <Footer />
+          <Flex direction="column" minH="100vh">
+            <Box as="main" flex="1">
+              {children}
+            </Box>
+            <Footer />
+          </Flex>
         </ChakraProvider>
       </body>
     </html>

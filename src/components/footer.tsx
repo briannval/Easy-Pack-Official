@@ -73,6 +73,8 @@ export default function Footer() {
         maxWidth={"container.xl"}
         ml={"auto"}
         mr={"auto"}
+        py={4}
+        borderRadius={10}
       >
         <Container
           as={Stack}
