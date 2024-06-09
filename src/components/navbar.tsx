@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 
-export default function WithSubnavigation() {
+export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   const [scrollPosition, setScrollPosition] = useState(0);

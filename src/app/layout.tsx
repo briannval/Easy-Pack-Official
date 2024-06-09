@@ -1,4 +1,6 @@
-import WithSubnavigation from "@/components/navbar";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import { Wrapper } from "@/components/wrapper";
 import { theme } from "@/themes/theme";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { Metadata } from "next";
@@ -20,8 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ChakraProvider theme={theme}>
-          <WithSubnavigation />
-          {children}
+          <Navbar />
+          <Wrapper>{children}</Wrapper>
+          <Footer />
         </ChakraProvider>
       </body>
     </html>
