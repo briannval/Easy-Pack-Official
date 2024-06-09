@@ -1,3 +1,4 @@
+import WithSubnavigation from "@/components/navbar";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ChakraProvider>{children}</ChakraProvider>
+        <ChakraProvider>
+          <WithSubnavigation />
+          {children}
+        </ChakraProvider>
       </body>
     </html>
   );
