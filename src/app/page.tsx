@@ -106,10 +106,12 @@ export default function Home() {
               color={"white"}
               bg={"gold.400"}
               _hover={{ bg: "gold.300" }}
+              as={"a"}
+              href="/products"
             >
               Browse
             </Button>
-            <Button leftIcon={<FaQuestion />} px={6}>
+            <Button leftIcon={<FaQuestion />} px={6} as={"a"} href="/about">
               Learn more
             </Button>
           </Stack>
