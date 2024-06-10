@@ -24,6 +24,7 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -77,6 +78,9 @@ export default function Navbar() {
             </Flex>
             <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
               <Text
+                onClick={() => {
+                  window.location.href = "/";
+                }}
                 textAlign={useBreakpointValue({ base: "center", md: "left" })}
                 fontFamily={"heading"}
                 color={useColorModeValue("gray.800", "white")}
@@ -110,6 +114,11 @@ export default function Navbar() {
                 _hover={{
                   bg: "green.300",
                 }}
+                onClick={() => {
+                  window.location.href =
+                    "https://api.whatsapp.com/send?phone=628129974333&text=I'm%20interested%20in%20Easy%20Supply";
+                }}
+                leftIcon={<FaWhatsapp />}
               >
                 Chat on Whatsapp
               </Button>
@@ -294,18 +303,18 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "About",
 
-    href: "#",
+    href: "about",
   },
   {
     label: "Products",
-    href: "#",
+    href: "products",
   },
   {
     label: "Contact",
-    href: "#",
+    href: "contact",
   },
   {
     label: "Gallery",
-    href: "#",
+    href: "gallery",
   },
 ];

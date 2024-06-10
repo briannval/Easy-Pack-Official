@@ -1,9 +1,9 @@
 import { Center } from "@chakra-ui/react";
 
-export default function Home() {
+export default function Gallery() {
   return (
     <main>
-      <Center>Home Page</Center>
+      <Center>Gallery Page</Center>
     </main>
   );
 }
