@@ -1,10 +1,12 @@
+"use client";
+import Maintenance from "@/components/maintenance";
 import { Center } from "@chakra-ui/react";
 
 export default function Gallery() {
   return (
     <main>
-      <Center>
-        <h1>Page</h1>{" "}
+      <Center mt={"60px"} h={"calc(100vh - 60px)"}>
+        <Maintenance />
       </Center>
     </main>
   );
