@@ -10,10 +10,65 @@ import {
 } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { set } from "react-hook-form";
 import { FaQuestion, FaUtensils } from "react-icons/fa";
 
 const images = ["/home1.jpeg", "/home2.jpeg"];
+
+const words = [
+  {
+    id: 1,
+    content: "thinwall",
+  },
+  {
+    id: 2,
+    content: "sporks",
+  },
+  {
+    id: 3,
+    content: "knives",
+  },
+];
+
+const RotatingWords = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <Box display="flex" alignItems="center" ml={"auto"} mr={"auto"}>
+      <AnimatePresence>
+        <Box>
+          <Text as="span" color="gold.400">
+            Easy pack
+          </Text>
+        </Box>
+        <Box
+          position="relative"
+          display="flex"
+          width={{ base: "100px", md: "250px" }}
+          ml={4}
+        >
+          <motion.div
+            key={words[index].id}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ ease: "easeInOut" }}
+          >
+            {words[index].content}
+          </motion.div>
+        </Box>
+      </AnimatePresence>
+    </Box>
+  );
+};
+
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -68,7 +123,7 @@ export default function Home() {
               width="100%"
               height="100%"
               objectFit="cover"
-              opacity={1}
+              opacity={0.8}
             />
           </motion.div>
         </AnimatePresence>
@@ -85,19 +140,15 @@ export default function Home() {
             fontSize={{ base: "3xl", sm: "4xl", md: "7xl" }}
             lineHeight={"110%"}
           >
-            Utensils{" "}
-            <Text as={"span"} color={"gold.400"}>
-              made easy
-            </Text>
+            <RotatingWords />
           </Heading>
           <Text
             fontWeight={600}
             color={"gray.500"}
-            maxW={{ base: "lg", md: "2xl" }}
+            maxW={{ base: "md", md: "2xl" }}
           >
-            With Easy Pack, discover the seamless blend of functionality and
-            elegance with our range of essentials, designed to enhance your
-            everyday needs.
+            Discover the seamless blend of functionality and elegance with our
+            range of essentials, designed to enhance your everyday needs.
           </Text>
           <Stack spacing={6} direction={"row"}>
             <Button
@@ -111,7 +162,14 @@ export default function Home() {
             >
               Browse
             </Button>
-            <Button leftIcon={<FaQuestion />} px={6} as={"a"} href="/about">
+            <Button
+              border={"1px"}
+              borderColor={"gray.300"}
+              leftIcon={<FaQuestion />}
+              px={6}
+              as={"a"}
+              href="/about"
+            >
               Learn more
             </Button>
           </Stack>

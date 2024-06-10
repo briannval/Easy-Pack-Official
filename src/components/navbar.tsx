@@ -13,7 +13,6 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   Container,
 } from "@chakra-ui/react";
@@ -25,11 +24,14 @@ import {
 } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const router = useRouter();
 
   const handleScroll = () => {
     const position = window.scrollY;
@@ -79,7 +81,7 @@ export default function Navbar() {
             <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
               <svg
                 onClick={() => {
-                  window.location.href = "/";
+                  router.push("/");
                 }}
                 height={32}
                 viewBox="0 0 120 28"
