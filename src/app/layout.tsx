@@ -8,8 +8,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Easy Supply",
-  description: "Official Website of PT Easy Supply Indonesia",
+  title: "Easy Pack",
+  description: "Official Website of PT Easy Pack Indonesia",
 };
 
 export default function RootLayout({

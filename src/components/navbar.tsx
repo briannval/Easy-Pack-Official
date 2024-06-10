@@ -85,7 +85,7 @@ export default function Navbar() {
                 fontFamily={"heading"}
                 color={useColorModeValue("gray.800", "white")}
               >
-                Easy Supply Logo
+                Easy Pack Logo
               </Text>
 
               <Flex
@@ -116,7 +116,7 @@ export default function Navbar() {
                 }}
                 onClick={() => {
                   window.location.href =
-                    "https://api.whatsapp.com/send?phone=628129974333&text=I'm%20interested%20in%20Easy%20Supply";
+                    "https://api.whatsapp.com/send?phone=628129974333&text=I'm%20interested%20in%20Easy%20Pack";
                 }}
                 leftIcon={<FaWhatsapp />}
               >

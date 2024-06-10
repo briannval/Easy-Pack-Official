@@ -25,7 +25,7 @@ export const ContactEmail = ({
   phone,
   message,
 }: ContactEmailProps) => {
-  const previewText = `Read ${name}'s message for Easy Supply`;
+  const previewText = `Read ${name}'s message for Easy Pack`;
 
   return (
     <Html>
@@ -36,9 +36,7 @@ export const ContactEmail = ({
         <Container style={container}>
           <Section style={{ paddingBottom: "20px" }}>
             <Row>
-              <Text style={heading}>
-                Here's what {name} said for Easy Supply
-              </Text>
+              <Text style={heading}>Here's what {name} said for Easy Pack</Text>
               <Text style={review}>{message}</Text>
               <Text style={paragraph}>
                 Now that you've read {name}'s message, you can reply to them
@@ -46,7 +44,7 @@ export const ContactEmail = ({
               </Text>
               <Text style={{ ...paragraph, paddingBottom: "16px" }}>
                 You also have the option to call {name} at {phone}. All the best
-                for PT Easy Supply!
+                for PT Easy Pack!
               </Text>
 
               <Button style={button} href={`mailto:${email}`}>
@@ -57,7 +55,7 @@ export const ContactEmail = ({
 
           <Section>
             <Hr style={hr} />
-            <Text style={footer}>PT Easy Supply</Text>
+            <Text style={footer}>PT Easy Pack</Text>
           </Section>
         </Container>
       </Body>
