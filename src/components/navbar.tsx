@@ -116,7 +116,7 @@ export default function Navbar() {
                 }}
                 onClick={() => {
                   window.location.href =
-                    "https://api.whatsapp.com/send?phone=628129974333&text=I'm%20interested%20in%20Easy%20Pack";
+                    "https://api.whatsapp.com/send?phone=62811938708&text=Halo,%20Easy%20Pack!";
                 }}
                 leftIcon={<FaWhatsapp />}
               >
