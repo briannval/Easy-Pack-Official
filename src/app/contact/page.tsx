@@ -19,7 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { FiArrowRight } from "react-icons/fi";
 import { z } from "zod";
-import { sendMail } from "../actions/sendMail";
+import { sendMail } from "@/actions/sendMail";
 
 const schema = z.object({
   name: z.string().min(1, "Please enter your name"),
