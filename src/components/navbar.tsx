@@ -109,10 +109,10 @@ export default function Navbar() {
                 fontSize={"sm"}
                 fontWeight={600}
                 color={"white"}
-                bg={"green.400"}
+                bg={"gold.400"}
                 href={"#"}
                 _hover={{
-                  bg: "green.300",
+                  bg: "gold.300",
                 }}
                 onClick={() => {
                   window.location.href =
