@@ -1,28 +1,23 @@
 "use client";
-import {
-  Box,
-  Center,
-  Flex,
-  Heading,
-  Icon,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  VStack,
-} from "@chakra-ui/react";
-import { FiSearch } from "react-icons/fi";
+import Search from "@/components/search";
+import { Center, Heading, VStack } from "@chakra-ui/react";
 
-export default function Products() {
+export default function Products({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    pages: string;
+  };
+}) {
+  const query = searchParams?.query || "";
+  const currentPage = searchParams?.pages || 1;
+
   return (
-    <VStack align={"center"} spacing={4} mt={"60px"} py={10}>
-      <Heading>Find what you're looking for.</Heading>
-      <Center>
-        <InputGroup size={"lg"} ml={"auto"} mr={"auto"}>
-          <InputLeftElement>
-            <Icon as={FiSearch} />
-          </InputLeftElement>
-          <Input type="text" placeholder="Search for products" />
-        </InputGroup>
+    <VStack align={"center"} spacing={4} mt={"60px"} py={10} minW={"50%"}>
+      <Heading size={"lg"}>Find exactly what you're looking for.</Heading>
+      <Center w={{ base: "60%", md: "40%" }}>
+        <Search />
       </Center>
     </VStack>
   );
