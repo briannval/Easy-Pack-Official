@@ -24,9 +24,7 @@ export default function RootLayout({
           <Navbar />
           <Flex direction="column" minH="100vh">
             <Box as="main" flex="1">
-              <Container maxW={"container.xl"} py={{ base: "32", lg: "20" }}>
-                {children}
-              </Container>
+              <Container maxW={"container.xl"}>{children}</Container>
             </Box>
             <Footer />
           </Flex>

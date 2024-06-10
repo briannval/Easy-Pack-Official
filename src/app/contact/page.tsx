@@ -68,7 +68,8 @@ export default function Contact() {
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         px={2}
-        pt={4}
+        mt={"60px"}
+        py={10}
         spacing={16}
         alignItems={"center"}
       >
