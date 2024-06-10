@@ -23,8 +23,8 @@ export default function Maintenance() {
         We'll be back soon!
       </Heading>
       <Text color={"gray.500"}>
-        This page is currently undergoing maintenance. We should be back
-        shortly. Thank you for your patience.
+        This page is currently undergoing maintenance.<br></br> We should be
+        back shortly. Thank you for your patience.
       </Text>
     </Box>
   );
