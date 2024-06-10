@@ -7,6 +7,7 @@ export const theme = extendTheme({
       100: "#f7fafc",
     },
     gold: {
+      50: "#FAF9D0",
       100: "#E0AA3E",
       200: "#F9F295",
       300: "#B88A44",

@@ -81,10 +81,12 @@ export default function Contact() {
             <Img
               src="/collageproducts.jpeg"
               alt="Solar Panel"
-              borderRadius="lg"
-              width="100%"
-              h="2xl"
-              objectFit="cover"
+              borderRadius="xl"
+              width="80%"
+              h="xl"
+              objectFit="fill"
+              mr={"auto"}
+              ml={"auto"}
             />
           </Box>
         </Box>
@@ -165,6 +167,8 @@ export default function Contact() {
                 size="lg"
                 rightIcon={<Icon as={FiArrowRight} />}
                 isLoading={isSubmitting}
+                colorScheme="yellow"
+                variant={"outline"}
               >
                 Send Message
               </Button>

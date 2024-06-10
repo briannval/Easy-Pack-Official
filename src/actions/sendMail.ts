@@ -15,7 +15,7 @@ export async function sendMail(
   try {
     const { data, error } = await resend.emails.send({
       from: "easysupply@resend.dev",
-      to: ["easypackpackaging@gmail.com"],
+      to: "easypackpackaging@gmail.com",
       subject: `Message from ${name}`,
       react: ContactEmail({ name, email, phone, message }),
     });
