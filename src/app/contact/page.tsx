@@ -11,6 +11,7 @@ import {
   SimpleGrid,
   Stack,
   Textarea,
+  UseToastOptions,
   VStack,
   useToast,
 } from "@chakra-ui/react";
@@ -34,6 +35,11 @@ type Form = z.infer<typeof schema>;
 
 export default function Contact() {
   const statusToast = useToast();
+  const toastAttr: UseToastOptions = {
+    position: "bottom-right",
+    duration: 4000,
+    isClosable: true,
+  };
   const {
     handleSubmit,
     register,
@@ -41,8 +47,20 @@ export default function Contact() {
   } = useForm<Form>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: Form) => {
-    const res = await sendMail(data.name, data.email, data.phone, data.message);
-    console.log(data);
+    try {
+      await sendMail(data.name, data.email, data.phone, data.message);
+      statusToast({
+        title: "Successfully sent message",
+        status: "success",
+        ...toastAttr,
+      });
+    } catch (e) {
+      statusToast({
+        title: "An unexpected error occured",
+        status: "error",
+        ...toastAttr,
+      });
+    }
   };
 
   return (
