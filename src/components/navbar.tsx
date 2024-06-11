@@ -25,7 +25,6 @@ import {
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
