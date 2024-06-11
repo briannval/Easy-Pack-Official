@@ -1,85 +1,10 @@
 "use client";
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import RotatingImages from "@/components/rotatingImages";
+import RotatingWords from "@/components/rotatingWords";
+import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { FaQuestion, FaUtensils } from "react-icons/fa";
 
-const images = ["/home1.jpeg", "/home2.jpeg"];
-
-const words = [
-  {
-    id: 1,
-    content: "thinwall",
-  },
-  {
-    id: 2,
-    content: "sporks",
-  },
-  {
-    id: 3,
-    content: "knives",
-  },
-];
-
-const RotatingWords = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  return (
-    <Box display="flex" alignItems="center" ml={"auto"} mr={"auto"}>
-      <AnimatePresence>
-        <Box>
-          <Text as="span" color="gold.400">
-            Easy pack
-          </Text>
-        </Box>
-        <Box
-          position="relative"
-          display="flex"
-          width={{ base: "100px", md: "250px" }}
-          ml={4}
-        >
-          <motion.div
-            key={words[index].id}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -20, opacity: 0 }}
-            transition={{ ease: "easeInOut" }}
-          >
-            {words[index].content}
-          </motion.div>
-        </Box>
-      </AnimatePresence>
-    </Box>
-  );
-};
-
 export default function Home() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 6000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
   return (
     <Box position={"relative"} zIndex={1} height={"100vh"}>
       <Box
@@ -91,37 +16,7 @@ export default function Home() {
         px={{ base: 20, md: 0 }}
         zIndex={-1}
       >
-        <AnimatePresence>
-          <motion.div
-            key={currentImageIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.2 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 2 }}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <Image
-              borderRadius={"xl"}
-              border={"4px"}
-              borderColor={"gold.300"}
-              src={images[currentImageIndex]}
-              alt={"Background"}
-              position="absolute"
-              top={0}
-              left={0}
-              width="100%"
-              height="100%"
-              objectFit="cover"
-              opacity={0.8}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <RotatingImages />
       </Box>
       <Flex justifyContent="center" alignItems="center" height="100%">
         <Stack
