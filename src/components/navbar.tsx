@@ -50,8 +50,7 @@ export default function Navbar() {
       <Box w={"100%"} mr={"auto"} ml={"auto"}>
         <Container maxW={"container.xl"}>
           <Flex
-            bg={useColorModeValue("white", "gray.800")}
-            color={useColorModeValue("gray.600", "white")}
+            bgColor={`rgba(255, 255, 255, ${scrollPosition * 0.01})`}
             minH={"60px"}
             py={{ base: 2 }}
             px={{ base: 4 }}

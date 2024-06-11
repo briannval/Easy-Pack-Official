@@ -81,12 +81,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Box
-      position={"relative"}
-      zIndex={1}
-      height={"calc(100vh - 60px)"}
-      mt="60px"
-    >
+    <Box position={"relative"} zIndex={1} height={"100vh"}>
       <Box
         position="absolute"
         top={0}

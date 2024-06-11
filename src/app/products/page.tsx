@@ -18,7 +18,7 @@ export default function Products({
       align={"center"}
       spacing={4}
       mt={"60px"}
-      py={10}
+      py={4}
       minW={"50%"}
       minH={"calc(100vh - 60px)"}
     >
