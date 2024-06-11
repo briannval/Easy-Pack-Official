@@ -54,9 +54,9 @@ export default function Navbar() {
             minH={"60px"}
             py={{ base: 2 }}
             px={{ base: 4 }}
-            borderBottom={scrollPosition > 0 ? 2 : 0}
+            borderBottom={scrollPosition > 0 ? 1 : 0}
             borderStyle={"solid"}
-            borderColor={useColorModeValue("gray.200", "gray.900")}
+            borderColor={`rgba(184, 138, 68, ${scrollPosition * 0.01})`}
             align={"center"}
           >
             <Flex
