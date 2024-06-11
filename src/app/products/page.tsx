@@ -14,7 +14,14 @@ export default function Products({
   const currentPage = searchParams?.pages || 1;
 
   return (
-    <VStack align={"center"} spacing={4} mt={"60px"} py={10} minW={"50%"}>
+    <VStack
+      align={"center"}
+      spacing={4}
+      mt={"60px"}
+      py={10}
+      minW={"50%"}
+      minH={"calc(100vh - 60px)"}
+    >
       <Heading size={"lg"}>Find exactly what you're looking for.</Heading>
       <Center w={{ base: "60%", md: "40%" }}>
         <Search />

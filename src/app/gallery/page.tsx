@@ -5,7 +5,7 @@ import { Center } from "@chakra-ui/react";
 export default function Gallery() {
   return (
     <main>
-      <Center mt={"60px"} h={"calc(100vh - 60px)"}>
+      <Center mt={"60px"} minH={"calc(100vh - 60px)"}>
         <Maintenance />
       </Center>
     </main>

@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ChakraProvider theme={theme}>
           <Navbar />
-          <Flex direction="column" minH="100vh">
+          <Flex direction="column">
             <Box as="main" flex="1">
               <Container maxW={"container.xl"}>{children}</Container>
             </Box>

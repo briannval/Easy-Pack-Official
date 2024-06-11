@@ -72,6 +72,7 @@ export default function Contact() {
         py={{ base: 10, lg: 20 }}
         spacing={16}
         alignItems={"center"}
+        minH={"calc(100vh - 60px)"}
       >
         <Box width={"100%"}>
           <Box
