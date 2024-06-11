@@ -89,6 +89,7 @@ export default function Contact() {
               objectFit="fill"
               mr={"auto"}
               ml={"auto"}
+              boxShadow={"dark-lg"}
             />
           </Box>
         </Box>
