@@ -3,7 +3,12 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const words = [
+interface wordsProps {
+  id: number;
+  content: string;
+}
+
+const words: wordsProps[] = [
   {
     id: 1,
     content: "thinwall",
@@ -19,10 +24,10 @@ const words = [
 ];
 
 export default function RotatingWords() {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    const intervalId: NodeJS.Timeout = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % words.length);
     }, 2000);
 

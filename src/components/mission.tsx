@@ -58,7 +58,12 @@ export default function Mission() {
             Why choose us?
           </Heading>
           <Text color={"gray.500"} fontSize={"lg"} my={1}>
-            We offer cutting-edge products for your business.
+            Based in{" "}
+            <Text as={"span"} color={"gold.300"} fontWeight={"600"}>
+              Jakarta,{" "}
+            </Text>
+            we lead the way in food packaging solutions, empowering businesses
+            with cutting-edge products and high-quality service.
           </Text>
           <Stack
             spacing={4}

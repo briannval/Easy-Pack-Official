@@ -2,13 +2,13 @@ import { Image } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const images = ["/home1.jpeg", "/home2.jpeg"];
+const images: string[] = ["/home1.jpeg", "/home2.jpeg"];
 
 export default function RotatingImages() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    const intervalId: NodeJS.Timeout = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 6000);
 

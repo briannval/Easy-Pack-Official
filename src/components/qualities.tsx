@@ -9,8 +9,13 @@ import {
   VStack,
   Wrap,
 } from "@chakra-ui/react";
-import { FaMoneyBill, FaShieldAlt, FaStackExchange } from "react-icons/fa";
-import { FaBoxesStacked } from "react-icons/fa6";
+import {
+  FaMoneyBill,
+  FaShieldAlt,
+  FaStackExchange,
+  FaStar,
+} from "react-icons/fa";
+import { FaBoxesStacked, FaDiamond, FaDiamondTurnRight } from "react-icons/fa6";
 
 export default function Qualities() {
   return (
@@ -20,28 +25,27 @@ export default function Qualities() {
           <Heading size={"2xl"} mb={12}>
             Discover what makes us{" "}
             <Text as={"span"} color="gold.400">
-              different
+              different.
             </Text>
-            .
           </Heading>
           <SimpleGrid
             columns={{ base: 1, md: 3 }}
             spacing={{ base: 20, md: 24 }}
           >
             <VStack>
-              <Icon as={FaMoneyBill} width={10} h={10} color={"gold.400"} />
+              <Icon as={FaStar} width={10} h={10} color={"gold.400"} />
               <Heading size={"lg"} fontWeight={"medium"}>
-                Affordability
+                Premium
               </Heading>
               <Text align={"center"} maxW={"80%"}>
-                Priced competitively, our products are accessible to everyone's
-                and anyone's budget.
+                We never fail to deliver state-of-the-art products with
+                insurmountable quality.
               </Text>
             </VStack>
             <VStack>
               <Icon as={FaShieldAlt} width={10} h={10} color={"gold.400"} />
               <Heading size={"lg"} fontWeight={"medium"}>
-                Durability
+                Durable
               </Heading>
               <Text align={"center"} maxW={"80%"}>
                 Our products are designed with high-quality materials to
@@ -51,7 +55,7 @@ export default function Qualities() {
             <VStack>
               <Icon as={FaBoxesStacked} width={10} h={10} color={"gold.400"} />
               <Heading size={"lg"} fontWeight={"medium"}>
-                Stackability
+                Stackable
               </Heading>
               <Text align={"center"} maxW={"80%"}>
                 Containers are built to stack neatly, efficiently maximizing

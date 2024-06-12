@@ -1,7 +1,8 @@
 "use client";
+import Faq from "@/components/faq";
 import Mission from "@/components/mission";
 import Qualities from "@/components/qualities";
-import { Center, Container, VStack } from "@chakra-ui/react";
+import { Container, VStack } from "@chakra-ui/react";
 
 export default function About() {
   return (
@@ -10,6 +11,7 @@ export default function About() {
         <VStack spacing={12}>
           <Mission />
           <Qualities />
+          <Faq />
         </VStack>
       </Container>
     </main>
