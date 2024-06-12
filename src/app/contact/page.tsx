@@ -101,8 +101,8 @@ export default function Contact() {
               spacing={4}
               mx={"auto"}
             >
-              <Heading as={"h1"} size={"xl"}>
-                Have any questions?
+              <Heading as={"h1"} size={"2xl"}>
+                Any questions?
               </Heading>
               <FormControl isInvalid={Boolean(errors.name)}>
                 <Stack spacing={4}>
@@ -173,7 +173,7 @@ export default function Contact() {
                 colorScheme="yellow"
                 variant={"outline"}
               >
-                Send Message
+                Let Us Know
               </Button>
             </VStack>
           </Box>

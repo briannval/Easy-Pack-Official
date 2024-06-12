@@ -1,12 +1,17 @@
-import Maintenance from "@/components/maintenance";
-import { Center } from "@chakra-ui/react";
+"use client";
+import Mission from "@/components/mission";
+import Qualities from "@/components/qualities";
+import { Center, Container, VStack } from "@chakra-ui/react";
 
 export default function About() {
   return (
     <main>
-      <Center mt={"60px"} minH={"calc(100vh - 60px)"}>
-        <Maintenance />
-      </Center>
+      <Container maxW={"5xl"} minH={"calc(100vh - 60px)"} mt={"60px"} py={20}>
+        <VStack spacing={12}>
+          <Mission />
+          <Qualities />
+        </VStack>
+      </Container>
     </main>
   );
 }

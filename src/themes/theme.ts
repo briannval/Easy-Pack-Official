@@ -12,6 +12,7 @@ export const theme = extendTheme({
       200: "#F9F295",
       300: "#B88A44",
       400: "#E0AA3E",
+      500: "#EDC967",
     },
   },
   fontWeights: {
