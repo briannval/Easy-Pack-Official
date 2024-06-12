@@ -304,6 +304,10 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
+    label: "Home",
+    href: "/",
+  },
+  {
     label: "About",
 
     href: "about",
@@ -315,9 +319,5 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Contact",
     href: "contact",
-  },
-  {
-    label: "Gallery",
-    href: "gallery",
   },
 ];

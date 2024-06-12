@@ -1,21 +1,14 @@
 import {
   Center,
   Container,
-  HStack,
   Heading,
   Icon,
   SimpleGrid,
   Text,
   VStack,
-  Wrap,
 } from "@chakra-ui/react";
-import {
-  FaMoneyBill,
-  FaShieldAlt,
-  FaStackExchange,
-  FaStar,
-} from "react-icons/fa";
-import { FaBoxesStacked, FaDiamond, FaDiamondTurnRight } from "react-icons/fa6";
+import { FaShieldAlt, FaStar } from "react-icons/fa";
+import { FaBoxesStacked } from "react-icons/fa6";
 
 export default function Qualities() {
   return (

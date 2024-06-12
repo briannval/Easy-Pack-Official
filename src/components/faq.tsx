@@ -5,11 +5,7 @@ import {
   Image,
   Flex,
   Heading,
-  Text,
   Stack,
-  StackDivider,
-  Icon,
-  useColorModeValue,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -17,9 +13,6 @@ import {
   AccordionIcon,
   AccordionPanel,
 } from "@chakra-ui/react";
-import { ReactElement } from "react";
-import { BiCake, BiKnife } from "react-icons/bi";
-import { GoContainer } from "react-icons/go";
 
 interface AccordionElementProps {
   title: string;
@@ -34,13 +27,21 @@ const AccordionElement: React.FC<AccordionElementProps> = ({
     <AccordionItem>
       <h2>
         <AccordionButton>
-          <Box as="span" flex="1" textAlign="left">
+          <Box
+            fontSize={"lg"}
+            fontWeight={"600"}
+            as="span"
+            flex="1"
+            textAlign="left"
+          >
             {title}
           </Box>
           <AccordionIcon />
         </AccordionButton>
       </h2>
-      <AccordionPanel pb={4}>{children}</AccordionPanel>
+      <AccordionPanel fontSize={"md"} color={"gray.500"} pb={4}>
+        {children}
+      </AccordionPanel>
     </AccordionItem>
   );
 };

@@ -8,7 +8,7 @@ export default function About() {
   return (
     <main>
       <Container maxW={"5xl"} minH={"calc(100vh - 60px)"} mt={"60px"} py={20}>
-        <VStack spacing={12}>
+        <VStack spacing={24}>
           <Mission />
           <Qualities />
           <Faq />

@@ -42,7 +42,7 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
 export default function Mission() {
   return (
     <Container maxW={"container.xl"} py={12}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} minH={"50vh"}>
         <Flex>
           <Image
             rounded={"md"}
