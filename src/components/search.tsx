@@ -28,6 +28,7 @@ export default function Search() {
       <Input
         type="text"
         placeholder="Search for products"
+        defaultValue={searchParams.get("query")?.toString() || ""}
         onChange={(e) => handleSearch(e.target.value)}
       />
     </InputGroup>
