@@ -18,7 +18,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
     <Flex justifyContent="center" alignItems="center">
       <IconButton
         onClick={() => createPageURL(currentPage - 1)}
-        isDisabled={currentPage === 1}
+        isDisabled={currentPage === 1 || totalPages === 0}
         mr={2}
         icon={<FaArrowLeft />}
         aria-label="Previous page"
@@ -26,11 +26,11 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
         Previous
       </IconButton>
       <Text fontWeight="bold" mr={2}>
-        {currentPage}
+        {totalPages !== 0 ? currentPage : 0}
       </Text>
       <IconButton
         onClick={() => createPageURL(currentPage + 1)}
-        isDisabled={currentPage === totalPages}
+        isDisabled={currentPage === totalPages || totalPages === 0}
         icon={<FaArrowRight />}
         aria-label="Next page"
       >

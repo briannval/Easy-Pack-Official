@@ -1,4 +1,5 @@
 "use client";
+import NoProducts from "@/components/noProducts";
 import Pagination from "@/components/pagination";
 import ProductEntries from "@/components/productEntries";
 import Search from "@/components/search";
@@ -14,6 +15,7 @@ export default function Products({
 }) {
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
+  const totalPages: number = 10;
 
   return (
     <VStack
@@ -28,8 +30,12 @@ export default function Products({
       <Center w={{ base: "60%", md: "40%" }}>
         <Search />
       </Center>
-      <ProductEntries query={query} currentPage={currentPage} />
-      <Pagination totalPages={10} />
+      {totalPages !== 0 ? (
+        <ProductEntries query={query} currentPage={currentPage} />
+      ) : (
+        <NoProducts />
+      )}
+      <Pagination totalPages={totalPages} />
     </VStack>
   );
 }
