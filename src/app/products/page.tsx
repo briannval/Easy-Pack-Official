@@ -17,8 +17,8 @@ export default function Products({
     page: string;
   };
 }) {
-  const query = searchParams?.query || "";
-  const currentPage = Number(searchParams?.page) || 1;
+  const query: string = searchParams?.query || "";
+  const currentPage: number = Number(searchParams?.page) || 1;
   const [totalPages, setTotalPages] = useState<number>(0);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
