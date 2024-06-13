@@ -39,6 +39,6 @@ export default async function fetchProducts(
       description: product.fields.description,
       image_url: `http:${(product.fields.image! as any).fields.file.url}`,
     })),
-    totalPages: Math.ceil(Number(products.items.length) / PRODUCTS_PER_PAGE),
+    totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };
 }
