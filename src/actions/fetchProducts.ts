@@ -30,7 +30,6 @@ export default async function fetchProducts(
   const products = await client.getEntries<ProductFieldsSkeleton>(
     getContentfulQuery
   );
-  console.log(products);
 
   return {
     products: products.items.map((product) => ({
