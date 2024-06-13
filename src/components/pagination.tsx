@@ -15,7 +15,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
   };
 
   return (
-    <Flex justifyContent="center" alignItems="center">
+    <Flex justifyContent="center" alignItems="center" mt={6}>
       <IconButton
         onClick={() => createPageURL(currentPage - 1)}
         isDisabled={currentPage === 1 || totalPages === 0}

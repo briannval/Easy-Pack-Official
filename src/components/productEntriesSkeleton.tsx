@@ -3,8 +3,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 import ProductEntry from "./productEntry";
 import ProductEntrySkeleton from "./productEntrySkeleton";
 
-export default function ProductEntries({ products }: { products: Product[] }) {
-  console.log(products);
+export default function ProductEntriesSkeleton() {
   return (
     <SimpleGrid
       minH={"60vh"}
@@ -13,12 +12,9 @@ export default function ProductEntries({ products }: { products: Product[] }) {
       spacingY={6}
       mt={10}
     >
-      <ProductEntry />
-      <ProductEntry />
-      <ProductEntry />
-      <ProductEntrySkeleton />
-      <ProductEntrySkeleton />
-      <ProductEntrySkeleton />
+      {[...Array(6)].map((_, i) => (
+        <ProductEntrySkeleton key={i} />
+      ))}
     </SimpleGrid>
   );
 }
