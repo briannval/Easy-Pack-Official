@@ -5,9 +5,9 @@ import Pagination from "@/components/pagination";
 import ProductEntries from "@/components/productEntries";
 import ProductEntriesSkeleton from "@/components/productEntriesSkeleton";
 import Search from "@/components/search";
-import { FetchProductsResult, Product } from "@/types/contentful";
+import { Product } from "@/types/contentful";
 import { Center, Heading, VStack } from "@chakra-ui/react";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Products({
   searchParams,

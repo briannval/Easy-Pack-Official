@@ -1,6 +1,4 @@
-import { Product } from "@/types/contentful";
 import { SimpleGrid } from "@chakra-ui/react";
-import ProductEntry from "./productEntry";
 import ProductEntrySkeleton from "./productEntrySkeleton";
 
 export default function ProductEntriesSkeleton() {
