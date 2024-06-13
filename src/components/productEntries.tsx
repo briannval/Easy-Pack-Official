@@ -1,10 +1,8 @@
 import { Product } from "@/types/contentful";
 import { SimpleGrid } from "@chakra-ui/react";
 import ProductEntry from "./productEntry";
-import ProductEntrySkeleton from "./productEntrySkeleton";
 
 export default function ProductEntries({ products }: { products: Product[] }) {
-  console.log(products);
   return (
     <SimpleGrid
       minH={"60vh"}
@@ -13,12 +11,9 @@ export default function ProductEntries({ products }: { products: Product[] }) {
       spacingY={6}
       mt={10}
     >
-      <ProductEntry />
-      <ProductEntry />
-      <ProductEntry />
-      <ProductEntrySkeleton />
-      <ProductEntrySkeleton />
-      <ProductEntrySkeleton />
+      {products.map((product) => (
+        <ProductEntry key={product.id} product={product} />
+      ))}
     </SimpleGrid>
   );
 }
