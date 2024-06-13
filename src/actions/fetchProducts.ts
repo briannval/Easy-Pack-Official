@@ -1,11 +1,7 @@
 "use server";
-import { FetchProductsResult, ProductFieldsSkeleton } from "@/types/contentful";
-import { createClient } from "contentful";
 
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-});
+import { client } from "@/lib/contentful";
+import { FetchProductsResult, ProductFieldsSkeleton } from "@/types/contentful";
 
 const PRODUCTS_PER_PAGE = 6;
 

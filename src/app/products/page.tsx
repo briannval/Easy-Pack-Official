@@ -26,11 +26,11 @@ export default function Products({
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const { products, totalPages } = await fetchProducts(
           query,
           currentPage
         );
-        console.log(products, totalPages);
         setProducts(products);
         setTotalPages(totalPages);
       } catch (error) {
