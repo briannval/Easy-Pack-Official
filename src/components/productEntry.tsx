@@ -29,7 +29,7 @@ export default function ProductEntry({ product }: { product: Product }) {
           mb={6}
           pos={"relative"}
         >
-          <Image src={product.image_url} />
+          <Image src={product.image_url} h={"300px"} w={"375px"} objectFit={"cover"} />
         </Box>
         <Center h={"100%"} mt={{ base: 4, md: 6 }}>
           <Stack>
