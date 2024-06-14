@@ -7,7 +7,48 @@ import ProductEntriesSkeleton from "@/components/productEntriesSkeleton";
 import Search from "@/components/search";
 import { Product } from "@/types/contentful";
 import { Center, Heading, VStack } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
+
+interface ProductsState {
+  products: Product[];
+  totalPages: number;
+  loading: boolean;
+}
+
+type ProductsAction =
+  | { type: "FETCH_START" }
+  | {
+      type: "FETCH_SUCCESS";
+      payload: { products: Product[]; totalPages: number };
+    }
+  | { type: "FETCH_FAILURE" };
+
+const initialState: ProductsState = {
+  products: [],
+  totalPages: 0,
+  loading: true,
+};
+
+const productsReducer = (
+  state: ProductsState,
+  action: ProductsAction
+): ProductsState => {
+  switch (action.type) {
+    case "FETCH_START":
+      return { ...state, loading: true };
+    case "FETCH_SUCCESS":
+      return {
+        ...state,
+        products: action.payload.products,
+        totalPages: action.payload.totalPages,
+        loading: false,
+      };
+    case "FETCH_FAILURE":
+      return { ...state, loading: false };
+    default:
+      return state;
+  }
+};
 
 export default function Products({
   searchParams,
@@ -19,24 +60,21 @@ export default function Products({
 }) {
   const query: string = searchParams?.query || "";
   const currentPage: number = Number(searchParams?.page) || 1;
-  const [totalPages, setTotalPages] = useState<number>(0);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [state, dispatch] = useReducer(productsReducer, initialState);
+  const { products, totalPages, loading } = state;
 
   useEffect(() => {
     const fetchData = async () => {
+      dispatch({ type: "FETCH_START" });
       try {
-        setLoading(true);
         const { products, totalPages } = await fetchProducts(
           query,
           currentPage
         );
-        setProducts(products);
-        setTotalPages(totalPages);
+        dispatch({ type: "FETCH_SUCCESS", payload: { products, totalPages } });
       } catch (error) {
         console.error(error);
-      } finally {
-        setLoading(false);
+        dispatch({ type: "FETCH_FAILURE" });
       }
     };
 
