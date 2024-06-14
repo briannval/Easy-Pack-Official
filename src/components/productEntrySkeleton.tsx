@@ -5,7 +5,7 @@ export default function ProductEntrySkeleton() {
   return (
     <Center py={6}>
       <Box
-        w={{ base: "50%", md: "100%" }}
+        w={"375px"}
         bg={useColorModeValue("white", "gray.900")}
         rounded={"md"}
         p={6}
@@ -14,7 +14,7 @@ export default function ProductEntrySkeleton() {
         borderColor={"gold.300"}
       >
         <Box
-          w={"400px"}
+          w={"375px"}
           bg={"gray.100"}
           mt={-6}
           mx={-6}

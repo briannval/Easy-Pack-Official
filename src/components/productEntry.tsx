@@ -13,7 +13,7 @@ export default function ProductEntry({ product }: { product: Product }) {
   return (
     <Center py={6}>
       <Box
-        w={{ base: "50%", md: "100%" }}
+        w={"375px"}
         bg={useColorModeValue("white", "gray.900")}
         rounded={"md"}
         p={6}
@@ -22,14 +22,19 @@ export default function ProductEntry({ product }: { product: Product }) {
         borderColor={"gold.300"}
       >
         <Box
-          w={"400px"}
+          w={"375px"}
           bg={"gray.100"}
           mt={-6}
           mx={-6}
           mb={6}
           pos={"relative"}
         >
-          <Image src={product.image_url} h={"300px"} w={"375px"} objectFit={"cover"} />
+          <Image
+            src={product.image_url}
+            h={"300px"}
+            w={"375px"}
+            objectFit={"cover"}
+          />
         </Box>
         <Center h={"100%"} mt={{ base: 4, md: 6 }}>
           <Stack>
