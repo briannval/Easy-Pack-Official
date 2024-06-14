@@ -25,9 +25,8 @@ export default function ProductEntrySkeleton() {
         </Box>
         <Center h="100%" mt={{ base: 4, md: 6 }}>
           <Box w="100%">
-            <Skeleton height="24px" mb={4} />
-            <Skeleton height="16px" width="80%" mb={2} />
-            <Skeleton height="16px" width="60%" mb={2} />
+            <Skeleton height="24px" mb={2} />
+            <Skeleton height="16px" />
           </Box>
         </Center>
       </Box>
