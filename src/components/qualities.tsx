@@ -10,6 +10,33 @@ import {
 import { FaShieldAlt, FaStar } from "react-icons/fa";
 import { FaBoxesStacked } from "react-icons/fa6";
 
+interface QualityProps {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}
+
+const qualities: QualityProps[] = [
+  {
+    icon: FaStar,
+    title: "Premium",
+    description:
+      "We never fail to deliver state-of-the-art products with insurmountable quality.",
+  },
+  {
+    icon: FaShieldAlt,
+    title: "Durable",
+    description:
+      "Our products are designed with high-quality materials to withstand everyday wear and tear.",
+  },
+  {
+    icon: FaBoxesStacked,
+    title: "Stackable",
+    description:
+      "Containers are built to stack neatly, efficiently maximizing your storage potential.",
+  },
+];
+
 export default function Qualities() {
   return (
     <Container maxW={"container.xl"} py={12}>
@@ -25,36 +52,24 @@ export default function Qualities() {
             columns={{ base: 1, md: 3 }}
             spacing={{ base: 20, md: 24 }}
           >
-            <VStack>
-              <Icon as={FaStar} width={10} h={10} color={"gold.400"} />
-              <Heading size={"lg"} fontWeight={"medium"}>
-                Premium
-              </Heading>
-              <Text align={"center"} maxW={"80%"}>
-                We never fail to deliver state-of-the-art products with
-                insurmountable quality.
-              </Text>
-            </VStack>
-            <VStack>
-              <Icon as={FaShieldAlt} width={10} h={10} color={"gold.400"} />
-              <Heading size={"lg"} fontWeight={"medium"}>
-                Durable
-              </Heading>
-              <Text align={"center"} maxW={"80%"}>
-                Our products are designed with high-quality materials to
-                withstand everyday wear and tear.
-              </Text>
-            </VStack>
-            <VStack>
-              <Icon as={FaBoxesStacked} width={10} h={10} color={"gold.400"} />
-              <Heading size={"lg"} fontWeight={"medium"}>
-                Stackable
-              </Heading>
-              <Text align={"center"} maxW={"80%"}>
-                Containers are built to stack neatly, efficiently maximizing
-                your storage potential.
-              </Text>
-            </VStack>
+            {qualities.map((quality, index) => {
+              return (
+                <VStack key={index}>
+                  <Icon
+                    as={quality.icon}
+                    width={10}
+                    h={10}
+                    color={"gold.400"}
+                  />
+                  <Heading size={"lg"} fontWeight={"medium"}>
+                    {quality.title}
+                  </Heading>
+                  <Text align={"center"} maxW={"80%"}>
+                    {quality.description}
+                  </Text>
+                </VStack>
+              );
+            })}
           </SimpleGrid>
         </VStack>
       </Center>
