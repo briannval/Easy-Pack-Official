@@ -1,5 +1,6 @@
 "use client";
 import fetchProducts from "@/actions/fetchProducts";
+import BrokenLink from "@/components/brokenLink";
 import NoProducts from "@/components/noProducts";
 import Pagination from "@/components/pagination";
 import ProductEntries from "@/components/productEntries";
@@ -96,6 +97,9 @@ export default function Products({
       </Center>
       {loading ? (
         <ProductEntriesSkeleton />
+      ) : (totalPages === 0 && currentPage !== 1) ||
+        (totalPages !== 0 && (currentPage < 1 || currentPage > totalPages)) ? (
+        <BrokenLink />
       ) : totalPages !== 0 ? (
         <ProductEntries products={products} />
       ) : (
