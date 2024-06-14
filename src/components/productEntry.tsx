@@ -7,9 +7,13 @@ import {
   Stack,
   useColorModeValue,
   Image,
+  Skeleton,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function ProductEntry({ product }: { product: Product }) {
+  const [loading, setLoading] = useState<boolean>(true);
+
   return (
     <Center py={6}>
       <Box
@@ -34,7 +38,16 @@ export default function ProductEntry({ product }: { product: Product }) {
             h={"300px"}
             w={"375px"}
             objectFit={"cover"}
+            onLoad={() => setLoading(false)}
           />
+          {loading && (
+            <Skeleton
+              h={"300px"}
+              w={"375px"}
+              startColor="gold.400"
+              endColor="gold.300"
+            />
+          )}
         </Box>
         <Center h={"100%"} mt={{ base: 4, md: 6 }}>
           <Stack>
