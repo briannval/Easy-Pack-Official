@@ -18,7 +18,7 @@ export default function Search() {
       params.delete("query");
     }
     replace(`${pathname}?${params.toString()}`);
-  }, 500);
+  }, 300);
 
   return (
     <InputGroup ml={"auto"} mr={"auto"}>
