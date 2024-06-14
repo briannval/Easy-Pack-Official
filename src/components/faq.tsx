@@ -48,20 +48,21 @@ const AccordionElement: React.FC<AccordionElementProps> = ({
 
 const faqs: AccordionElementProps[] = [
   {
-    title: "Section 1 title",
-    children: "Section 1 content",
+    title: "Is it microwavable / cookable?",
+    children: "Our products are microwavable but not suitable for cooking.",
   },
   {
-    title: "Section 2 title",
-    children: "Section 2 content",
+    title: "Is it food safe?",
+    children: "Yes, all Easy Pack products are food safe.",
   },
   {
-    title: "Section 3 title",
-    children: "Section 3 content",
+    title: "What is the minimum order quantity?",
+    children:
+      "Minimum order quantities vary by product. Please contact us on WhatsApp for details.",
   },
   {
-    title: "Section 4 title",
-    children: "Section 4 content",
+    title: "Where can I find the prices?",
+    children: "For pricing and order inquiries, please contact us on WhatsApp.",
   },
 ];
 
