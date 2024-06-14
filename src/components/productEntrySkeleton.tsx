@@ -13,7 +13,16 @@ export default function ProductEntrySkeleton() {
         shadow={"base"}
         borderColor={"gold.300"}
       >
-        <Skeleton height="210px" width="400px" mt={-6} mx={-6} mb={6} />
+        <Box
+          w={"400px"}
+          bg={"gray.100"}
+          mt={-6}
+          mx={-6}
+          mb={6}
+          pos={"relative"}
+        >
+          <Skeleton h={"300px"} w={"375px"} />
+        </Box>
         <Center h="100%" mt={{ base: 4, md: 6 }}>
           <Box w="100%">
             <Skeleton height="24px" mb={4} />
