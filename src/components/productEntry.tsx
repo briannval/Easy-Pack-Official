@@ -39,13 +39,12 @@ export default function ProductEntry({ product }: { product: Product }) {
             w={"375px"}
             objectFit={"cover"}
             onLoad={() => setLoading(false)}
+            style={{ display: !loading ? 'block' : 'none' }}
           />
           {loading && (
             <Skeleton
               h={"300px"}
               w={"375px"}
-              startColor="gold.400"
-              endColor="gold.300"
             />
           )}
         </Box>
