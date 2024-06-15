@@ -93,10 +93,10 @@ export default function Products({
       minH={"calc(100vh - 60px)"}
     >
       <Box display={{ base: 'block', md: 'none' }}>
-        <Heading size="xl" textAlign="center">Search for products</Heading>
+        <Heading size="xl" textAlign="center">Find what you need.</Heading>
       </Box>
       <Box display={{ base: 'none', md: 'block' }}>
-        <Heading size="xl" textAlign="center">Find what you need</Heading>
+        <Heading size="xl" textAlign="center">Find exactly what you're looking for.</Heading>
       </Box>
       <Center w={{ base: "80%", md: "40%" }}>
         <Search />
