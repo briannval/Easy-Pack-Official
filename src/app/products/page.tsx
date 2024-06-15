@@ -7,7 +7,7 @@ import ProductEntries from "@/components/productEntries";
 import ProductEntriesSkeleton from "@/components/productEntriesSkeleton";
 import Search from "@/components/search";
 import { Product } from "@/types/contentful";
-import { Center, Heading, VStack, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Center, Heading, VStack } from "@chakra-ui/react";
 import { useEffect, useReducer } from "react";
 
 interface ProductsState {
@@ -82,11 +82,6 @@ export default function Products({
     fetchData();
   }, [query, currentPage]);
 
-  const headingContent = useBreakpointValue({
-    base: "Find what you need.",
-    md: "Find exactly what you're looking for.",
-  })
-
   return (
     <VStack
       align={"center"}
@@ -97,7 +92,12 @@ export default function Products({
       minW={"50%"}
       minH={"calc(100vh - 60px)"}
     >
-      <Heading>{headingContent}</Heading>
+      <Box display={{ base: 'block', md: 'none' }}>
+        <Heading size="xl" textAlign="center">Search for products</Heading>
+      </Box>
+      <Box display={{ base: 'none', md: 'block' }}>
+        <Heading size="xl" textAlign="center">Find what you need</Heading>
+      </Box>
       <Center w={{ base: "80%", md: "40%" }}>
         <Search />
       </Center>
