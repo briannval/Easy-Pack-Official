@@ -35,17 +35,19 @@ export default function Home() {
           <Text
             fontWeight={600}
             color={"gray.500"}
-            maxW={{ base: "md", md: "2xl" }}
+            maxW={"70%"}
+            fontSize={{ base: "sm", lg: "lg" }}
           >
             Discover the seamless blend of functionality and elegance with our
             range of essentials, designed to enhance your everyday needs.
           </Text>
-          <Stack spacing={6} direction={"row"}>
+          <Stack spacing={{base: 4, md: 6}} direction={{base: "column", md: "row"}}>
             <Button
               leftIcon={<FaUtensils />}
-              px={6}
+              px={{base: 4, md: 6}}
               color={"white"}
               bg={"gold.400"}
+              fontSize={{base: "sm", md: "md"}}
               _hover={{ bg: "gold.300" }}
               as={"a"}
               href="/products"
@@ -56,7 +58,8 @@ export default function Home() {
               border={"1px"}
               borderColor={"gray.300"}
               leftIcon={<FaQuestion />}
-              px={6}
+              fontSize={{base: "sm", md: "md"}}
+              px={{base: 4, md: 6}}
               as={"a"}
               href="/about"
             >
