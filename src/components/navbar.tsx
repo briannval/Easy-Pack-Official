@@ -176,6 +176,7 @@ const MobileNav = () => {
       p={4}
       display={{ md: "none" }}
       mx={5}
+      borderRadius={"lg"}
     >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
