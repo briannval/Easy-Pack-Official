@@ -41,7 +41,7 @@ export default function Qualities() {
   return (
     <Container maxW={"container.xl"} py={12}>
       <Center mt={4}>
-        <VStack spacing={4}>
+        <VStack spacing={4} textAlign={"center"}>
           <Heading size={"2xl"} mb={12}>
             Discover what makes us{" "}
             <Text as={"span"} color="gold.400">
