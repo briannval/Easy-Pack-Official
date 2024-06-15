@@ -45,8 +45,8 @@ export default function RotatingWords() {
         <Box
           position="relative"
           display="flex"
-          width={{ base: "100px", md: "250px" }}
-          ml={4}
+          width={{ base: "110px", md: "250px" }}
+          ml={{base: 2.5, md: 4}}
         >
           <motion.div
             key={words[index].id}
