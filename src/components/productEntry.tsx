@@ -48,11 +48,11 @@ export default function ProductEntry({ product }: { product: Product }) {
             />
           )}
         </Box>
-        <Center h={"100%"} mt={{ base: 4, md: 6 }}>
+        <Center mt={{ base: 4, md: 6 }}>
           <Stack>
             <Heading
               color={useColorModeValue("gray.700", "white")}
-              fontSize={"2xl"}
+              fontSize={"xl"}
               fontFamily={"body"}
             >
               {product.name}

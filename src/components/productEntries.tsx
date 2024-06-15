@@ -10,6 +10,7 @@ export default function ProductEntries({ products }: { products: Product[] }) {
       spacingX={20}
       spacingY={6}
       mt={10}
+      px={6}
     >
       {products.map((product) => (
         <ProductEntry key={product.id} product={product} />

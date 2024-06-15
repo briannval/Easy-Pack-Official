@@ -9,6 +9,7 @@ export default function ProductEntriesSkeleton() {
       spacingX={20}
       spacingY={6}
       mt={10}
+      px={6}
     >
       {[...Array(6)].map((_, i) => (
         <ProductEntrySkeleton key={i} />
