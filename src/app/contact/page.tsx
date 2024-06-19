@@ -64,121 +64,115 @@ export default function Contact() {
   };
 
   return (
-    <main>
-      <SimpleGrid
-        columns={{ base: 1, lg: 2 }}
-        px={2}
-        mt={{ base: "0px", lg: "60px" }}
-        py={{ base: 10, lg: 20 }}
-        spacing={16}
-        alignItems={"center"}
-        minH={"calc(100vh - 60px)"}
-      >
-        <Box width={"100%"}>
-          <Box
-            display={{ base: "none", lg: "block" }}
-            position="relative"
-            px={2}
-          >
-            <Img
-              src="/collageproducts.jpeg"
-              alt="Solar Panel"
-              borderRadius="xl"
-              width="80%"
-              h="xl"
-              objectFit="fill"
-              mr={"auto"}
-              ml={"auto"}
-              boxShadow={"dark-lg"}
-            />
-          </Box>
+    <SimpleGrid
+      columns={{ base: 1, lg: 2 }}
+      px={2}
+      mt={{ base: "0px", lg: "60px" }}
+      py={{ base: 10, lg: 20 }}
+      spacing={16}
+      alignItems={"center"}
+      minH={"calc(100vh - 60px)"}
+    >
+      <Box width={"100%"}>
+        <Box display={{ base: "none", lg: "block" }} position="relative" px={2}>
+          <Img
+            src="/collageproducts.jpeg"
+            alt="Solar Panel"
+            borderRadius="xl"
+            width="80%"
+            h="xl"
+            objectFit="fill"
+            mr={"auto"}
+            ml={"auto"}
+            boxShadow={"dark-lg"}
+          />
         </Box>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Box>
-            <VStack
-              align={"start"}
-              width={{ base: "100%", sm: "max-content" }}
-              spacing={4}
-              mx={"auto"}
+      </Box>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Box>
+          <VStack
+            align={"start"}
+            width={{ base: "100%", sm: "max-content" }}
+            spacing={4}
+            mx={"auto"}
+          >
+            <Heading as={"h1"} size={"2xl"}>
+              Any questions?
+            </Heading>
+            <FormControl isInvalid={Boolean(errors.name)}>
+              <Stack spacing={4}>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Your Name"
+                  disabled={isSubmitting}
+                  w={{ base: "100%", sm: "sm" }}
+                  size="lg"
+                  {...register("name")}
+                />
+              </Stack>
+              <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl isInvalid={Boolean(errors.name)}>
+              <Stack spacing={4}>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Your Email"
+                  disabled={isSubmitting}
+                  w={{ base: "100%", sm: "sm" }}
+                  size="lg"
+                  {...register("email")}
+                />
+              </Stack>
+              <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl isInvalid={Boolean(errors.phone)}>
+              <Stack spacing={4}>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="Your Phone Number"
+                  disabled={isSubmitting}
+                  w={{ base: "100%", sm: "sm" }}
+                  size="lg"
+                  {...register("phone")}
+                />
+              </Stack>
+              <FormErrorMessage>{errors?.phone?.message}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl isInvalid={Boolean(errors.message)}>
+              <Stack spacing={4}>
+                <Textarea
+                  id="message"
+                  placeholder="Your Message"
+                  disabled={isSubmitting}
+                  w={{ base: "100%", sm: "sm" }}
+                  size="lg"
+                  {...register("message")}
+                  h="150px" // Adjust the height as needed
+                />
+              </Stack>
+              <FormErrorMessage>{errors?.message?.message}</FormErrorMessage>
+            </FormControl>
+            <Button
+              mt="2"
+              type="submit"
+              loadingText="Submitting..."
+              size="lg"
+              rightIcon={<Icon as={FiArrowRight} />}
+              isLoading={isSubmitting}
+              colorScheme="yellow"
+              variant={"outline"}
             >
-              <Heading as={"h1"} size={"2xl"}>
-                Any questions?
-              </Heading>
-              <FormControl isInvalid={Boolean(errors.name)}>
-                <Stack spacing={4}>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Your Name"
-                    disabled={isSubmitting}
-                    w={{ base: "100%", sm: "sm" }}
-                    size="lg"
-                    {...register("name")}
-                  />
-                </Stack>
-                <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
-              </FormControl>
-
-              <FormControl isInvalid={Boolean(errors.name)}>
-                <Stack spacing={4}>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Your Email"
-                    disabled={isSubmitting}
-                    w={{ base: "100%", sm: "sm" }}
-                    size="lg"
-                    {...register("email")}
-                  />
-                </Stack>
-                <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
-              </FormControl>
-
-              <FormControl isInvalid={Boolean(errors.phone)}>
-                <Stack spacing={4}>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="Your Phone Number"
-                    disabled={isSubmitting}
-                    w={{ base: "100%", sm: "sm" }}
-                    size="lg"
-                    {...register("phone")}
-                  />
-                </Stack>
-                <FormErrorMessage>{errors?.phone?.message}</FormErrorMessage>
-              </FormControl>
-
-              <FormControl isInvalid={Boolean(errors.message)}>
-                <Stack spacing={4}>
-                  <Textarea
-                    id="message"
-                    placeholder="Your Message"
-                    disabled={isSubmitting}
-                    w={{ base: "100%", sm: "sm" }}
-                    size="lg"
-                    {...register("message")}
-                    h="150px" // Adjust the height as needed
-                  />
-                </Stack>
-                <FormErrorMessage>{errors?.message?.message}</FormErrorMessage>
-              </FormControl>
-              <Button
-                mt="2"
-                type="submit"
-                loadingText="Submitting..."
-                size="lg"
-                rightIcon={<Icon as={FiArrowRight} />}
-                isLoading={isSubmitting}
-                colorScheme="yellow"
-                variant={"outline"}
-              >
-                Let Us Know
-              </Button>
-            </VStack>
-          </Box>
-        </form>
-      </SimpleGrid>
-    </main>
+              Let Us Know
+            </Button>
+          </VStack>
+        </Box>
+      </form>
+    </SimpleGrid>
   );
 }
