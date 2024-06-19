@@ -13,6 +13,7 @@ import {
   AccordionIcon,
   AccordionPanel,
 } from "@chakra-ui/react";
+import AnimatedHeading from "./animatedHeading";
 
 interface AccordionElementProps {
   title: string;
@@ -71,9 +72,7 @@ export default function Faq() {
     <Container maxW={"container.xl"} py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} minH={"50vh"}>
         <Stack spacing={4}>
-          <Heading size={"2xl"} my={2}>
-            Common FAQs
-          </Heading>
+          <AnimatedHeading text="Common FAQs" size="2xl" my={2} />
           <Accordion allowToggle>
             {faqs.map((faq, index) => (
               <AccordionElement key={index} title={faq.title}>

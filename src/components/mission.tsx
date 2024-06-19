@@ -14,6 +14,7 @@ import {
 import { ReactElement } from "react";
 import { BiCake, BiKnife } from "react-icons/bi";
 import { GoContainer } from "react-icons/go";
+import AnimatedHeading from "./animatedHeading";
 
 interface FeatureProps {
   text: string;
@@ -54,9 +55,7 @@ export default function Mission() {
           />
         </Flex>
         <Stack spacing={4}>
-          <Heading size={"2xl"} my={2}>
-            Why choose us?
-          </Heading>
+          <AnimatedHeading text="Why choose us?" size="2xl" my={2} />
           <Text color={"gray.500"} fontSize={"lg"} my={1}>
             Based in{" "}
             <Text as={"span"} color={"gold.300"} fontWeight={"600"}>

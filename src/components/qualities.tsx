@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { FaShieldAlt, FaStar } from "react-icons/fa";
 import { FaBoxesStacked } from "react-icons/fa6";
+import AnimatedHeading from "./animatedHeading";
 
 interface QualityProps {
   icon: React.ElementType;
