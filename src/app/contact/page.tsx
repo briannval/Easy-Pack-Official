@@ -79,7 +79,7 @@ export default function Contact() {
             src="/collageproducts.jpeg"
             alt="Solar Panel"
             borderRadius="xl"
-            width="80%"
+            w="80%"
             h="xl"
             objectFit="fill"
             mr={"auto"}

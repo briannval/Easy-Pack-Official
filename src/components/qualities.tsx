@@ -7,6 +7,7 @@ import {
   Text,
   VStack,
   chakra,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaShieldAlt, FaStar } from "react-icons/fa";
 import { FaBoxesStacked } from "react-icons/fa6";
@@ -50,7 +51,8 @@ const MotionSimpleGrid = motion(SimpleGrid);
 
 function QualitiesGrid() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.7 });
+  const inViewAmount = useBreakpointValue({ base: 0.3, md: 0.7 });
+  const isInView = useInView(ref, { amount: inViewAmount });
 
   return (
     <MotionSimpleGrid
