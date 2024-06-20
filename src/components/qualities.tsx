@@ -6,10 +6,13 @@ import {
   SimpleGrid,
   Text,
   VStack,
+  chakra,
 } from "@chakra-ui/react";
 import { FaShieldAlt, FaStar } from "react-icons/fa";
 import { FaBoxesStacked } from "react-icons/fa6";
 import AnimatedHeading from "./animatedHeading";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface QualityProps {
   icon: React.ElementType;
@@ -38,6 +41,42 @@ const qualities: QualityProps[] = [
   },
 ];
 
+const itemVariants = {
+  hidden: { opacity: 0, scale: 1.2 },
+  visible: { opacity: 1, scale: 1 },
+};
+
+const MotionSimpleGrid = motion(SimpleGrid);
+
+function QualitiesGrid() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.7 });
+
+  return (
+    <MotionSimpleGrid
+      ref={ref}
+      columns={{ base: 1, md: 3 }}
+      spacing={{ base: 20, md: 24 }}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      transition={{ staggerChildren: 0.1 }}
+      aria-hidden
+    >
+      {qualities.map((quality, index) => (
+        <motion.div key={index} variants={itemVariants}>
+          <VStack>
+            <Icon as={quality.icon} width={10} h={10} color={"gold.400"} />
+            <AnimatedHeading text={quality.title} size="lg" my={4} />
+            <Text align={"center"} maxW={"80%"}>
+              {quality.description}
+            </Text>
+          </VStack>
+        </motion.div>
+      ))}
+    </MotionSimpleGrid>
+  );
+}
+
 export default function Qualities() {
   return (
     <Container maxW={"container.xl"} py={12}>
@@ -49,29 +88,7 @@ export default function Qualities() {
               different.
             </Text>
           </Heading>
-          <SimpleGrid
-            columns={{ base: 1, md: 3 }}
-            spacing={{ base: 20, md: 24 }}
-          >
-            {qualities.map((quality, index) => {
-              return (
-                <VStack key={index}>
-                  <Icon
-                    as={quality.icon}
-                    width={10}
-                    h={10}
-                    color={"gold.400"}
-                  />
-                  <Heading size={"lg"} fontWeight={"medium"}>
-                    {quality.title}
-                  </Heading>
-                  <Text align={"center"} maxW={"80%"}>
-                    {quality.description}
-                  </Text>
-                </VStack>
-              );
-            })}
-          </SimpleGrid>
+          <QualitiesGrid />
         </VStack>
       </Center>
     </Container>
