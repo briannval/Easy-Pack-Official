@@ -9,6 +9,35 @@
         },
         "Search": {
             "placeholder": "Cari produk"
+        },
+        "Mission": {
+            "heading": "Mengapa kami?",
+            "predescription": "Dari",
+            "postdescription": "kami memimpin dalam solusi kemasan makanan, memberdayakan bisnis dengan produk inovatif dan layanan berkualitas tinggi.",
+            "containers": "Kotak Makanan",
+            "cakebases": "Layar Kue",
+            "knives": "Pisau"
+        },
+        "Qualities": {
+            "heading": "Temukan yang membuat kami",
+            "different": "berbeda",
+            "premium": "Premium",
+            "durable": "Tahan Lama",
+            "stackable": "Hemat Ruang",
+            "premiumdescription": "Kami selalu berhasil menghadirkan produk canggih dengan kualitas tak tertandingi.",
+            "durabledescription": "Produk kami dirancang dengan bahan berkualitas tinggi untuk menahan keausan sehari-hari.",
+            "stackabledescription": "Kontainer kami dibuat untuk ditumpuk rapi dan efisien, memaksimalkan potensi penyimpanan Anda."
+        },
+        "FAQ": {
+            "heading": "Pertanyaan Umum",
+            "microwavableQuestion": "Apakah produk ini bisa digunakan di microwave / untuk memasak?",
+            "microwavableAnswer": "Produk kami dapat digunakan di microwave tetapi tidak cocok untuk memasak.",
+            "foodSafeQuestion": "Apakah produk ini aman untuk makanan?",
+            "foodSafeAnswer": "Ya, semua produk Easy Pack aman untuk makanan.",
+            "minimumOrderQuestion": "Berapa jumlah pesanan minimum?",
+            "minimumOrderAnswer": "Jumlah pesanan minimum bervariasi menurut produk. Silakan hubungi kami di WhatsApp untuk detailnya.",
+            "pricingQuestion": "Di mana saya bisa menemukan harga?",
+            "pricingAnswer": "Untuk informasi harga dan pesanan, silakan hubungi kami di WhatsApp."
         }
     },
     "Pages": {

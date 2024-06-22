@@ -13,6 +13,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import AnimatedHeading from "./animatedHeading";
+import { useTranslations } from "next-intl";
 
 interface AccordionElementProps {
   title: string;
@@ -46,32 +47,31 @@ const AccordionElement: React.FC<AccordionElementProps> = ({
   );
 };
 
-const faqs: AccordionElementProps[] = [
-  {
-    title: "Is it microwavable / cookable?",
-    children: "Our products are microwavable but not suitable for cooking.",
-  },
-  {
-    title: "Is it food safe?",
-    children: "Yes, all Easy Pack products are food safe.",
-  },
-  {
-    title: "What is the minimum order quantity?",
-    children:
-      "Minimum order quantities vary by product. Please contact us on WhatsApp for details.",
-  },
-  {
-    title: "Where can I find the prices?",
-    children: "For pricing and order inquiries, please contact us on WhatsApp.",
-  },
-];
-
 export default function Faq() {
+  const t = useTranslations("Components.FAQ");
+  const faqs: AccordionElementProps[] = [
+    {
+      title: t("microwavableQuestion"),
+      children: t("microwavableAnswer"),
+    },
+    {
+      title: t("foodSafeQuestion"),
+      children: t("foodSafeAnswer"),
+    },
+    {
+      title: t("minimumOrderQuestion"),
+      children: t("minimumOrderAnswer"),
+    },
+    {
+      title: t("pricingQuestion"),
+      children: t("pricingAnswer"),
+    },
+  ];
   return (
     <Container maxW={"container.xl"} py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} minH={"50vh"}>
         <Stack spacing={4}>
-          <AnimatedHeading text="Common FAQs" size="2xl" my={2} />
+          <AnimatedHeading text={t("heading")} size="2xl" my={2} />
           <Accordion allowToggle>
             {faqs.map((faq, index) => (
               <AccordionElement key={index} title={faq.title}>

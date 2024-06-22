@@ -9,6 +9,35 @@
         },
         "Search": {
             "placeholder": "Search for products"
+        },
+        "Mission": {
+            "heading": "Why choose us?",
+            "predescription": "Based in",
+            "postdescription": "we lead the way in food packaging solutions, empowering businesses with cutting-edge products and high-quality service.",
+            "containers": "Containers",
+            "cakebases": "Cake Bases",
+            "knives": "Knives"
+        },
+        "Qualities": {
+            "heading": "Discover what makes us",
+            "different": "different",
+            "premium": "Premium",
+            "durable": "Durable",
+            "stackable": "Stackable",
+            "premiumdescription": "We never fail to deliver state-of-the-art products with insurmountable quality.",
+            "durabledescription": "Our products are designed with high-quality materials to withstand everyday wear and tear.",
+            "stackabledescription": "Containers are built to stack neatly, efficiently maximizing your storage potential."
+        },
+        "FAQ": {
+            "heading": "Common FAQs",
+            "microwavableQuestion": "Is it microwavable / cookable?",
+            "microwavableAnswer": "Our products are microwavable but not suitable for cooking.",
+            "foodSafeQuestion": "Is it food safe?",
+            "foodSafeAnswer": "Yes, all Easy Pack products are food safe.",
+            "minimumOrderQuestion": "What is the minimum order quantity?",
+            "minimumOrderAnswer": "Minimum order quantities vary by product. Please contact us on WhatsApp for details.",
+            "pricingQuestion": "Where can I find the prices?",
+            "pricingAnswer": "For pricing and order inquiries, please contact us on WhatsApp."
         }
     },
     "Pages": {

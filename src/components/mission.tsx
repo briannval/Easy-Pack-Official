@@ -13,6 +13,7 @@ import {
 import { BiCake, BiKnife } from "react-icons/bi";
 import { GoContainer } from "react-icons/go";
 import AnimatedHeading from "./animatedHeading";
+import { useTranslations } from "next-intl";
 
 interface FeatureProps {
   text: string;
@@ -40,10 +41,12 @@ const Feature = ({ text, icon }: FeatureProps) => {
 };
 
 export default function Mission() {
+  const t = useTranslations("Components.Mission");
+
   const features: FeatureProps[] = [
-    { icon: GoContainer, text: "Containers" },
-    { icon: BiCake, text: "Cake bases" },
-    { icon: BiKnife, text: "Knives" },
+    { icon: GoContainer, text: t("containers") },
+    { icon: BiCake, text: t("cakebases") },
+    { icon: BiKnife, text: t("knives") },
   ];
 
   return (
@@ -60,14 +63,13 @@ export default function Mission() {
           />
         </Flex>
         <Stack spacing={4}>
-          <AnimatedHeading text="Why choose us?" size="2xl" my={2} />
+          <AnimatedHeading text={t("heading")} size="2xl" my={2} />
           <Text color={"gray.500"} fontSize={"lg"} my={1}>
-            Based in{" "}
+            {t("predescription")}{" "}
             <Text as={"span"} color={"gold.300"} fontWeight={"600"}>
               Jakarta,{" "}
             </Text>
-            we lead the way in food packaging solutions, empowering businesses
-            with cutting-edge products and high-quality service.
+            {t("postdescription")}{" "}
           </Text>
           <Stack
             spacing={4}

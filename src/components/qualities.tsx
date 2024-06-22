@@ -13,33 +13,13 @@ import { FaBoxesStacked } from "react-icons/fa6";
 import AnimatedHeading from "./animatedHeading";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 interface QualityProps {
   icon: React.ElementType;
   title: string;
   description: string;
 }
-
-const qualities: QualityProps[] = [
-  {
-    icon: FaStar,
-    title: "Premium",
-    description:
-      "We never fail to deliver state-of-the-art products with insurmountable quality.",
-  },
-  {
-    icon: FaShieldAlt,
-    title: "Durable",
-    description:
-      "Our products are designed with high-quality materials to withstand everyday wear and tear.",
-  },
-  {
-    icon: FaBoxesStacked,
-    title: "Stackable",
-    description:
-      "Containers are built to stack neatly, efficiently maximizing your storage potential.",
-  },
-];
 
 const itemVariants = {
   hidden: { opacity: 0, scale: 1.2 },
@@ -52,6 +32,25 @@ function QualitiesGrid() {
   const ref = useRef(null);
   const inViewAmount = useBreakpointValue({ base: 0.3, md: 0.7 });
   const isInView = useInView(ref, { amount: inViewAmount });
+  const t = useTranslations("Components.Qualities");
+
+  const qualities: QualityProps[] = [
+    {
+      icon: FaStar,
+      title: t("premium"),
+      description: t("premiumdescription"),
+    },
+    {
+      icon: FaShieldAlt,
+      title: t("durable"),
+      description: t("durabledescription"),
+    },
+    {
+      icon: FaBoxesStacked,
+      title: t("stackable"),
+      description: t("stackabledescription"),
+    },
+  ];
 
   return (
     <MotionSimpleGrid
@@ -79,14 +78,16 @@ function QualitiesGrid() {
 }
 
 export default function Qualities() {
+  const t = useTranslations("Components.Qualities");
+
   return (
     <Container maxW={"container.xl"} py={12}>
       <Center mt={4}>
         <VStack spacing={4} textAlign={"center"}>
           <Heading size={"2xl"} mb={12}>
-            Discover what makes us{" "}
+            {t("heading")}{" "}
             <Text as={"span"} color="gold.400">
-              different.
+              {t("different")}.
             </Text>
           </Heading>
           <QualitiesGrid />
