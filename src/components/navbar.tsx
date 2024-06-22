@@ -13,9 +13,10 @@ import {
   useColorModeValue,
   useDisclosure,
   Container,
+  Select,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
@@ -100,9 +101,14 @@ export default function Navbar() {
               flex={{ base: 1, md: 0 }}
               justify={"flex-end"}
               direction={"row"}
-              spacing={6}
+              spacing={4}
             >
+              <Select w={"80px"} border={"none"}>
+                <option value="en">EN</option>
+                <option value="id">ID</option>
+              </Select>
               <Button
+                width={"fit-content"}
                 as={"a"}
                 display={{ base: "none", md: "inline-flex" }}
                 fontSize={"sm"}
