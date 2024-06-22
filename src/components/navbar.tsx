@@ -16,10 +16,11 @@ import {
   Select,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { SyntheticEvent, useEffect, useState } from "react";
+import { useTransition, useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/navigation";
+import { useParams } from "next/navigation";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -27,8 +28,12 @@ export default function Navbar() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const pathname = usePathname();
+  const params = useParams();
 
   const t = useTranslations("Components.Navbar");
+  const l = useLocale();
 
   const handleScroll = () => {
     const position = window.scrollY;
@@ -103,7 +108,24 @@ export default function Navbar() {
               direction={"row"}
               spacing={4}
             >
-              <Select w={"80px"} border={"none"}>
+              <Select
+                w={"80px"}
+                disabled={isPending}
+                value={l}
+                border={"none"}
+                onChange={(e) => {
+                  const newLocale = e.target.value;
+                  startTransition(() => {
+                    router.replace(
+                      // @ts-expect-error -- TypeScript will validate that only known `params`
+                      // are used in combination with a given `pathname`. Since the two will
+                      // always match for the current route, we can skip runtime checks.
+                      { pathname, params },
+                      { locale: newLocale }
+                    );
+                  });
+                }}
+              >
                 <option value="en">EN</option>
                 <option value="id">ID</option>
               </Select>
