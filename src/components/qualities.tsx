@@ -6,7 +6,6 @@ import {
   SimpleGrid,
   Text,
   VStack,
-  chakra,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaShieldAlt, FaStar } from "react-icons/fa";

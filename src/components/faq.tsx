@@ -4,14 +4,13 @@ import {
   SimpleGrid,
   Image,
   Flex,
-  Heading,
-  Stack,
   Accordion,
   AccordionItem,
   AccordionButton,
   Box,
   AccordionIcon,
   AccordionPanel,
+  Stack,
 } from "@chakra-ui/react";
 import AnimatedHeading from "./animatedHeading";
 

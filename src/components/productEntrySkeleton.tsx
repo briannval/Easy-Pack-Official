@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Center,
-  Skeleton,
-  Stack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Center, Skeleton } from "@chakra-ui/react";
 
 export default function ProductEntrySkeleton() {
   return (

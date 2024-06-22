@@ -8,7 +8,6 @@ import {
   useColorModeValue,
   Image,
   Skeleton,
-  keyframes,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
