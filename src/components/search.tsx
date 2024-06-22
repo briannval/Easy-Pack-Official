@@ -3,11 +3,13 @@ import { Icon, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
 import { useDebouncedCallback } from "use-debounce";
+import { useTranslations } from "next-intl";
 
 export default function Search() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+  const t = useTranslations("Components.Search");
 
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
@@ -27,7 +29,7 @@ export default function Search() {
       </InputLeftElement>
       <Input
         type="text"
-        placeholder="Search for products"
+        placeholder={t("placeholder")}
         defaultValue={searchParams.get("query")?.toString() || ""}
         onChange={(e) => handleSearch(e.target.value)}
       />

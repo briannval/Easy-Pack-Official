@@ -14,13 +14,11 @@ import {
   useDisclosure,
   Container,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-} from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -28,6 +26,8 @@ export default function Navbar() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const router = useRouter();
+
+  const t = useTranslations("Components.Navbar");
 
   const handleScroll = () => {
     const position = window.scrollY;
@@ -109,7 +109,6 @@ export default function Navbar() {
                 fontWeight={600}
                 color={"white"}
                 bg={"gold.400"}
-                href={"#"}
                 _hover={{
                   bg: "gold.300",
                 }}
@@ -119,7 +118,7 @@ export default function Navbar() {
                 }}
                 leftIcon={<FaWhatsapp />}
               >
-                Chat on Whatsapp
+                {t("whatsappCTA")}
               </Button>
             </Stack>
           </Flex>
@@ -136,6 +135,8 @@ export default function Navbar() {
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
+  const t = useTranslations("Components.Navbar");
+  const l = useLocale();
 
   return (
     <Stack
@@ -150,7 +151,7 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? "#"}
+                href={`/${l}/${navItem.href}`}
                 fontSize={"sm"}
                 fontWeight={"bold"}
                 color={linkColor}
@@ -159,7 +160,7 @@ const DesktopNav = () => {
                   color: linkHoverColor,
                 }}
               >
-                {navItem.label}
+                {t(navItem.label)}
               </Link>
             </PopoverTrigger>
           </Popover>
@@ -188,12 +189,15 @@ const MobileNav = () => {
 const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
+  const t = useTranslations("Components.Navbar");
+  const l = useLocale();
+
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
         as={Link}
-        href={href ?? "#"}
+        href={`/${l}/${href}`}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -204,7 +208,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           fontWeight={600}
           color={useColorModeValue("gray.600", "gray.200")}
         >
-          {label}
+          {t(label)}
         </Text>
       </Flex>
 
@@ -238,20 +242,20 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Home",
+    label: "home",
     href: "/",
   },
   {
-    label: "About",
+    label: "about",
 
     href: "about",
   },
   {
-    label: "Products",
+    label: "products",
     href: "products",
   },
   {
-    label: "Contact",
+    label: "contact",
     href: "contact",
   },
 ];

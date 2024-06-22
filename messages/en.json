@@ -1,0 +1,41 @@
+{
+    "Components": {
+        "Navbar": {
+            "home": "Home",
+            "about": "About",
+            "products": "Products",
+            "contact": "Contact",
+            "whatsappCTA": "Chat on WhatsApp"
+        },
+        "Search": {
+            "placeholder": "Search for products"
+        }
+    },
+    "Pages": {
+        "Home": {
+            "catchphrase": "Discover the seamless blend of functionality and elegance with our range of essentials, designed to enhance your everyday needs.",
+            "productsCTA": "Browse",
+            "aboutCTA": "Learn More"
+        },
+        "Products": {
+            "headingbase": "Find what you need.",
+            "headingmd": "Find exactly what you're looking for."
+        },
+        "Contact": {
+            "heading": "Any questions?",
+            "nameplaceholder": "Your Name",
+            "emailplaceholder": "Your Email",
+            "phonenumberplaceholder": "Your Phone Number",
+            "messageplaceholder": "Your Message",
+            "invalidname": "Please enter a valid name",
+            "invalidemail": "Please enter a valid email address",
+            "invalidphone": "Please enter a valid phone number",
+            "invalidmessage": "Please enter a message",
+            "messagetoolong": "Message is too long",
+            "submitbtn": "Let Us Know",
+            "submitting": "Submitting...",
+            "successtoast": "Message sent successfully!",
+            "errortoast": "An unexpected error occurred."
+        }
+    }
+}

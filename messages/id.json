@@ -1,0 +1,41 @@
+{
+    "Components": {
+        "Navbar": {
+            "home": "Beranda",
+            "about": "Tentang Kami",
+            "products": "Produk",
+            "contact": "Kontak",
+            "whatsappCTA": "Hubungi WhatsApp"
+        },
+        "Search": {
+            "placeholder": "Cari produk"
+        }
+    },
+    "Pages": {
+        "Home": {
+            "catchphrase": "Temukan perpaduan sempurna antara fungsionalitas dan keanggunan dengan rangkaian produk penting kami, yang dirancang untuk meningkatkan kebutuhan sehari-hari Anda.",
+            "productsCTA": "Telusuri",
+            "aboutCTA": "Kenali Kami"
+        },
+        "Products": {
+            "headingbase": "Telusuri produk.",
+            "headingmd": "Temukan segala kebutuhan anda."
+        },
+        "Contact": {
+            "heading": "Ingin bertanya?",
+            "nameplaceholder": "Nama Anda",
+            "emailplaceholder": "Email Anda",
+            "phonenumberplaceholder": "Nomor Telepon Anda",
+            "messageplaceholder": "Pesan Anda",
+            "invalidname": "Silakan masukkan nama yang benar",
+            "invalidemail": "Silakan masukkan alamat email yang benar",
+            "invalidphone": "Silakan masukkan nomor telepon yang benar",
+            "invalidmessage": "Silakan masukkan pesan",
+            "messagetoolong": "Pesan terlalu panjang",
+            "submitbtn": "Kabari Kami",
+            "submitting": "Mengirim...",
+            "successtoast": "Pesan berhasil terkirim!",
+            "errortoast": "Terjadi masalah yang tidak terduga."
+          }
+    }
+}

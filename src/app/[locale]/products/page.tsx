@@ -9,6 +9,7 @@ import Search from "@/components/search";
 import { Product } from "@/types/contentful";
 import { Box, Center, Heading, VStack } from "@chakra-ui/react";
 import { useEffect, useReducer } from "react";
+import { useTranslations } from "next-intl";
 
 interface ProductsState {
   products: Product[];
@@ -63,6 +64,7 @@ export default function Products({
   const currentPage: number = Number(searchParams?.page) || 1;
   const [state, dispatch] = useReducer(productsReducer, initialState);
   const { products, totalPages, loading } = state;
+  const t = useTranslations("Pages.Products");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -92,11 +94,21 @@ export default function Products({
       minW={"50%"}
       minH={"calc(100vh - 60px)"}
     >
-      <Box display={{ base: 'block', md: 'none' }}>
-        <Heading size="xl" textAlign="center">Find what you need.</Heading>
-      </Box>
-      <Box display={{ base: 'none', md: 'block' }}>
-        <Heading size="xl" textAlign="center">Find exactly what you're looking for.</Heading>
+      <Box>
+        <Heading
+          size="xl"
+          textAlign="center"
+          display={{ base: "block", md: "none" }}
+        >
+          {t("headingbase")}
+        </Heading>
+        <Heading
+          size="xl"
+          textAlign="center"
+          display={{ base: "none", md: "block" }}
+        >
+          {t("headingmd")}
+        </Heading>
       </Box>
       <Center w={{ base: "80%", md: "40%" }}>
         <Search />

@@ -3,8 +3,12 @@ import RotatingImages from "@/components/rotatingImages";
 import RotatingWords from "@/components/rotatingWords";
 import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { FaQuestion, FaUtensils } from "react-icons/fa";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations("Pages.Home");
+  const l = useLocale();
+
   return (
     <Box position={"relative"} zIndex={1} height={"100vh"}>
       <Box
@@ -38,32 +42,34 @@ export default function Home() {
             maxW={"70%"}
             fontSize={{ base: "sm", lg: "lg" }}
           >
-            Discover the seamless blend of functionality and elegance with our
-            range of essentials, designed to enhance your everyday needs.
+            {t("catchphrase")}
           </Text>
-          <Stack spacing={{base: 4, md: 6}} direction={{base: "column", md: "row"}}>
+          <Stack
+            spacing={{ base: 4, md: 6 }}
+            direction={{ base: "column", md: "row" }}
+          >
             <Button
               leftIcon={<FaUtensils />}
-              px={{base: 4, md: 6}}
+              px={{ base: 4, md: 6 }}
               color={"white"}
               bg={"gold.400"}
-              fontSize={{base: "sm", md: "md"}}
+              fontSize={{ base: "sm", md: "md" }}
               _hover={{ bg: "gold.300" }}
               as={"a"}
-              href="/products"
+              href={`/${l}/products`}
             >
-              Browse
+              {t("productsCTA")}
             </Button>
             <Button
               border={"1px"}
               borderColor={"gray.300"}
               leftIcon={<FaQuestion />}
-              fontSize={{base: "sm", md: "md"}}
-              px={{base: 4, md: 6}}
+              fontSize={{ base: "sm", md: "md" }}
+              px={{ base: 4, md: 6 }}
               as={"a"}
-              href="/about"
+              href={`/${l}/about`}
             >
-              Learn more
+              {t("aboutCTA")}
             </Button>
           </Stack>
         </Stack>

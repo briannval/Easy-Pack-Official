@@ -20,26 +20,27 @@ import { useForm } from "react-hook-form";
 import { FiArrowRight } from "react-icons/fi";
 import { z } from "zod";
 import { sendMail } from "@/actions/sendMail";
-
-const schema = z.object({
-  name: z.string().min(1, "Please enter your name"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  message: z
-    .string()
-    .min(1, "Please enter a message")
-    .max(500, "Message is too long"),
-});
-
-type Form = z.infer<typeof schema>;
+import { useTranslations } from "next-intl";
 
 export default function Contact() {
+  const t = useTranslations("Pages.Contact");
   const statusToast = useToast();
   const toastAttr: UseToastOptions = {
     position: "bottom-right",
     duration: 4000,
     isClosable: true,
   };
+  const schema = z.object({
+    name: z.string().min(1, t("invalidname")),
+    email: z.string().email(t("invalidemail")),
+    phone: z.string().min(10, t("invalidphone")),
+    message: z
+      .string()
+      .min(1, t("invalidmessage"))
+      .max(500, t("messagetoolong")),
+  });
+
+  type Form = z.infer<typeof schema>;
   const {
     handleSubmit,
     register,
@@ -50,13 +51,13 @@ export default function Contact() {
     try {
       await sendMail(data.name, data.email, data.phone, data.message);
       statusToast({
-        title: "Successfully sent message",
+        title: t("successtoast"),
         status: "success",
         ...toastAttr,
       });
     } catch (e) {
       statusToast({
-        title: "An unexpected error occured",
+        title: t("errortoast"),
         status: "error",
         ...toastAttr,
       });
@@ -97,14 +98,14 @@ export default function Contact() {
             mx={"auto"}
           >
             <Heading as={"h1"} size={"2xl"}>
-              Any questions?
+              {t("heading")}
             </Heading>
             <FormControl isInvalid={Boolean(errors.name)}>
               <Stack spacing={4}>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Your Name"
+                  placeholder={t("nameplaceholder")}
                   disabled={isSubmitting}
                   w={{ base: "100%", sm: "sm" }}
                   size="lg"
@@ -119,7 +120,7 @@ export default function Contact() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Your Email"
+                  placeholder={t("emailplaceholder")}
                   disabled={isSubmitting}
                   w={{ base: "100%", sm: "sm" }}
                   size="lg"
@@ -134,7 +135,7 @@ export default function Contact() {
                 <Input
                   id="phone"
                   type="tel"
-                  placeholder="Your Phone Number"
+                  placeholder={t("phonenumberplaceholder")}
                   disabled={isSubmitting}
                   w={{ base: "100%", sm: "sm" }}
                   size="lg"
@@ -148,7 +149,7 @@ export default function Contact() {
               <Stack spacing={4}>
                 <Textarea
                   id="message"
-                  placeholder="Your Message"
+                  placeholder={t("messageplaceholder")}
                   disabled={isSubmitting}
                   w={{ base: "100%", sm: "sm" }}
                   size="lg"
@@ -161,14 +162,14 @@ export default function Contact() {
             <Button
               mt="2"
               type="submit"
-              loadingText="Submitting..."
+              loadingText={t("submitting")}
               size="lg"
               rightIcon={<Icon as={FiArrowRight} />}
               isLoading={isSubmitting}
               colorScheme="yellow"
               variant={"outline"}
             >
-              Let Us Know
+              {t("submitbtn")}
             </Button>
           </VStack>
         </Box>
