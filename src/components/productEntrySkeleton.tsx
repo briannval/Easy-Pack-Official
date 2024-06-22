@@ -1,17 +1,26 @@
 import React from "react";
-import { Box, Center, Skeleton, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Skeleton,
+  Stack,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 export default function ProductEntrySkeleton() {
   return (
-    <Center py={6}>
+    <Center w={"full"} h={"full"} py={6}>
       <Box
-        w={"375px"}
-        bg={useColorModeValue("white", "gray.900")}
+        w={"370px"}
+        h={"370px"}
+        bg={"white"}
+        zIndex={3}
         rounded={"md"}
         p={6}
         overflow={"hidden"}
         shadow={"base"}
-        borderColor={"gold.300"}
+        borderRadius={"xl"}
       >
         <Box
           w={"375px"}
@@ -23,11 +32,8 @@ export default function ProductEntrySkeleton() {
         >
           <Skeleton h={"300px"} w={"375px"} />
         </Box>
-        <Center h="100%" mt={{ base: 4, md: 6 }}>
-          <Box w="100%">
-            <Skeleton height="24px" mb={2} />
-            <Skeleton height="16px" />
-          </Box>
+        <Center mt={{ base: 4, md: 6 }}>
+          <Skeleton height="20px" width="80%" />
         </Center>
       </Box>
     </Center>
