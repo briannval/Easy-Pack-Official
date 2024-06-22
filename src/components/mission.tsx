@@ -10,18 +10,16 @@ import {
   Icon,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { ReactElement } from "react";
 import { BiCake, BiKnife } from "react-icons/bi";
 import { GoContainer } from "react-icons/go";
 import AnimatedHeading from "./animatedHeading";
 
 interface FeatureProps {
   text: string;
-  iconBg: string;
-  icon?: ReactElement;
+  icon: React.ElementType;
 }
 
-const Feature = ({ text, icon, iconBg }: FeatureProps) => {
+const Feature = ({ text, icon }: FeatureProps) => {
   return (
     <Stack direction={"row"} align={"center"}>
       <Flex
@@ -30,9 +28,9 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
         align={"center"}
         justify={"center"}
         rounded={"full"}
-        bg={iconBg}
+        bg={"gold.400"}
       >
-        {icon}
+        <Icon as={icon} color={"white"} />
       </Flex>
       <Text fontWeight={500} color={"gray.600"}>
         {text}
@@ -42,6 +40,12 @@ const Feature = ({ text, icon, iconBg }: FeatureProps) => {
 };
 
 export default function Mission() {
+  const features: FeatureProps[] = [
+    { icon: GoContainer, text: "Containers" },
+    { icon: BiCake, text: "Cake bases" },
+    { icon: BiKnife, text: "Knives" },
+  ];
+
   return (
     <Container maxW={"container.xl"} py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} minH={"50vh"}>
@@ -73,21 +77,11 @@ export default function Mission() {
               />
             }
           >
-            <Feature
-              icon={<Icon as={GoContainer} color={"white"} w={5} h={5} />}
-              iconBg="gold.400"
-              text={"Containers"}
-            />
-            <Feature
-              icon={<Icon as={BiCake} color={"white"} w={5} h={5} />}
-              iconBg="gold.400"
-              text={"Cake bases"}
-            />
-            <Feature
-              icon={<Icon as={BiKnife} color={"white"} w={5} h={5} />}
-              iconBg="gold.400"
-              text={"Knives"}
-            />
+            {features.map((feature, index) => {
+              return (
+                <Feature key={index} icon={feature.icon} text={feature.text} />
+              );
+            })}
           </Stack>
         </Stack>
       </SimpleGrid>
