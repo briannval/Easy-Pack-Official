@@ -5,9 +5,12 @@ import Qualities from "@/components/qualities";
 import { Button, Container, Icon, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { FaUtensils } from "react-icons/fa";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function About() {
   const router = useRouter();
+  const t = useTranslations("Pages.About");
+  const l = useLocale();
 
   return (
     <main>
@@ -18,15 +21,13 @@ export default function About() {
           <Faq />
           <Button
             mt="-12"
-            type="submit"
-            loadingText="Submitting..."
             size="lg"
             colorScheme="yellow"
             leftIcon={<Icon as={FaUtensils} />}
             variant={"outline"}
-            onClick={() => router.push("/products")}
+            onClick={() => router.push(`${l}/products`)}
           >
-            Browse Now
+            {t("productsCTA")}
           </Button>
         </VStack>
       </Container>

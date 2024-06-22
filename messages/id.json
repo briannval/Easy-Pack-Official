@@ -36,6 +36,9 @@
             "submitting": "Mengirim...",
             "successtoast": "Pesan berhasil terkirim!",
             "errortoast": "Terjadi masalah yang tidak terduga."
-          }
+        },
+        "About": {
+            "productsCTA": "Telusuri Produk"
+        }
     }
 }

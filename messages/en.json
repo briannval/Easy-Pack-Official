@@ -36,6 +36,9 @@
             "submitting": "Submitting...",
             "successtoast": "Message sent successfully!",
             "errortoast": "An unexpected error occurred."
+        },
+        "About": {
+            "productsCTA": "Browse Products"
         }
     }
 }
