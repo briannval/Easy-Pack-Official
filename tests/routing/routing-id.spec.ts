@@ -16,4 +16,17 @@ test.describe("Routing Indonesian", () => {
 
     await expect(catchphraseText).toBeVisible();
   });
+
+  test("navigate to products page", async ({ page }) => {
+    await page.click('text="Produk"');
+    await expect(page).toHaveURL(/\/id\/products/);
+  });
+  test("navigate to about page", async ({ page }) => {
+    await page.click('text="Tentang Kami"');
+    await expect(page).toHaveURL(/\/id\/about/);
+  });
+  test("navigate to contact page", async ({ page }) => {
+    await page.click('text="Kontak"');
+    await expect(page).toHaveURL(/\/id\/contact/);
+  });
 });

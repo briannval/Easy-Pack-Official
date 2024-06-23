@@ -16,4 +16,17 @@ test.describe("Routing Englsh", () => {
 
     await expect(catchphraseText).toBeVisible();
   });
+
+  test("navigate to products page", async ({ page }) => {
+    await page.click('text="Products"');
+    await expect(page).toHaveURL(/\/en\/products/);
+  });
+  test("navigate to about page", async ({ page }) => {
+    await page.click('text="About"');
+    await expect(page).toHaveURL(/\/en\/about/);
+  });
+  test("navigate to contact page", async ({ page }) => {
+    await page.click('text="Contact"');
+    await expect(page).toHaveURL(/\/en\/contact/);
+  });
 });
