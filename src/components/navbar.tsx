@@ -123,6 +123,7 @@ export default function Navbar() {
                       { pathname, params },
                       { locale: newLocale }
                     );
+                    window.location.href = `/${newLocale}${pathname}`;
                   });
                 }}
               >
