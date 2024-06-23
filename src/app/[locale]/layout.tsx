@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,29 @@ export default async function LocaleLayout({
           </ChakraProvider>
         </NextIntlClientProvider>
       </body>
+      <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+      <Script id="botpress-webchat" strategy="lazyOnload">
+        {`
+          window.botpressWebChat.init({
+            "composerPlaceholder": "Chat with Easy Bot",
+            "botConversationDescription": "Official bot for Easy Pack",
+            "botId": "${process.env.BOTPRESS_BOT_ID}",
+            "hostUrl": "${process.env.BOTPRESS_HOST_URL}",
+            "messagingUrl": "${process.env.BOTPRESS_MESSAGING_URL}",
+            "clientId": "${process.env.BOTPRESS_CLIENT_ID}",
+            "webhookId": "${process.env.BOTPRESS_WEBHOOK_ID}",
+            "lazySocket": true,
+            "themeName": "${process.env.BOTPRESS_THEME_NAME}",
+            "botName": "${process.env.BOTPRESS_BOT_NAME}",
+            "stylesheet": "${process.env.BOTPRESS_STYLESHEET}",
+            "frontendVersion": "v1",
+            "showPoweredBy": true,
+            "theme": "${process.env.BOTPRESS_THEME_NAME}",
+            "themeColor": "${process.env.BOTPRESS_THEME_COLOR}",
+            "allowedOrigins": []
+          });
+        `}
+      </Script>
     </html>
   );
 }
