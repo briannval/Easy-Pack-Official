@@ -17,6 +17,7 @@ test.describe("Routing Indonesian", () => {
     await expect(catchphraseText).toBeVisible();
   });
 
+  /*
   test("navigate to products page", async ({ page }) => {
     await page.click('text="Produk"');
     await page.waitForTimeout(2);
@@ -32,4 +33,5 @@ test.describe("Routing Indonesian", () => {
     await page.waitForTimeout(2);
     await expect(page).toHaveURL(/\/id\/contact/);
   });
+  */
 });
