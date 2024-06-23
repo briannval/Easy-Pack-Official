@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/en");
 });
 
-test.describe("Routing Englsh", () => {
+test.describe("Routing English", () => {
   test("should have title", async ({ page }) => {
     await expect(page).toHaveTitle(/Easy Pack/);
   });
@@ -19,14 +19,17 @@ test.describe("Routing Englsh", () => {
 
   test("navigate to products page", async ({ page }) => {
     await page.click('text="Products"');
+    await page.waitForTimeout(2);
     await expect(page).toHaveURL(/\/en\/products/);
   });
   test("navigate to about page", async ({ page }) => {
     await page.click('text="About"');
+    await page.waitForTimeout(2);
     await expect(page).toHaveURL(/\/en\/about/);
   });
   test("navigate to contact page", async ({ page }) => {
     await page.click('text="Contact"');
+    await page.waitForTimeout(2);
     await expect(page).toHaveURL(/\/en\/contact/);
   });
 });
