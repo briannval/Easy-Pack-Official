@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   description: "Official Website of PT Easy Pack Indonesia",
 };
 
+// script vs script async vs script defer
 export default async function LocaleLayout({
   children,
   params: { locale },
@@ -38,8 +39,11 @@ export default async function LocaleLayout({
           </ChakraProvider>
         </NextIntlClientProvider>
       </body>
-      <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-      <Script id="botpress-webchat" strategy="lazyOnload">
+      <script
+        async
+        src="https://cdn.botpress.cloud/webchat/v1/inject.js"
+      ></script>
+      <Script async id="botpress-webchat" strategy="lazyOnload">
         {`
           window.botpressWebChat.init({
             "composerPlaceholder": "Chat with Easy Bot",

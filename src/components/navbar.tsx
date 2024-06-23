@@ -123,6 +123,8 @@ export default function Navbar() {
                       { pathname, params },
                       { locale: newLocale }
                     );
+
+                    // hard refresh to avoid issues with the botpress webchat
                     window.location.href = `/${newLocale}${pathname}`;
                   });
                 }}
