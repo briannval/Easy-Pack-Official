@@ -3,12 +3,10 @@ import Faq from "@/components/faq";
 import Mission from "@/components/mission";
 import Qualities from "@/components/qualities";
 import { Button, Container, Icon, VStack } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
 import { FaUtensils } from "react-icons/fa";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function About() {
-  const router = useRouter();
   const t = useTranslations("Pages.About");
   const l = useLocale();
 
@@ -25,7 +23,8 @@ export default function About() {
             colorScheme="yellow"
             leftIcon={<Icon as={FaUtensils} />}
             variant={"outline"}
-            onClick={() => router.push(`${l}/products`)}
+            as={"a"}
+            href={`/${l}/products`}
           >
             {t("productsCTA")}
           </Button>
