@@ -68,6 +68,10 @@
         },
         "About": {
             "productsCTA": "Browse Products"
+        },
+        "NotFound": {
+            "heading": "Page not found",
+            "description": "The page you're looking for doesn't exist or has been moved."
         }
     }
 }

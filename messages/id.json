@@ -68,6 +68,10 @@
         },
         "About": {
             "productsCTA": "Telusuri Produk"
+        },
+        "NotFound": {
+            "heading": "Halaman tidak ditemukan",
+            "description": "Halaman yang Anda cari tidak ditemukan. Silakan kembali ke halaman beranda."
         }
     }
 }

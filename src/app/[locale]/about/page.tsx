@@ -11,25 +11,23 @@ export default function About() {
   const l = useLocale();
 
   return (
-    <main>
-      <Container maxW={"5xl"} minH={"calc(100vh - 60px)"} mt={"60px"} py={20}>
-        <VStack spacing={24}>
-          <Mission />
-          <Qualities />
-          <Faq />
-          <Button
-            mt="-12"
-            size="lg"
-            colorScheme="yellow"
-            leftIcon={<Icon as={FaUtensils} />}
-            variant={"outline"}
-            as={"a"}
-            href={`/${l}/products`}
-          >
-            {t("productsCTA")}
-          </Button>
-        </VStack>
-      </Container>
-    </main>
+    <Container maxW={"5xl"} minH={"calc(100vh - 60px)"} mt={"60px"} py={20}>
+      <VStack spacing={24}>
+        <Mission />
+        <Qualities />
+        <Faq />
+        <Button
+          mt="-12"
+          size="lg"
+          colorScheme="yellow"
+          leftIcon={<Icon as={FaUtensils} />}
+          variant={"outline"}
+          as={"a"}
+          href={`/${l}/products`}
+        >
+          {t("productsCTA")}
+        </Button>
+      </VStack>
+    </Container>
   );
 }
