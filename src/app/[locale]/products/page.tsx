@@ -1,6 +1,5 @@
 "use client";
 import fetchProducts from "@/actions/fetchProducts";
-import BrokenLink from "@/components/brokenLink";
 import NoProducts from "@/components/noProducts";
 import Pagination from "@/components/pagination";
 import ProductEntries from "@/components/productEntries";
@@ -9,7 +8,8 @@ import Search from "@/components/search";
 import { Product } from "@/types/contentful";
 import { Box, Center, Heading, VStack } from "@chakra-ui/react";
 import { useEffect, useReducer } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { redirect } from "next/navigation";
 
 interface ProductsState {
   products: Product[];
@@ -65,6 +65,7 @@ export default function Products({
   const [state, dispatch] = useReducer(productsReducer, initialState);
   const { products, totalPages, loading } = state;
   const t = useTranslations("Pages.Products");
+  const l = useLocale();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,6 +84,13 @@ export default function Products({
 
     fetchData();
   }, [query, currentPage]);
+
+  if (
+    (totalPages === 0 && currentPage !== 1) ||
+    (totalPages !== 0 && (currentPage < 1 || currentPage > totalPages))
+  ) {
+    redirect(`/${l}/invalid-link-not-found`);
+  }
 
   return (
     <VStack
@@ -115,9 +123,6 @@ export default function Products({
       </Center>
       {loading ? (
         <ProductEntriesSkeleton />
-      ) : (totalPages === 0 && currentPage !== 1) ||
-        (totalPages !== 0 && (currentPage < 1 || currentPage > totalPages)) ? (
-        <BrokenLink />
       ) : totalPages !== 0 ? (
         <ProductEntries products={products} />
       ) : (
