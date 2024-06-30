@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import AnimatedHeading from "./animatedHeading";
 import { useTranslations } from "next-intl";
+import ImageSlider from "./imageSlider";
 
 interface AccordionElementProps {
   title: string;
@@ -80,16 +81,13 @@ export default function Faq() {
             ))}
           </Accordion>
         </Stack>
-        <Flex>
-          <Image
-            rounded={"md"}
-            alt={"feature image"}
-            src={
-              "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-            }
-            objectFit={"cover"}
-          />
-        </Flex>
+        <ImageSlider
+          images={[
+            "https://images.unsplash.com/photo-1612852098516-55d01c75769a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+            "https://images.unsplash.com/photo-1627875764093-315831ac12f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+            "https://images.unsplash.com/photo-1571432248690-7fd6980a1ae2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+          ]}
+        />
       </SimpleGrid>
     </Container>
   );
