@@ -7,7 +7,6 @@ import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Script from "next/script";
-import { BrowserView } from "react-device-detect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -60,13 +59,12 @@ export default async function LocaleLayout({
           </ChakraProvider>
         </NextIntlClientProvider>
       </body>
-      <BrowserView>
-        <script
-          async
-          src="https://cdn.botpress.cloud/webchat/v1/inject.js"
-        ></script>
-        <Script async id="botpress-webchat" strategy="lazyOnload">
-          {`
+      <script
+        async
+        src="https://cdn.botpress.cloud/webchat/v1/inject.js"
+      ></script>
+      <Script async id="botpress-webchat" strategy="lazyOnload">
+        {`
           window.botpressWebChat.init({
             "composerPlaceholder": "Chat with Easy Bot",
             "botConversationDescription": "Official bot for Easy Pack",
@@ -86,8 +84,7 @@ export default async function LocaleLayout({
             "allowedOrigins": []
           });
         `}
-        </Script>
-      </BrowserView>
+      </Script>
     </html>
   );
 }
