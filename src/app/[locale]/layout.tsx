@@ -2,38 +2,12 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { theme } from "@/themes/theme";
 import { Box, ChakraProvider, Container, Flex } from "@chakra-ui/react";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Easy Pack",
-  description: "Official Website of PT Easy Pack Indonesia",
-  authors: [
-    { name: "Brian Adhitya" },
-    { name: "PT Easy Pack Indonesia" },
-    { name: "Nadeen Horia" },
-  ],
-  creator: "Brian Adhitya",
-  publisher: "Brian Adhitya",
-  generator: "Next.js",
-  applicationName: "Easy Pack Official Website",
-  keywords: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Easy Pack",
-    "Food Packaging",
-    "Jakarta",
-    "Thinwall",
-    "Spork",
-    "Container",
-  ],
-};
 
 // script vs script async vs script defer
 export default async function LocaleLayout({
