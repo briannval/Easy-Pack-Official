@@ -17,8 +17,6 @@ services:
       BOTPRESS_THEME_NAME: ${BOTPRESS_THEME_NAME}
       BOTPRESS_BOT_NAME: ${BOTPRESS_BOT_NAME}
       BOTPRESS_THEME_COLOR: ${BOTPRESS_THEME_COLOR}
-      VERCEL_URL: www.easypackindonesia.com 
-      PORT: 3000
     ports:
       - 3000:3000
 
