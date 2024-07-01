@@ -1,7 +1,3 @@
 User-agent: *
-Disallow:
-
 Allow: /
-Allow: /products
-Allow: /about
-Allow: /contact
+Sitemap: https://www.easypackindonesia.com/sitemap.xml
