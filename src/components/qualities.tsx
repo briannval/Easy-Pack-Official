@@ -14,12 +14,7 @@ import AnimatedHeading from "./animatedHeading";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-
-interface QualityProps {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}
+import { QualityProps } from "@/types/components";
 
 const itemVariants = {
   hidden: { opacity: 0, scale: 1.2 },

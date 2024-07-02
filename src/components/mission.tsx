@@ -14,11 +14,7 @@ import { GoContainer } from "react-icons/go";
 import AnimatedHeading from "./animatedHeading";
 import { useTranslations } from "next-intl";
 import ImageSlider from "./imageSlider";
-
-interface FeatureProps {
-  text: string;
-  icon: React.ElementType;
-}
+import { FeatureProps } from "@/types/components";
 
 const Feature = ({ text, icon }: FeatureProps) => {
   return (

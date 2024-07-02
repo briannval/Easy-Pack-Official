@@ -21,6 +21,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/navigation";
 import { useParams } from "next/navigation";
+import { NavItem } from "@/types/components";
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -265,13 +266,6 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
     </Stack>
   );
 };
-
-interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-}
 
 const NAV_ITEMS: Array<NavItem> = [
   {

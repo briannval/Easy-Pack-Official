@@ -2,8 +2,6 @@
 import {
   Container,
   SimpleGrid,
-  Image,
-  Flex,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -15,11 +13,7 @@ import {
 import AnimatedHeading from "./animatedHeading";
 import { useTranslations } from "next-intl";
 import ImageSlider from "./imageSlider";
-
-interface AccordionElementProps {
-  title: string;
-  children: React.ReactNode;
-}
+import { AccordionElementProps } from "@/types/components";
 
 const AccordionElement: React.FC<AccordionElementProps> = ({
   title,
