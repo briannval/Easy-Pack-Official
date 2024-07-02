@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Easy Pack Official Website
 
-First, run the development server:
+The official website of PT Easy Pack Indonesia.   
+Your one-stop solution for food packaging goods.
+
+## Installation and Setup
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/briannval/easy-pack.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd easy-pack
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Setup Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a .env file in the root directory and add the following:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+RESEND_API_KEY
+CONTENTFUL_SPACE_ID
+CONTENTFUL_ACCESS_TOKEN
+BOTPRESS_BOT_ID
+BOTPRESS_HOST_URL
+BOTPRESS_MESSAGING_URL
+BOTPRESS_CLIENT_ID
+BOTPRESS_WEBHOOK_ID
+BOTPRESS_STYLESHEET
+BOTPRESS_THEME_NAME
+BOTPRESS_BOT_NAME
+BOTPRESS_THEME_COLOR
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+    
+## Run Locally
 
-## Deploy on Vercel
+Install dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+  npm install
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Run With Docker  
+
+Run docker container
+
+```bash
+  docker compose up --build
+```
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npx playwright test
+```
+
+
+## Support
+
+For support, email easypackpackaging@gmail.com or brianvalentinoadhitya@gmail.com.
+
