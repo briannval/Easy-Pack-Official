@@ -38,6 +38,7 @@ export default function Home() {
           </Heading>
           <Text
             fontWeight={600}
+            as={"h3"}
             color={"gray.500"}
             maxW={"70%"}
             fontSize={{ base: "sm", lg: "lg" }}

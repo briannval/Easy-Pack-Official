@@ -104,6 +104,7 @@ export default function Products({
     >
       <Box>
         <Heading
+          as={"h1"}
           size="xl"
           textAlign="center"
           display={{ base: "block", md: "none" }}
@@ -111,6 +112,7 @@ export default function Products({
           {t("headingbase")}
         </Heading>
         <Heading
+          as={"h1"}
           size="xl"
           textAlign="center"
           display={{ base: "none", md: "block" }}
