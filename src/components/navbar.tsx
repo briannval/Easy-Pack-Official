@@ -109,6 +109,7 @@ export default function Navbar() {
               spacing={4}
             >
               <Select
+                aria-label="Language Selector"
                 w={"80px"}
                 disabled={isPending}
                 value={l}
@@ -133,6 +134,7 @@ export default function Navbar() {
                 <option value="id">ID</option>
               </Select>
               <Button
+                aria-label="Whatsapp CTA"
                 width={"fit-content"}
                 as={"a"}
                 display={{ base: "none", md: "inline-flex" }}

@@ -63,10 +63,11 @@ export default function ProductEntry({ product }: { product: Product }) {
               fontSize={isHovered ? "2xl" : "xl"}
               fontFamily={"body"}
               fontWeight={isHovered ? "extrabold" : "bold"}
+              as={"h1"}
             >
               {product.name}
             </Heading>
-            <Text color={"gray.500"} textAlign={"center"}>
+            <Text color={"gray.500"} textAlign={"center"} as={"h3"}>
               {product.description}
             </Text>
           </Stack>

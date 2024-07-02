@@ -25,7 +25,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
       >
         Previous
       </IconButton>
-      <Text fontWeight="bold" mr={2}>
+      <Text fontWeight="bold" mr={2} as={"span"}>
         {totalPages !== 0 ? currentPage : 0}
       </Text>
       <IconButton

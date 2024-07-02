@@ -29,7 +29,7 @@ export default function AnimatedHeading({
   const isInView = useInView(ref, { amount: 0.8 });
 
   return (
-    <Heading size={size} my={my}>
+    <Heading size={size} my={my} as={"h1"}>
       <motion.span
         ref={ref}
         initial="hidden"

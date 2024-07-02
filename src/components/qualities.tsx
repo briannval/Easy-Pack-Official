@@ -67,7 +67,7 @@ function QualitiesGrid() {
           <VStack>
             <Icon as={quality.icon} width={10} h={10} color={"gold.400"} />
             <AnimatedHeading text={quality.title} size="lg" my={4} />
-            <Text align={"center"} maxW={"80%"}>
+            <Text align={"center"} maxW={"80%"} as={"h3"}>
               {quality.description}
             </Text>
           </VStack>
@@ -84,7 +84,7 @@ export default function Qualities() {
     <Container maxW={"container.xl"} py={12}>
       <Center mt={4}>
         <VStack spacing={4} textAlign={"center"}>
-          <Heading size={"2xl"} mb={12}>
+          <Heading size={"2xl"} mb={12} as={"h1"}>
             {t("heading")}{" "}
             <Text as={"span"} color="gold.400">
               {t("different")}.

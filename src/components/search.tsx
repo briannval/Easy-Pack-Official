@@ -28,6 +28,7 @@ export default function Search() {
         <Icon as={FiSearch} />
       </InputLeftElement>
       <Input
+        aria-label="Search"
         type="text"
         placeholder={t("placeholder")}
         defaultValue={searchParams.get("query")?.toString() || ""}
