@@ -49,27 +49,18 @@ export default function ProductEntry({ product }: { product: Product }) {
       zIndex={1}
     >
       <Box
-        w={"370px"}
+        w={"full"}
         h={"350px"}
         bg={"white"}
         zIndex={3}
         rounded={"md"}
-        p={6}
         overflow={"hidden"}
         shadow={"base"}
         borderRadius={"xl"}
         border={state.isHovered ? "0.8px solid" : "none"}
       >
         {(!state.isHovered || state.loading) && (
-          <Box
-            h={"280px"}
-            w={"370px"}
-            bg={"gray.100"}
-            mt={-6}
-            mx={-6}
-            mb={6}
-            pos={"relative"}
-          >
+          <Box h={"280px"} w={"full"} bg={"gray.100"} mb={6} pos={"relative"}>
             <Image
               src={product.image_url}
               w={"100%"}
