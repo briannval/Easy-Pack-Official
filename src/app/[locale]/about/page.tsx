@@ -24,6 +24,7 @@ export default function About() {
           variant={"outline"}
           as={"a"}
           href={`/${l}/products`}
+          aria-label="Products CTA"
         >
           {t("productsCTA")}
         </Button>

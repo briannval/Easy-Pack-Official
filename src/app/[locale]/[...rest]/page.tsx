@@ -20,7 +20,11 @@ export default function Maintenance() {
             h={"55px"}
             textAlign="center"
           >
-            <CloseIcon boxSize={"20px"} color={"white"} />
+            <CloseIcon
+              aria-label="Not Found Icon"
+              boxSize={"20px"}
+              color={"white"}
+            />
           </Flex>
         </Box>
         <Heading as="h1" size="xl" mt={6} mb={2}>

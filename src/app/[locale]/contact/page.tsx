@@ -168,6 +168,7 @@ export default function Contact() {
               isLoading={isSubmitting}
               colorScheme="yellow"
               variant={"outline"}
+              aria-label="Submit Button"
             >
               {t("submitbtn")}
             </Button>

@@ -58,6 +58,7 @@ export default function Home() {
               _hover={{ bg: "gold.300" }}
               as={"a"}
               href={`/${l}/products`}
+              aria-label="Products CTA"
             >
               {t("productsCTA")}
             </Button>
@@ -69,6 +70,7 @@ export default function Home() {
               px={{ base: 4, md: 6 }}
               as={"a"}
               href={`/${l}/about`}
+              aria-label="About CTA"
             >
               {t("aboutCTA")}
             </Button>
