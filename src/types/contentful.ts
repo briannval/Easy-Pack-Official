@@ -22,3 +22,20 @@ export interface FetchProductsResult {
   products: Product[];
   totalPages: number;
 }
+
+export interface ProductsActionResult {
+  products: {
+    id: string;
+    name: string;
+    description: string;
+    image_url: string;
+  }[];
+  totalPages: number;
+}
+
+export interface GetContentfulQuery {
+  content_type: string;
+  skip: number;
+  limit: number;
+  "fields.name[match]"?: string;
+}

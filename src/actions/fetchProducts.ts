@@ -1,7 +1,13 @@
 "use server";
 
 import { client } from "@/lib/contentful";
-import { FetchProductsResult, ProductFieldsSkeleton } from "@/types/contentful";
+import {
+  FetchProductsResult,
+  GetContentfulQuery,
+  ProductFieldsSkeleton,
+  ProductsActionResult,
+} from "@/types/contentful";
+import { EntryCollection } from "contentful";
 
 const PRODUCTS_PER_PAGE = 6;
 
@@ -9,12 +15,7 @@ export default async function fetchProducts(
   query: string = "",
   currentPage: number = 1
 ): Promise<FetchProductsResult> {
-  let getContentfulQuery: {
-    content_type: string;
-    skip: number;
-    limit: number;
-    "fields.name[match]"?: string;
-  } = {
+  let getContentfulQuery: GetContentfulQuery = {
     content_type: "products",
     skip: (currentPage - 1) * PRODUCTS_PER_PAGE,
     limit: PRODUCTS_PER_PAGE,
@@ -27,11 +28,10 @@ export default async function fetchProducts(
     };
   }
 
-  const products = await client.getEntries<ProductFieldsSkeleton>(
-    getContentfulQuery
-  );
+  const products: EntryCollection<ProductFieldsSkeleton, undefined, string> =
+    await client.getEntries<ProductFieldsSkeleton>(getContentfulQuery);
 
-  return {
+  const res: ProductsActionResult = {
     products: products.items.map((product) => ({
       id: product.sys.id,
       name: product.fields.name,
@@ -40,4 +40,6 @@ export default async function fetchProducts(
     })),
     totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };
+
+  return res;
 }
