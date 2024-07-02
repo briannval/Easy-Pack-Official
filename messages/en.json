@@ -24,9 +24,9 @@
             "premium": "Premium",
             "durable": "Durable",
             "stackable": "Stackable",
-            "premiumdescription": "We never fail to deliver state-of-the-art products with insurmountable quality.",
-            "durabledescription": "Our products are designed with high-quality materials to withstand everyday wear and tear.",
-            "stackabledescription": "Containers are built to stack neatly, efficiently maximizing your storage potential."
+            "premiumdescription": "We never fail to deliver state-of-the-art products with insurmountable quality",
+            "durabledescription": "Our products are designed with high-quality materials to withstand everyday wear and tear",
+            "stackabledescription": "Containers are built to stack neatly, efficiently maximizing your storage potential"
         },
         "FAQ": {
             "heading": "Common FAQs",
