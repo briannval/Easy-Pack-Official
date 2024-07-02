@@ -2,7 +2,7 @@
 # Easy Pack Official Website
 
 The official website of PT Easy Pack Indonesia.   
-Your one-stop solution for food packaging goods.
+Your one-stop solution for food packaging goods.   
 Available in EN and ID.
 
 ## Installation and Setup
