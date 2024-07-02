@@ -26,7 +26,7 @@ export default function ProductEntry({ product }: { product: Product }) {
     >
       <Box
         w={"370px"}
-        h={"370px"}
+        h={"350px"}
         bg={"white"}
         zIndex={3}
         rounded={"md"}
@@ -38,7 +38,7 @@ export default function ProductEntry({ product }: { product: Product }) {
       >
         {!isHovered && (
           <Box
-            w={"375px"}
+            w={"370px"}
             bg={"gray.100"}
             mt={-6}
             mx={-6}
@@ -47,15 +47,15 @@ export default function ProductEntry({ product }: { product: Product }) {
           >
             <Image
               src={product.image_url}
-              h={"300px"}
+              h={"280px"}
               w={"375px"}
-              objectFit={"cover"}
+              objectFit={"fill"}
               onLoad={() => setLoading(false)}
               style={{ display: !loading ? "block" : "none" }}
             />
-            {loading && <Skeleton h={"300px"} w={"375px"} />}
           </Box>
         )}
+        {loading && <Skeleton h={"300px"} w={"375px"} />}
         <Center mt={{ base: 4, md: 6 }}>
           <Stack>
             <Heading
