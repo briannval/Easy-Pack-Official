@@ -74,4 +74,3 @@ To run tests, run the following command
 ## Support
 
 For support, email easypackpackaging@gmail.com or brianvalentinoadhitya@gmail.com.
-
