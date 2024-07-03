@@ -7,7 +7,6 @@ import { useTranslations, useLocale } from "next-intl";
 
 export default function Home() {
   const t = useTranslations("Pages.Home");
-  const l = useLocale();
 
   return (
     <Box position={"relative"} zIndex={1} height={"100vh"}>
@@ -57,7 +56,7 @@ export default function Home() {
               fontSize={{ base: "sm", md: "md" }}
               _hover={{ bg: "gold.300" }}
               as={"a"}
-              href={`/${l}/products`}
+              href={"/products"}
               aria-label="Products CTA"
             >
               {t("productsCTA")}
@@ -69,7 +68,7 @@ export default function Home() {
               fontSize={{ base: "sm", md: "md" }}
               px={{ base: 4, md: 6 }}
               as={"a"}
-              href={`/${l}/about`}
+              href={"/about"}
               aria-label="About CTA"
             >
               {t("aboutCTA")}

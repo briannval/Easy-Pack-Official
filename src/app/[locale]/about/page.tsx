@@ -4,11 +4,10 @@ import Mission from "@/components/mission";
 import Qualities from "@/components/qualities";
 import { Button, Container, Icon, VStack } from "@chakra-ui/react";
 import { FaUtensils } from "react-icons/fa";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 
 export default function About() {
   const t = useTranslations("Pages.About");
-  const l = useLocale();
 
   return (
     <Container maxW={"5xl"} minH={"calc(100vh - 60px)"} mt={"60px"} py={20}>
@@ -23,7 +22,7 @@ export default function About() {
           leftIcon={<Icon as={FaUtensils} />}
           variant={"outline"}
           as={"a"}
-          href={`/${l}/products`}
+          href={"/products"}
           aria-label="Products CTA"
         >
           {t("productsCTA")}
