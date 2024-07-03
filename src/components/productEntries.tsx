@@ -6,6 +6,7 @@ export default function ProductEntries({ products }: { products: Product[] }) {
   return (
     <SimpleGrid
       minH={"60vh"}
+      w={"full"}
       columns={{ base: 1, md: 2, lg: 3 }}
       spacingX={20}
       spacingY={6}
