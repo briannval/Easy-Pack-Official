@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import Slider from "react-slick";
 
 const settings = {
@@ -21,7 +21,6 @@ export default function ImageSlider({ images }: { images: string[] }) {
       height={"400px"}
       width={"full"}
       overflow={"hidden"}
-      rounded={"xl"}
     >
       <link
         rel="stylesheet"
@@ -35,14 +34,12 @@ export default function ImageSlider({ images }: { images: string[] }) {
       />
       <Slider {...settings}>
         {images.map((url, index) => (
-          <Box
+          <Image
             key={index}
-            height={"6xl"}
+            h={"400px"}
             position="relative"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            backgroundImage={`url(${url})`}
+            src={url}
+            borderRadius={"xl"}
           />
         ))}
       </Slider>
