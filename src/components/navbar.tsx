@@ -82,7 +82,14 @@ export default function Navbar() {
               />
             </Flex>
             <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-              <Image src="/icon.png" alt="Easy Pack" height={16} />
+              <Image
+                src="/icon.png"
+                alt="Easy Pack"
+                height={16}
+                onClick={() => {
+                  window.location.href = "/";
+                }}
+              />
               <Flex
                 display={{ base: "none", md: "flex" }}
                 align={"center"}
