@@ -135,10 +135,8 @@ export default function Navbar() {
                 _hover={{
                   bg: "gold.300",
                 }}
-                onClick={() => {
-                  window.location.href =
-                    "https://api.whatsapp.com/send?phone=62811938708&text=Halo,%20Easy%20Pack!";
-                }}
+                href="https://api.whatsapp.com/send?phone=62811938708&text=Halo,%20Easy%20Pack!"
+                target="_blank"
                 leftIcon={<FaWhatsapp />}
               >
                 {t("whatsappCTA")}
