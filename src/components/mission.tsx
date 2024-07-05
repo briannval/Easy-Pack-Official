@@ -59,7 +59,7 @@ export default function Mission() {
           <Text color={"gray.500"} fontSize={"lg"} my={1} as={"p"}>
             {t("predescription")}{" "}
             <Text as={"span"} color={"gold.300"} fontWeight={"600"}>
-              Jakarta,{" "}
+              Easy Pack,{" "}
             </Text>
             {t("postdescription")}{" "}
           </Text>
