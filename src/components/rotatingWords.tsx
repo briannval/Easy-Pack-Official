@@ -19,7 +19,7 @@ export default function RotatingWords() {
     <Box display="flex" alignItems="center" ml={"auto"} mr={"auto"}>
       <Box>
         <Text as="span" color="gold.400">
-          Easy pack
+          Easy Pack
         </Text>
       </Box>
       <Box
