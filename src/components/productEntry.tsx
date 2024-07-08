@@ -83,9 +83,6 @@ export default function ProductEntry({ product }: { product: Product }) {
             >
               {product.name}
             </Heading>
-            <Text color={"gray.500"} textAlign={"center"} as={"h3"}>
-              {product.description}
-            </Text>
           </Stack>
         </Center>
       </Box>
