@@ -191,6 +191,7 @@ const DesktopNav = () => {
                   textDecoration: "none",
                   color: linkHoverColor,
                 }}
+                id={`navbar-${navItem.label}-link`}
               >
                 {t(navItem.label)}
               </Link>
@@ -238,6 +239,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         <Text
           fontWeight={600}
           color={useColorModeValue("gray.600", "gray.200")}
+          id={`mobilenav-${label}-link`}
         >
           {t(label)}
         </Text>
