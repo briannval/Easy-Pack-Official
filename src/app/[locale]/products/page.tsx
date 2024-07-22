@@ -108,6 +108,7 @@ export default function Products({
           size="xl"
           textAlign="center"
           display={{ base: "block", md: "none" }}
+          id="heading-base"
         >
           {t("headingbase")}
         </Heading>
@@ -116,6 +117,7 @@ export default function Products({
           size="xl"
           textAlign="center"
           display={{ base: "none", md: "block" }}
+          id="heading-md"
         >
           {t("headingmd")}
         </Heading>

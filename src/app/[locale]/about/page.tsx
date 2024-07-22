@@ -24,6 +24,7 @@ export default function About() {
           as={"a"}
           href={"/products"}
           aria-label="Products CTA"
+          id="view-products"
         >
           {t("productsCTA")}
         </Button>

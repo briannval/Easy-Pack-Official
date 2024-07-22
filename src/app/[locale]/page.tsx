@@ -32,6 +32,7 @@ export default function Home() {
             as={"h1"}
             fontSize={{ base: "3xl", sm: "4xl", md: "7xl" }}
             lineHeight={"110%"}
+            id="easy-pack"
           >
             <RotatingWords />
           </Heading>
@@ -41,6 +42,7 @@ export default function Home() {
             color={"gray.500"}
             maxW={"70%"}
             fontSize={{ base: "sm", lg: "lg" }}
+            id="catchphrase"
           >
             {t("catchphrase")}
           </Text>
@@ -58,6 +60,7 @@ export default function Home() {
               as={"a"}
               href={"/products"}
               aria-label="Products CTA"
+              id="view-products"
             >
               {t("productsCTA")}
             </Button>
@@ -70,6 +73,7 @@ export default function Home() {
               as={"a"}
               href={"/about"}
               aria-label="About CTA"
+              id="view-about"
             >
               {t("aboutCTA")}
             </Button>
