@@ -78,7 +78,7 @@ export default function Contact() {
         <Box display={{ base: "none", lg: "block" }} position="relative" px={2}>
           <Img
             src="/collageproducts.jpeg"
-            alt="Solar Panel"
+            alt="Easy Pack Products Collage"
             borderRadius="xl"
             w="80%"
             h="xl"
@@ -154,7 +154,7 @@ export default function Contact() {
                   w={{ base: "100%", sm: "sm" }}
                   size="lg"
                   {...register("message")}
-                  h="150px" // Adjust the height as needed
+                  h="150px"
                 />
               </Stack>
               <FormErrorMessage>{errors?.message?.message}</FormErrorMessage>
