@@ -191,7 +191,7 @@ const DesktopNav = () => {
                   textDecoration: "none",
                   color: linkHoverColor,
                 }}
-                id={`navbar-${navItem.label}-link`}
+                aria-label={`navbar-${navItem.label}-link`}
               >
                 {t(navItem.label)}
               </Link>
