@@ -127,8 +127,12 @@ export default function Navbar() {
                   });
                 }}
               >
-                <option value="en" id="en-language-switcher">EN</option>
-                <option value="id" id="id-language-switcher">ID</option>
+                <option value="en" id="en-language-switcher">
+                  EN
+                </option>
+                <option value="id" id="id-language-switcher">
+                  ID
+                </option>
               </Select>
               <Button
                 aria-label="Whatsapp CTA"
@@ -267,7 +271,6 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "about",
-
     href: "about",
   },
   {
