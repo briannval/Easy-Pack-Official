@@ -127,8 +127,8 @@ export default function Navbar() {
                   });
                 }}
               >
-                <option value="en">EN</option>
-                <option value="id">ID</option>
+                <option value="en" id="en-language-switcher">EN</option>
+                <option value="id" id="id-language-switcher">ID</option>
               </Select>
               <Button
                 aria-label="Whatsapp CTA"
@@ -145,6 +145,7 @@ export default function Navbar() {
                 href="https://api.whatsapp.com/send?phone=62811938708&text=Halo,%20Easy%20Pack!"
                 target="_blank"
                 leftIcon={<FaWhatsapp />}
+                id="chat-on-whatsapp"
               >
                 {t("whatsappCTA")}
               </Button>

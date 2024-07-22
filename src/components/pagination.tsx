@@ -22,10 +22,11 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
         mr={2}
         icon={<FaArrowLeft />}
         aria-label="Previous page"
+        id="previous-page"
       >
         Previous
       </IconButton>
-      <Text fontWeight="bold" mr={2} as={"span"}>
+      <Text fontWeight="bold" mr={2} as={"span"} id="current-page">
         {totalPages !== 0 ? currentPage : 0}
       </Text>
       <IconButton
@@ -33,6 +34,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
         isDisabled={currentPage === totalPages || totalPages === 0}
         icon={<FaArrowRight />}
         aria-label="Next page"
+        id="next-page"
       >
         Next
       </IconButton>

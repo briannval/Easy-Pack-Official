@@ -80,6 +80,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               fontFamily={"body"}
               fontWeight={state.isHovered ? "extrabold" : "bold"}
               as={"h1"}
+              id="product-name"
             >
               {product.name}
             </Heading>

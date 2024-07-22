@@ -29,13 +29,14 @@ const AccordionElement: React.FC<AccordionElementProps> = ({
             as="span"
             flex="1"
             textAlign="left"
+            id="question"
           >
             {title}
           </Box>
           <AccordionIcon />
         </AccordionButton>
       </h2>
-      <AccordionPanel fontSize={"md"} color={"gray.500"} pb={4}>
+      <AccordionPanel fontSize={"md"} color={"gray.500"} pb={4} id="answer">
         {children}
       </AccordionPanel>
     </AccordionItem>

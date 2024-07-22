@@ -70,10 +70,10 @@ export default function Footer() {
         >
           <Image src="/icon.png" alt="Easy Pack" height={16} />
           <Stack direction={"row"} spacing={6}>
-            <Link href={"/"}>{t("home")}</Link>
-            <Link href={"/about"}>{t("about")}</Link>
-            <Link href={"/products"}>{t("products")}</Link>
-            <Link href={"/contact"}>{t("contact")}</Link>
+            <Link href={"/"} id="home-link">{t("home")}</Link>
+            <Link href={"/about"} id="about-link">{t("about")}</Link>
+            <Link href={"/products"} id="products-link">{t("products")}</Link>
+            <Link href={"/contact"} id="contact-link">{t("contact")}</Link>
           </Stack>
         </Container>
 
@@ -91,7 +91,7 @@ export default function Footer() {
             justify={{ base: "center", md: "space-between" }}
             align={{ base: "center", md: "center" }}
           >
-            <Text>{`© 2024 Easy Pack. ${t("rights")}`}</Text>
+            <Text id="copyright">{`© 2024 Easy Pack. ${t("rights")}`}</Text>
             <Stack direction={"row"} spacing={6}>
               <SocialButton label={"Twitter"} href={"#"}>
                 <FaTwitter />

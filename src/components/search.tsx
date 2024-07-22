@@ -33,6 +33,7 @@ export default function Search() {
         placeholder={t("placeholder")}
         defaultValue={searchParams.get("query")?.toString() || ""}
         onChange={(e) => handleSearch(e.target.value)}
+        id="product-search-bar"
       />
     </InputGroup>
   );
