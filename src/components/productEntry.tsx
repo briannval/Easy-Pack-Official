@@ -50,7 +50,7 @@ export default function ProductEntry({ product }: { product: Product }) {
     >
       <Box
         w={"full"}
-        h={"350px"}
+        h={"370px"}
         bg={"white"}
         zIndex={3}
         rounded={"md"}

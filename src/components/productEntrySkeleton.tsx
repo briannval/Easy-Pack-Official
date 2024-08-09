@@ -6,7 +6,7 @@ export default function ProductEntrySkeleton() {
     <Center w={"full"} h={"full"} py={6}>
       <Box
         w={"370px"}
-        h={"350px"}
+        h={"370px"}
         bg={"white"}
         zIndex={3}
         rounded={"md"}
