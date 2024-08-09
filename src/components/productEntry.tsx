@@ -49,7 +49,7 @@ export default function ProductEntry({ product }: { product: Product }) {
       zIndex={1}
     >
       <Box
-        w={"full"}
+        w={"370px"}
         h={"370px"}
         bg={"white"}
         zIndex={3}
@@ -73,7 +73,7 @@ export default function ProductEntry({ product }: { product: Product }) {
           </Box>
         )}
         <Center mt={{ base: 4, md: 6 }}>
-          <Stack>
+          <Stack maxW={"80%"}>
             <Heading
               color={useColorModeValue("gray.700", "white")}
               fontSize={state.isHovered ? "2xl" : "xl"}
