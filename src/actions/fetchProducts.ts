@@ -29,14 +29,19 @@ export default async function fetchProducts(
   }
 
   const products: EntryCollection<ProductFieldsSkeleton, undefined, string> =
-    await client.getEntries<ProductFieldsSkeleton>(getContentfulQuery);
+    await client.getEntries<ProductFieldsSkeleton>({
+      ...getContentfulQuery,
+      order: ["sys.createdAt"],
+    });
 
   const res: ProductsActionResult = {
     products: products.items.map((product) => ({
       id: product.sys.id,
       name: product.fields.name,
       description: product.fields.description,
-      image_url: `http:${(product.fields.image! as any).fields.file.url}`,
+      image_url: product.fields.image
+        ? `http:${(product.fields.image as any).fields.file.url}`
+        : "",
     })),
     totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };
