@@ -86,7 +86,7 @@ export default function Products({
   }, [query, currentPage]);
 
   if (
-    (totalPages === 0 && currentPage !== 1) ||
+    (totalPages === 0 && currentPage !== 1 && query) ||
     (totalPages !== 0 && (currentPage < 1 || currentPage > totalPages))
   ) {
     redirect(`/${l}/invalid-link-not-found`);
