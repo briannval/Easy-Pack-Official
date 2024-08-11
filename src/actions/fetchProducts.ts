@@ -13,7 +13,8 @@ const PRODUCTS_PER_PAGE = 6;
 
 export default async function fetchProducts(
   query: string = "",
-  currentPage: number = 1
+  currentPage: number = 1,
+  locale: string = "en"
 ): Promise<FetchProductsResult> {
   let getContentfulQuery: GetContentfulQuery = {
     content_type: "products",
@@ -24,8 +25,8 @@ export default async function fetchProducts(
   if (query) {
     getContentfulQuery = {
       ...getContentfulQuery,
-      "fields.name[match]": query,
-      "fields.indonesianName[match]": query,
+      [locale === "id" ? "fields.indonesianName[match]" : "fields.name[match]"]:
+        query,
     };
   }
 

@@ -73,7 +73,8 @@ export default function Products({
       try {
         const { products, totalPages } = await fetchProducts(
           query,
-          currentPage
+          currentPage,
+          l
         );
         dispatch({ type: "FETCH_SUCCESS", payload: { products, totalPages } });
       } catch (error) {
