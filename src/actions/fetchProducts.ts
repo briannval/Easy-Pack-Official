@@ -42,6 +42,7 @@ export default async function fetchProducts(
       image_url: product.fields.image
         ? `http:${(product.fields.image as any).fields.file.url}`
         : "/icon.png",
+      indonesianName: product.fields.indonesianName,
     })),
     totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };
