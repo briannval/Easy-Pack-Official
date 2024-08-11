@@ -113,6 +113,7 @@ export default function Navbar() {
                 border={"none"}
                 onChange={(e) => {
                   const newLocale = e.target.value;
+                  const prevSearchParams = window.location.search;
                   startTransition(() => {
                     router.replace(
                       // @ts-expect-error -- TypeScript will validate that only known `params`
@@ -123,7 +124,7 @@ export default function Navbar() {
                     );
 
                     // hard refresh to avoid issues with the botpress webchat
-                    window.location.href = `/${newLocale}${pathname}`;
+                    window.location.href = `/${newLocale}${pathname}${prevSearchParams}`;
                   });
                 }}
               >
