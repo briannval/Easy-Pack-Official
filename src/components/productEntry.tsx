@@ -3,13 +3,13 @@ import {
   Box,
   Center,
   Heading,
-  Text,
   Stack,
   useColorModeValue,
   Image,
   Skeleton,
 } from "@chakra-ui/react";
 import { useReducer } from "react";
+import { useLocale } from "next-intl";
 
 type State = {
   loading: boolean;
@@ -38,6 +38,8 @@ const reducer = (state: State, action: Action): State => {
 
 export default function ProductEntry({ product }: { product: Product }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const l = useLocale();
 
   return (
     <Center
@@ -82,7 +84,9 @@ export default function ProductEntry({ product }: { product: Product }) {
               as={"h1"}
               id="product-name"
             >
-              {product.name}
+              {product.indonesianName && l === "id"
+                ? product.indonesianName
+                : product.name}
             </Heading>
           </Stack>
         </Center>
