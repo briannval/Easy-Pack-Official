@@ -25,6 +25,7 @@ export default async function fetchProducts(
     getContentfulQuery = {
       ...getContentfulQuery,
       "fields.name[match]": query,
+      "fields.indonesianName[match]": query,
     };
   }
 
