@@ -41,6 +41,11 @@ export default function ProductEntry({ product }: { product: Product }) {
 
   const l = useLocale();
 
+  const productName =
+    product.indonesianName && l === "id"
+      ? product.indonesianName
+      : product.name;
+
   return (
     <Center
       w={"full"}
@@ -84,9 +89,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               as={"h1"}
               id="product-name"
             >
-              {product.indonesianName && l === "id"
-                ? product.indonesianName
-                : product.name}
+              {productName}
             </Heading>
           </Stack>
         </Center>
