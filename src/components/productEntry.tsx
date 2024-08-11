@@ -75,7 +75,7 @@ export default function ProductEntry({ product }: { product: Product }) {
           </Box>
         )}
         <Center mt={{ base: 4, md: 6 }}>
-          <Stack maxW={"80%"}>
+          <Stack maxW={"90%"}>
             <Heading
               color={useColorModeValue("gray.700", "white")}
               fontSize={state.isHovered ? "2xl" : "xl"}
