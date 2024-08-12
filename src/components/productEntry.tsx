@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { useReducer } from "react";
 import { useLocale } from "next-intl";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 
 type State = {
   loading: boolean;
@@ -46,6 +47,8 @@ export default function ProductEntry({ product }: { product: Product }) {
       ? product.indonesianName
       : product.name;
 
+  console.log(productName.split("NEWLINE"));
+
   return (
     <Center
       w={"full"}
@@ -80,7 +83,7 @@ export default function ProductEntry({ product }: { product: Product }) {
           </Box>
         )}
         <Center mt={{ base: 4, md: 6 }}>
-          <Stack maxW={"95%"}>
+          <Stack maxW={"85%"}>
             <Heading
               color={useColorModeValue("gray.700", "white")}
               fontSize={state.isHovered ? "2xl" : "xl"}
@@ -89,7 +92,12 @@ export default function ProductEntry({ product }: { product: Product }) {
               as={"h1"}
               id="product-name"
             >
-              {productName}
+              {productName.split("NEWLINE").map((line, index) => (
+                <span key={index}>
+                  {line}
+                  {index < productName.split("NEWLINE").length - 1 && <br />}
+                </span>
+              ))}
             </Heading>
           </Stack>
         </Center>
