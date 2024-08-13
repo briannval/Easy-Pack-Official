@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import { useReducer } from "react";
 import { useLocale } from "next-intl";
-import { AiOutlineConsoleSql } from "react-icons/ai";
 
 type State = {
   loading: boolean;
@@ -69,24 +68,22 @@ export default function ProductEntry({ product }: { product: Product }) {
         borderRadius={"xl"}
         border={state.isHovered ? "0.8px solid" : "none"}
       >
-        {(!state.isHovered || state.loading) && (
-          <Box h={"280px"} w={"full"} bg={"gray.100"} mb={6} pos={"relative"}>
-            <Image
-              src={product.image_url}
-              w={"100%"}
-              h={"100%"}
-              objectFit={"fill"}
-              onLoad={() => dispatch({ type: "SET_LOADING", payload: false })}
-              style={{ display: !state.loading ? "block" : "none" }}
-            />
-            {state.loading && <Skeleton h={"280px"} w={"375px"} />}
-          </Box>
-        )}
+        <Box h={"280px"} w={"full"} bg={"gray.100"} mb={6} pos={"relative"}>
+          <Image
+            src={product.image_url}
+            w={"100%"}
+            h={"100%"}
+            objectFit={"fill"}
+            onLoad={() => dispatch({ type: "SET_LOADING", payload: false })}
+            style={{ display: !state.loading ? "block" : "none" }}
+          />
+          {state.loading && <Skeleton h={"280px"} w={"375px"} />}
+        </Box>
         <Center mt={{ base: 4, md: 6 }}>
           <Stack maxW={"85%"}>
             <Heading
               color={useColorModeValue("gray.700", "white")}
-              fontSize={state.isHovered ? "2xl" : "xl"}
+              fontSize={"xl"}
               fontFamily={"body"}
               fontWeight={state.isHovered ? "extrabold" : "bold"}
               as={"h1"}
