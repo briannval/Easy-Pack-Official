@@ -2,7 +2,7 @@ import { Image } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const images: string[] = ["/home1.jpeg", "/home2.jpeg"];
+const images: string[] = ["/home1.jpeg", "/home2.jpeg", "/home3.jpeg"];
 
 export default function RotatingImages() {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
