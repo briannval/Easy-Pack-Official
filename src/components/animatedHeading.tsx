@@ -1,6 +1,6 @@
 import { Heading, Text, chakra } from "@chakra-ui/react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 type AnimatedHeadingProps = {
   text: string;
@@ -26,14 +26,23 @@ export default function AnimatedHeading({
   my,
 }: AnimatedHeadingProps) {
   const ref = useRef(null);
+  const controls = useAnimation();
   const isInView = useInView(ref, { amount: 0.8 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      controls.start("visible");
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated, controls]);
 
   return (
     <Heading size={size} my={my} as={"h1"}>
       <motion.span
         ref={ref}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={controls}
         transition={{ staggerChildren: 0.025 }}
         aria-hidden
       >
