@@ -1,8 +1,7 @@
-
 # Easy Pack Official Website
 
-The official website of PT Easy Pack Indonesia.   
-Your one-stop solution for food packaging goods.   
+The official website of PT Easy Pack Indonesia.  
+Your one-stop solution for food packaging goods.  
 Available in EN and ID.
 
 ## Installation and Setup
@@ -18,7 +17,6 @@ Go to the project directory
 ```bash
   cd easy-pack
 ```
-
 
 ## Setup Environment Variables
 
@@ -39,7 +37,7 @@ BOTPRESS_BOT_NAME
 BOTPRESS_THEME_COLOR
 
 ```
-    
+
 ## Run Locally
 
 Install dependencies
@@ -54,14 +52,14 @@ Start the server
   npm run dev
 ```
 
-
-## Run With Docker  
+## Run With Docker
 
 Run docker container
 
 ```bash
   docker compose up --build
 ```
+
 ## Running Tests
 
 To run tests, run the following command
@@ -69,7 +67,6 @@ To run tests, run the following command
 ```bash
   npx playwright test
 ```
-
 
 ## Support
 

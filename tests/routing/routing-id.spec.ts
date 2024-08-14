@@ -11,7 +11,7 @@ test.describe("Routing Indonesian", () => {
 
   test("should have appropriate catchphrase", async ({ page }) => {
     const catchphraseText = page.locator(
-      'text="Temukan perpaduan sempurna antara fungsionalitas dan keanggunan dengan rangkaian produk penting kami, yang dirancang untuk meningkatkan kebutuhan sehari-hari Anda."'
+      'text="Temukan perpaduan sempurna antara fungsionalitas dan keanggunan dengan rangkaian produk penting kami, yang dirancang untuk meningkatkan kebutuhan sehari-hari Anda."',
     );
 
     await expect(catchphraseText).toBeVisible();

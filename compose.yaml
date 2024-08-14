@@ -19,4 +19,3 @@ services:
       BOTPRESS_THEME_COLOR: ${BOTPRESS_THEME_COLOR}
     ports:
       - 3000:3000
-

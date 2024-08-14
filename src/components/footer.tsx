@@ -70,10 +70,18 @@ export default function Footer() {
         >
           <Image src="/icon.png" alt="Easy Pack" height={16} />
           <Stack direction={"row"} spacing={6}>
-            <Link href={"/"} id="home-link">{t("home")}</Link>
-            <Link href={"/about"} id="about-link">{t("about")}</Link>
-            <Link href={"/products"} id="products-link">{t("products")}</Link>
-            <Link href={"/contact"} id="contact-link">{t("contact")}</Link>
+            <Link href={"/"} id="home-link">
+              {t("home")}
+            </Link>
+            <Link href={"/about"} id="about-link">
+              {t("about")}
+            </Link>
+            <Link href={"/products"} id="products-link">
+              {t("products")}
+            </Link>
+            <Link href={"/contact"} id="contact-link">
+              {t("contact")}
+            </Link>
           </Stack>
         </Container>
 

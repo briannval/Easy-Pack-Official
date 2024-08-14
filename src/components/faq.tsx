@@ -79,7 +79,7 @@ export default function Faq() {
         <ImageSlider
           images={Array.from(
             { length: 3 },
-            (_, i) => `/container${i + 4}.jpeg`
+            (_, i) => `/container${i + 4}.jpeg`,
           )}
         />
       </SimpleGrid>

@@ -14,7 +14,7 @@ const PRODUCTS_PER_PAGE = 6;
 export default async function fetchProducts(
   query: string = "",
   currentPage: number = 1,
-  locale: string = "en"
+  locale: string = "en",
 ): Promise<FetchProductsResult> {
   let getContentfulQuery: GetContentfulQuery = {
     content_type: "products",

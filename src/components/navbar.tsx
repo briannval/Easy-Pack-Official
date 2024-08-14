@@ -120,7 +120,7 @@ export default function Navbar() {
                       // are used in combination with a given `pathname`. Since the two will
                       // always match for the current route, we can skip runtime checks.
                       { pathname, params },
-                      { locale: newLocale }
+                      { locale: newLocale },
                     );
 
                     // hard refresh to avoid issues with the botpress webchat

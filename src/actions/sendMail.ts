@@ -8,7 +8,7 @@ export async function sendMail(
   name: String,
   email: String,
   phone: String,
-  message: String
+  message: String,
 ) {
   try {
     const { data, error } = await resend.emails.send({
@@ -20,16 +20,16 @@ export async function sendMail(
     if (error) {
       return JSON.parse(
         JSON.stringify(
-          NextResponse.json({ error: error.message }, { status: 400 })
-        )
+          NextResponse.json({ error: error.message }, { status: 400 }),
+        ),
       );
     }
     return JSON.parse(
-      JSON.stringify(NextResponse.json({ data }, { status: 200 }))
+      JSON.stringify(NextResponse.json({ data }, { status: 200 })),
     );
   } catch (e) {
     return JSON.parse(
-      JSON.stringify(NextResponse.json({ e }, { status: 500 }))
+      JSON.stringify(NextResponse.json({ e }, { status: 500 })),
     );
   }
 }

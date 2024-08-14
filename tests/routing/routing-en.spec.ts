@@ -11,7 +11,7 @@ test.describe("Routing English", () => {
 
   test("should have appropriate catchphrase", async ({ page }) => {
     const catchphraseText = page.locator(
-      'text="Discover the seamless blend of functionality and elegance with our range of essentials, designed to enhance your everyday needs."'
+      'text="Discover the seamless blend of functionality and elegance with our range of essentials, designed to enhance your everyday needs."',
     );
 
     await expect(catchphraseText).toBeVisible();

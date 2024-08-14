@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   function getUrl(
     key: keyof typeof pathnames,
-    locale: (typeof locales)[number]
+    locale: (typeof locales)[number],
   ) {
     const pathname = getPathname({ locale, href: key });
     return `${host}/${locale}${pathname === "/" ? "" : pathname}`;
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: getUrl(key, defaultLocale),
     alternates: {
       languages: Object.fromEntries(
-        locales.map((locale) => [locale, getUrl(key, locale)])
+        locales.map((locale) => [locale, getUrl(key, locale)]),
       ),
     },
   }));

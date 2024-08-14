@@ -51,12 +51,18 @@ export default function Mission() {
         <ImageSlider
           images={Array.from(
             { length: 3 },
-            (_, i) => `/container${i + 1}.jpeg`
+            (_, i) => `/container${i + 1}.jpeg`,
           )}
         />
         <Stack spacing={4}>
           <AnimatedHeading text={t("heading")} size="2xl" my={2} />
-          <Text color={"gray.500"} fontSize={"lg"} my={1} as={"p"} id="easy-pack-description">
+          <Text
+            color={"gray.500"}
+            fontSize={"lg"}
+            my={1}
+            as={"p"}
+            id="easy-pack-description"
+          >
             {t("predescription")}{" "}
             <Text as={"span"} color={"gold.300"} fontWeight={"600"}>
               Easy Pack,{" "}

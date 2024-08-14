@@ -33,7 +33,7 @@ const initialState: ProductsState = {
 
 const productsReducer = (
   state: ProductsState,
-  action: ProductsAction
+  action: ProductsAction,
 ): ProductsState => {
   switch (action.type) {
     case "FETCH_START":
@@ -74,7 +74,7 @@ export default function Products({
         const { products, totalPages } = await fetchProducts(
           query,
           currentPage,
-          l
+          l,
         );
         dispatch({ type: "FETCH_SUCCESS", payload: { products, totalPages } });
       } catch (error) {
