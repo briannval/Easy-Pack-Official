@@ -61,7 +61,7 @@ export default function ProductEntry({ product }: { product: Product }) {
 
   const productName = l === "id" ? product.indonesianName : product.name;
 
-  const productDimensions =
+  const productDimensions: Record<string, number> | undefined =
     l === "id" ? product.indonesianDimensions : product.dimensions;
 
   return (
@@ -135,12 +135,14 @@ export default function ProductEntry({ product }: { product: Product }) {
                 </Thead>
                 <Tbody>
                   {productDimensions &&
-                    Object.entries(productDimensions).map(([k, v]) => (
-                      <Tr>
-                        <Td>{k}</Td>
-                        <Td isNumeric>{v}</Td>
-                      </Tr>
-                    ))}
+                    Object.entries(productDimensions).map(
+                      ([k, v]: [string, number]) => (
+                        <Tr>
+                          <Td>{k}</Td>
+                          <Td isNumeric>{v}</Td>
+                        </Tr>
+                      )
+                    )}
                 </Tbody>
               </Table>
             </TableContainer>
