@@ -14,7 +14,7 @@ const PRODUCTS_PER_PAGE = 6;
 export default async function fetchProducts(
   query: string = "",
   currentPage: number = 1,
-  locale: string = "en",
+  locale: string = "en"
 ): Promise<FetchProductsResult> {
   let getContentfulQuery: GetContentfulQuery = {
     content_type: "products",
@@ -45,6 +45,7 @@ export default async function fetchProducts(
         ? `http:${(product.fields.image as any).fields.file.url}`
         : "/icon.png",
       indonesianName: product.fields.indonesianName,
+      indonesianDescription: product.fields.indonesianDescription,
     })),
     totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };

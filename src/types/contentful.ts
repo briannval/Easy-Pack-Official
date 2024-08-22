@@ -5,6 +5,7 @@ export interface ProductFields {
   description: EntryFields.Text;
   image: EntryFields.AssetLink;
   indonesianName: EntryFields.Text;
+  indonesianDescription: EntryFields.Text;
 }
 
 export type ProductFieldsSkeleton = EntrySkeletonType<
@@ -18,6 +19,7 @@ export interface Product {
   description: string;
   image_url: string;
   indonesianName: string;
+  indonesianDescription: string;
 }
 
 export interface FetchProductsResult {
@@ -32,6 +34,7 @@ export interface ProductsActionResult {
     description: string;
     image_url: string;
     indonesianName: string;
+    indonesianDescription: string;
   }[];
   totalPages: number;
 }
