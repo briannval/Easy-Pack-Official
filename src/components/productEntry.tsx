@@ -141,7 +141,7 @@ export default function ProductEntry({ product }: { product: Product }) {
                           <Td>{k}</Td>
                           <Td isNumeric>{v}</Td>
                         </Tr>
-                      )
+                      ),
                     )}
                 </Tbody>
               </Table>
