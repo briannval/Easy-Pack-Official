@@ -7,6 +7,23 @@ import {
   useColorModeValue,
   Image,
   Skeleton,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+  TableContainer,
+  Table,
+  TableCaption,
+  Td,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
 } from "@chakra-ui/react";
 import { useReducer } from "react";
 import { useLocale } from "next-intl";
@@ -38,6 +55,7 @@ const reducer = (state: State, action: Action): State => {
 
 export default function ProductEntry({ product }: { product: Product }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const l = useLocale();
 
@@ -56,6 +74,7 @@ export default function ProductEntry({ product }: { product: Product }) {
       onMouseEnter={() => dispatch({ type: "SET_HOVERED", payload: true })}
       onMouseLeave={() => dispatch({ type: "SET_HOVERED", payload: false })}
       zIndex={1}
+      onClick={onOpen}
     >
       <Box
         w={"370px"}
@@ -99,6 +118,41 @@ export default function ProductEntry({ product }: { product: Product }) {
           </Stack>
         </Center>
       </Box>
+
+      <Modal onClose={onClose} isOpen={isOpen} isCentered size={"sm"}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{productName}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <TableContainer>
+              <Table variant="simple" size={"sm"}>
+                <Thead>
+                  <Tr>
+                    <Th>{l == "id" ? "Dimensi" : "Dimension"}</Th>
+                    <Th isNumeric>
+                      {l == "id" ? "Pengukuran (cm)" : "Measurement (cm)"}
+                    </Th>
+                  </Tr>
+                </Thead>
+                <Tbody></Tbody>
+              </Table>
+            </TableContainer>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color={"white"}
+              bg={"gold.400"}
+              _hover={{
+                bg: "gold.300",
+              }}
+              onClick={onClose}
+            >
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Center>
   );
 }
