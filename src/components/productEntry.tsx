@@ -59,12 +59,10 @@ export default function ProductEntry({ product }: { product: Product }) {
 
   const l = useLocale();
 
-  const productName =
-    product.indonesianName && l === "id"
-      ? product.indonesianName
-      : product.name;
+  const productName = l === "id" ? product.indonesianName : product.name;
 
-  console.log(productName.split("NEWLINE"));
+  const productDimensions =
+    l === "id" ? product.indonesianDimensions : product.dimensions;
 
   return (
     <Center
@@ -135,7 +133,15 @@ export default function ProductEntry({ product }: { product: Product }) {
                     </Th>
                   </Tr>
                 </Thead>
-                <Tbody></Tbody>
+                <Tbody>
+                  {productDimensions &&
+                    Object.entries(productDimensions).map(([k, v]) => (
+                      <Tr>
+                        <Td>{k}</Td>
+                        <Td isNumeric>{v}</Td>
+                      </Tr>
+                    ))}
+                </Tbody>
               </Table>
             </TableContainer>
           </ModalBody>

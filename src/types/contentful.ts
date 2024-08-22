@@ -2,10 +2,10 @@ import { EntryFields, EntrySkeletonType } from "contentful";
 
 export interface ProductFields {
   name: EntryFields.Text;
-  description: EntryFields.Text;
+  dimensions: EntryFields.Object;
   image: EntryFields.AssetLink;
   indonesianName: EntryFields.Text;
-  indonesianDescription: EntryFields.Text;
+  indonesianDimensions: EntryFields.Object;
 }
 
 export type ProductFieldsSkeleton = EntrySkeletonType<
@@ -16,10 +16,10 @@ export type ProductFieldsSkeleton = EntrySkeletonType<
 export interface Product {
   id: string;
   name: string;
-  description: string;
+  dimensions: Record<string, number>;
   image_url: string;
   indonesianName: string;
-  indonesianDescription: string;
+  indonesianDimensions: Record<string, number>;
 }
 
 export interface FetchProductsResult {
@@ -31,10 +31,10 @@ export interface ProductsActionResult {
   products: {
     id: string;
     name: string;
-    description: string;
+    dimensions: Record<string, number>;
     image_url: string;
     indonesianName: string;
-    indonesianDescription: string;
+    indonesianDimensions: Record<string, number>;
   }[];
   totalPages: number;
 }
