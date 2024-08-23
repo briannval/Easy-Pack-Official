@@ -14,7 +14,7 @@ const PRODUCTS_PER_PAGE = 6;
 export default async function fetchProducts(
   query: string = "",
   currentPage: number = 1,
-  locale: string = "en",
+  locale: string = "en"
 ): Promise<FetchProductsResult> {
   let getContentfulQuery: GetContentfulQuery = {
     content_type: "products",
@@ -46,6 +46,10 @@ export default async function fetchProducts(
         : "/icon.png",
       indonesianName: product.fields.indonesianName,
       indonesianDimensions: product.fields.indonesianDimensions,
+      packsPerCarton: product.fields.packsPerCarton,
+      indonesianPacksPerCarton: product.fields.indonesianPacksPerCarton,
+      totalQuantity: product.fields.totalQuantity,
+      indonesianTotalQuantity: product.fields.indonesianTotalQuantity,
     })),
     totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };

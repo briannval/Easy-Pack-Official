@@ -61,6 +61,8 @@ export default function ProductEntry({ product }: { product: Product }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  console.log(product);
+
   const l = useLocale();
 
   const productName = product.indonesianName
@@ -71,6 +73,12 @@ export default function ProductEntry({ product }: { product: Product }) {
 
   const productDimensions: Record<string, number> | undefined =
     l === "id" ? product.indonesianDimensions : product.dimensions;
+
+  const productPacksPerCarton: string =
+    l === "id" ? product.indonesianPacksPerCarton : product.packsPerCarton;
+
+  const productTotalQuantity: string =
+    l === "id" ? product.indonesianTotalQuantity : product.totalQuantity;
 
   return (
     <Center
@@ -145,7 +153,7 @@ export default function ProductEntry({ product }: { product: Product }) {
             <Accordion allowToggle>
               <AccordionItem>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left">
+                  <Box flex="1" textAlign="left" fontWeight={"semi"}>
                     {l == "id" ? "Dimensi Produk" : "Product Dimensions"}
                   </Box>
                   <AccordionIcon />
@@ -178,19 +186,21 @@ export default function ProductEntry({ product }: { product: Product }) {
               </AccordionItem>
               <AccordionItem>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left">
+                  <Box flex="1" textAlign="left" fontWeight={"semi"}>
                     {l == "id" ? "Jumlah Pack / Karton" : "Packs / Carton"}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
+                <AccordionPanel>{productPacksPerCarton}</AccordionPanel>
               </AccordionItem>
               <AccordionItem>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left">
+                  <Box flex="1" textAlign="left" fontWeight={"semi"}>
                     {l == "id" ? "Total Kuantitas" : "Total Quantity"}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
+                <AccordionPanel>{productTotalQuantity}</AccordionPanel>
               </AccordionItem>
             </Accordion>
           </ModalBody>

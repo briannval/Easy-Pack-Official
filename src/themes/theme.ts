@@ -17,6 +17,7 @@ export const theme = extendTheme({
   },
   fontWeights: {
     normal: 400,
+    semi: 500,
     medium: 600,
     bold: 700,
   },

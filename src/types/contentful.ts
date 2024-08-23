@@ -6,6 +6,10 @@ export interface ProductFields {
   image: EntryFields.AssetLink;
   indonesianName: EntryFields.Text;
   indonesianDimensions: EntryFields.Object;
+  packsPerCarton: EntryFields.Text;
+  indonesianPacksPerCarton: EntryFields.Text;
+  totalQuantity: EntryFields.Text;
+  indonesianTotalQuantity: EntryFields.Text;
 }
 
 export type ProductFieldsSkeleton = EntrySkeletonType<
@@ -20,6 +24,10 @@ export interface Product {
   image_url: string;
   indonesianName: string;
   indonesianDimensions: Record<string, number>;
+  packsPerCarton: string;
+  indonesianPacksPerCarton: string;
+  totalQuantity: string;
+  indonesianTotalQuantity: string;
 }
 
 export interface FetchProductsResult {
@@ -35,6 +43,10 @@ export interface ProductsActionResult {
     image_url: string;
     indonesianName: string;
     indonesianDimensions: Record<string, number>;
+    packsPerCarton: string;
+    indonesianPacksPerCarton: string;
+    totalQuantity: string;
+    indonesianTotalQuantity: string;
   }[];
   totalPages: number;
 }
