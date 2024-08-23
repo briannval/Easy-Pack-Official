@@ -10,6 +10,7 @@ export interface ProductFields {
   indonesianPacksPerCarton: EntryFields.Text;
   totalQuantity: EntryFields.Text;
   indonesianTotalQuantity: EntryFields.Text;
+  quantityPerPack: EntryFields.Text;
 }
 
 export type ProductFieldsSkeleton = EntrySkeletonType<
@@ -28,6 +29,7 @@ export interface Product {
   indonesianPacksPerCarton: string;
   totalQuantity: string;
   indonesianTotalQuantity: string;
+  quantityPerPack: string;
 }
 
 export interface FetchProductsResult {
@@ -47,6 +49,7 @@ export interface ProductsActionResult {
     indonesianPacksPerCarton: string;
     totalQuantity: string;
     indonesianTotalQuantity: string;
+    quantityPerPack: string;
   }[];
   totalPages: number;
 }

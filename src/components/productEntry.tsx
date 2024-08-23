@@ -31,7 +31,6 @@ import {
 } from "@chakra-ui/react";
 import { useReducer } from "react";
 import { useLocale } from "next-intl";
-import { string } from "zod";
 
 type State = {
   loading: boolean;
@@ -81,6 +80,10 @@ export default function ProductEntry({ product }: { product: Product }) {
   const productTotalQuantity: string =
     l === "id" ? product.indonesianTotalQuantity : product.totalQuantity;
 
+  const productImageUrl = product.image_url;
+
+  const productQuantityPerPack = product.quantityPerPack;
+
   return (
     <Center
       w={"full"}
@@ -104,7 +107,7 @@ export default function ProductEntry({ product }: { product: Product }) {
       >
         <Box h={"280px"} w={"full"} bg={"gray.100"} mb={6} pos={"relative"}>
           <Image
-            src={product.image_url}
+            src={productImageUrl}
             w={"100%"}
             h={"100%"}
             objectFit={"cover"}
@@ -144,7 +147,7 @@ export default function ProductEntry({ product }: { product: Product }) {
           <ModalCloseButton />
           <ModalBody>
             <Image
-              src={product.image_url}
+              src={productImageUrl}
               w={"100%"}
               h={"100%"}
               objectFit={"cover"}
@@ -216,6 +219,17 @@ export default function ProductEntry({ product }: { product: Product }) {
                     <AccordionIcon />
                   </AccordionButton>
                   <AccordionPanel>{productTotalQuantity}</AccordionPanel>
+                </AccordionItem>
+              )}
+              {productQuantityPerPack && (
+                <AccordionItem>
+                  <AccordionButton>
+                    <Box flex="1" textAlign="left" fontWeight={"medium"}>
+                      {l == "id" ? "Kuantitas / Pack" : "Quantity / Pack"}
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel>{productQuantityPerPack}</AccordionPanel>
                 </AccordionItem>
               )}
             </Accordion>

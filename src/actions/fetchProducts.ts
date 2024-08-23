@@ -50,6 +50,7 @@ export default async function fetchProducts(
       indonesianPacksPerCarton: product.fields.indonesianPacksPerCarton,
       totalQuantity: product.fields.totalQuantity,
       indonesianTotalQuantity: product.fields.indonesianTotalQuantity,
+      quantityPerPack: product.fields.quantityPerPack,
     })),
     totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };
