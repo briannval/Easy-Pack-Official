@@ -163,7 +163,26 @@ export default function ProductEntry({ product }: { product: Product }) {
                   <AccordionIcon />
                 </AccordionButton>
                 <AccordionPanel pb={4}>
-                  <TableContainer>
+                  {/* Allow scrollbar always intact */}
+                  <TableContainer
+                    overflowY={"scroll"}
+                    overflowX={"hidden"}
+                    maxH={"200px"}
+                    sx={{
+                      "::-webkit-scrollbar": {
+                        width: "10px",
+                      },
+                      "::-webkit-scrollbar-track": {
+                        background: "#f1f1f1",
+                      },
+                      "::-webkit-scrollbar-thumb": {
+                        background: "#888",
+                      },
+                      "::-webkit-scrollbar-thumb:hover": {
+                        background: "#555",
+                      },
+                    }}
+                  >
                     <Table variant="simple" size={"sm"}>
                       <Thead>
                         <Tr>
