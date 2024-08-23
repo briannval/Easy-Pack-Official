@@ -63,25 +63,25 @@ export default function ProductEntry({ product }: { product: Product }) {
 
   const l = useLocale();
 
-  const productName = product.indonesianName
-    ? l === "id"
-      ? product.indonesianName
-      : product.name
-    : product.name;
-
-  const productDimensions:
-    | Record<string, number | string[] | number[]>
-    | undefined =
-    l === "id" ? product.indonesianDimensions : product.dimensions;
-
-  const productPacksPerCarton: string =
-    l === "id" ? product.indonesianPacksPerCarton : product.packsPerCarton;
-
-  const productTotalQuantity: string =
-    l === "id" ? product.indonesianTotalQuantity : product.totalQuantity;
+  const localizedText = {
+    productName: l === "id" ? product.indonesianName : product.name,
+    productDimensions:
+      l === "id" ? product.indonesianDimensions : product.dimensions,
+    productPacksPerCarton:
+      l === "id" ? product.indonesianPacksPerCarton : product.packsPerCarton,
+    productTotalQuantity:
+      l === "id" ? product.indonesianTotalQuantity : product.totalQuantity,
+    dimensionLabel: l === "id" ? "Dimensi Produk" : "Product Dimensions",
+    packsPerCartonLabel: l === "id" ? "Jumlah Pack / Karton" : "Packs / Carton",
+    quantityPerCartonLabel:
+      l === "id" ? "Kuantitas / Karton" : "Quantity / Carton",
+    quantityPerPackLabel: l === "id" ? "Kuantitas / Pack" : "Quantity / Pack",
+    dimensionHeader: l === "id" ? "Dimensi" : "Dimension",
+    measurementHeader: l === "id" ? "Pengukuran (cm)" : "Measurement (cm)",
+    closeButtonLabel: l === "id" ? "Tutup" : "Close",
+  };
 
   const productImageUrl = product.image_url;
-
   const productQuantityPerPack = product.quantityPerPack;
 
   return (
@@ -127,10 +127,13 @@ export default function ProductEntry({ product }: { product: Product }) {
               as={"h1"}
               id="product-name"
             >
-              {productName.split("NEWLINE").map((line, index) => (
+              {localizedText.productName.split("NEWLINE").map((line, index) => (
                 <span key={index}>
                   {line}
-                  {index < productName.split("NEWLINE").length - 1 && <br />}
+                  {index <
+                    localizedText.productName.split("NEWLINE").length - 1 && (
+                    <br />
+                  )}
                 </span>
               ))}
             </Heading>
@@ -142,7 +145,7 @@ export default function ProductEntry({ product }: { product: Product }) {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader fontWeight={"bold"} fontSize={"xl"}>
-            {productName}
+            {localizedText.productName}
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -158,7 +161,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               <AccordionItem>
                 <AccordionButton>
                   <Box flex="1" textAlign="left" fontWeight={"medium"}>
-                    {l == "id" ? "Dimensi Produk" : "Product Dimensions"}
+                    {localizedText.dimensionLabel}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -186,15 +189,13 @@ export default function ProductEntry({ product }: { product: Product }) {
                     <Table variant="simple" size={"sm"}>
                       <Thead>
                         <Tr>
-                          <Th>{l == "id" ? "Dimensi" : "Dimension"}</Th>
-                          <Th isNumeric>
-                            {l == "id" ? "Pengukuran (cm)" : "Measurement (cm)"}
-                          </Th>
+                          <Th>{localizedText.dimensionHeader}</Th>
+                          <Th isNumeric>{localizedText.measurementHeader}</Th>
                         </Tr>
                       </Thead>
                       <Tbody>
-                        {productDimensions &&
-                          Object.entries(productDimensions).map(
+                        {localizedText.productDimensions &&
+                          Object.entries(localizedText.productDimensions).map(
                             (
                               [k, v]: [string, number | string[] | number[]],
                               i: number
@@ -218,33 +219,37 @@ export default function ProductEntry({ product }: { product: Product }) {
                   </TableContainer>
                 </AccordionPanel>
               </AccordionItem>
-              {productPacksPerCarton && (
+              {localizedText.productPacksPerCarton && (
                 <AccordionItem>
                   <AccordionButton>
                     <Box flex="1" textAlign="left" fontWeight={"medium"}>
-                      {l == "id" ? "Jumlah Pack / Karton" : "Packs / Carton"}
+                      {localizedText.packsPerCartonLabel}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
-                  <AccordionPanel>{productPacksPerCarton}</AccordionPanel>
+                  <AccordionPanel>
+                    {localizedText.productPacksPerCarton}
+                  </AccordionPanel>
                 </AccordionItem>
               )}
-              {productTotalQuantity && (
+              {localizedText.productTotalQuantity && (
                 <AccordionItem>
                   <AccordionButton>
                     <Box flex="1" textAlign="left" fontWeight={"medium"}>
-                      {l == "id" ? "Kuantitas / Karton" : "Quantity / Carton"}
+                      {localizedText.quantityPerCartonLabel}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
-                  <AccordionPanel>{productTotalQuantity}</AccordionPanel>
+                  <AccordionPanel>
+                    {localizedText.productTotalQuantity}
+                  </AccordionPanel>
                 </AccordionItem>
               )}
               {productQuantityPerPack && (
                 <AccordionItem>
                   <AccordionButton>
                     <Box flex="1" textAlign="left" fontWeight={"medium"}>
-                      {l == "id" ? "Kuantitas / Pack" : "Quantity / Pack"}
+                      {localizedText.quantityPerPackLabel}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
@@ -262,7 +267,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               }}
               onClick={onClose}
             >
-              {l == "id" ? "Tutup" : "Close"}
+              {localizedText.closeButtonLabel}
             </Button>
           </ModalFooter>
         </ModalContent>
