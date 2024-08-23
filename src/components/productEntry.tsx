@@ -31,6 +31,7 @@ import {
 } from "@chakra-ui/react";
 import { useReducer } from "react";
 import { useLocale } from "next-intl";
+import { string } from "zod";
 
 type State = {
   loading: boolean;
@@ -69,7 +70,7 @@ export default function ProductEntry({ product }: { product: Product }) {
       : product.name
     : product.name;
 
-  const productDimensions: Record<string, number> | undefined =
+  const productDimensions: Record<string, number | string[]> | undefined =
     l === "id" ? product.indonesianDimensions : product.dimensions;
 
   const productPacksPerCarton: string =
@@ -170,12 +171,20 @@ export default function ProductEntry({ product }: { product: Product }) {
                       <Tbody>
                         {productDimensions &&
                           Object.entries(productDimensions).map(
-                            ([k, v]: [string, number], i: number) => (
-                              <Tr key={i}>
-                                <Td>{k}</Td>
-                                <Td isNumeric>{v}</Td>
-                              </Tr>
-                            )
+                            ([k, v]: [string, number | string[]], i: number) =>
+                              Array.isArray(v) ? (
+                                v.map((v_el: string, i_el: number) => (
+                                  <Tr key={i_el}>
+                                    <Td>{k}</Td>
+                                    <Td isNumeric>{v_el}</Td>
+                                  </Tr>
+                                ))
+                              ) : (
+                                <Tr key={i}>
+                                  <Td>{k}</Td>
+                                  <Td isNumeric>{v}</Td>
+                                </Tr>
+                              )
                           )}
                       </Tbody>
                     </Table>
