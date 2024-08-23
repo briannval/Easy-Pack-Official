@@ -18,12 +18,16 @@ import {
   useDisclosure,
   TableContainer,
   Table,
-  TableCaption,
   Td,
   Thead,
   Tr,
   Th,
   Tbody,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import { useReducer } from "react";
 import { useLocale } from "next-intl";
@@ -94,9 +98,10 @@ export default function ProductEntry({ product }: { product: Product }) {
             src={product.image_url}
             w={"100%"}
             h={"100%"}
-            objectFit={"fill"}
+            objectFit={"cover"}
             onLoad={() => dispatch({ type: "SET_LOADING", payload: false })}
             style={{ display: !state.loading ? "block" : "none" }}
+            rounded={"xl"}
           />
           {state.loading && <Skeleton h={"280px"} w={"375px"} />}
         </Box>
@@ -124,32 +129,70 @@ export default function ProductEntry({ product }: { product: Product }) {
       <Modal onClose={onClose} isOpen={isOpen} isCentered size={"sm"}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{productName}</ModalHeader>
+          <ModalHeader fontWeight={"bold"} fontSize={"xl"}>
+            {productName}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <TableContainer>
-              <Table variant="simple" size={"sm"}>
-                <Thead>
-                  <Tr>
-                    <Th>{l == "id" ? "Dimensi" : "Dimension"}</Th>
-                    <Th isNumeric>
-                      {l == "id" ? "Pengukuran (cm)" : "Measurement (cm)"}
-                    </Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  {productDimensions &&
-                    Object.entries(productDimensions).map(
-                      ([k, v]: [string, number], i: number) => (
-                        <Tr key={i}>
-                          <Td>{k}</Td>
-                          <Td isNumeric>{v}</Td>
+            <Image
+              src={product.image_url}
+              w={"100%"}
+              h={"100%"}
+              objectFit={"cover"}
+              mb={4}
+              rounded={"xl"}
+            />
+            <Accordion allowToggle>
+              <AccordionItem>
+                <AccordionButton>
+                  <Box flex="1" textAlign="left">
+                    {l == "id" ? "Dimensi Produk" : "Product Dimensions"}
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel pb={4}>
+                  <TableContainer>
+                    <Table variant="simple" size={"sm"}>
+                      <Thead>
+                        <Tr>
+                          <Th>{l == "id" ? "Dimensi" : "Dimension"}</Th>
+                          <Th isNumeric>
+                            {l == "id" ? "Pengukuran (cm)" : "Measurement (cm)"}
+                          </Th>
                         </Tr>
-                      )
-                    )}
-                </Tbody>
-              </Table>
-            </TableContainer>
+                      </Thead>
+                      <Tbody>
+                        {productDimensions &&
+                          Object.entries(productDimensions).map(
+                            ([k, v]: [string, number], i: number) => (
+                              <Tr key={i}>
+                                <Td>{k}</Td>
+                                <Td isNumeric>{v}</Td>
+                              </Tr>
+                            )
+                          )}
+                      </Tbody>
+                    </Table>
+                  </TableContainer>
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionButton>
+                  <Box flex="1" textAlign="left">
+                    {l == "id" ? "Jumlah Pack / Karton" : "Packs / Carton"}
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionButton>
+                  <Box flex="1" textAlign="left">
+                    {l == "id" ? "Total Kuantitas" : "Total Quantity"}
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </AccordionItem>
+            </Accordion>
           </ModalBody>
           <ModalFooter>
             <Button
