@@ -156,7 +156,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               }}
               onClick={onClose}
             >
-              Close
+             {l == "id" ? "Tutup" : "Close"} 
             </Button>
           </ModalFooter>
         </ModalContent>
