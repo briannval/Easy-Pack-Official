@@ -23,7 +23,7 @@ export interface Product {
   dimensions: Record<string, number>;
   image_url: string;
   indonesianName: string;
-  indonesianDimensions: Record<string, number>;
+  indonesianDimensions: Record<string, any>;
   packsPerCarton: string;
   indonesianPacksPerCarton: string;
   totalQuantity: string;
@@ -39,7 +39,7 @@ export interface ProductsActionResult {
   products: {
     id: string;
     name: string;
-    dimensions: Record<string, number>;
+    dimensions: Record<string, any>;
     image_url: string;
     indonesianName: string;
     indonesianDimensions: Record<string, number>;
