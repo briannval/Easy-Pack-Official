@@ -20,10 +20,10 @@ export type ProductFieldsSkeleton = EntrySkeletonType<
 export interface Product {
   id: string;
   name: string;
-  dimensions: Record<string, number | string[]>;
+  dimensions: Record<string, number | string[] | number[]>;
   image_url: string;
   indonesianName: string;
-  indonesianDimensions: Record<string, number | string[]>;
+  indonesianDimensions: Record<string, number | string[] | number[]>;
   packsPerCarton: string;
   indonesianPacksPerCarton: string;
   totalQuantity: string;
@@ -39,10 +39,10 @@ export interface ProductsActionResult {
   products: {
     id: string;
     name: string;
-    dimensions: Record<string, number | string[]>;
+    dimensions: Record<string, number | string[] | number[]>;
     image_url: string;
     indonesianName: string;
-    indonesianDimensions: Record<string, number | string[]>;
+    indonesianDimensions: Record<string, number | string[] | number[]>;
     packsPerCarton: string;
     indonesianPacksPerCarton: string;
     totalQuantity: string;

@@ -70,7 +70,9 @@ export default function ProductEntry({ product }: { product: Product }) {
       : product.name
     : product.name;
 
-  const productDimensions: Record<string, number | string[]> | undefined =
+  const productDimensions:
+    | Record<string, number | string[] | number[]>
+    | undefined =
     l === "id" ? product.indonesianDimensions : product.dimensions;
 
   const productPacksPerCarton: string =
@@ -171,9 +173,12 @@ export default function ProductEntry({ product }: { product: Product }) {
                       <Tbody>
                         {productDimensions &&
                           Object.entries(productDimensions).map(
-                            ([k, v]: [string, number | string[]], i: number) =>
+                            (
+                              [k, v]: [string, number | string[] | number[]],
+                              i: number
+                            ) =>
                               Array.isArray(v) ? (
-                                v.map((v_el: string, i_el: number) => (
+                                v.map((v_el: string | number, i_el: number) => (
                                   <Tr key={i_el}>
                                     <Td>{k}</Td>
                                     <Td isNumeric>{v_el}</Td>
