@@ -61,8 +61,6 @@ export default function ProductEntry({ product }: { product: Product }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  console.log(product);
-
   const l = useLocale();
 
   const productName = product.indonesianName
