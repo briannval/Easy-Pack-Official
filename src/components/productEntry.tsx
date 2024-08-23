@@ -59,7 +59,11 @@ export default function ProductEntry({ product }: { product: Product }) {
 
   const l = useLocale();
 
-  const productName = l === "id" ? product.indonesianName : product.name;
+  const productName = product.indonesianName
+    ? l === "id"
+      ? product.indonesianName
+      : product.name
+    : product.name;
 
   const productDimensions: Record<string, number> | undefined =
     l === "id" ? product.indonesianDimensions : product.dimensions;
@@ -136,12 +140,12 @@ export default function ProductEntry({ product }: { product: Product }) {
                 <Tbody>
                   {productDimensions &&
                     Object.entries(productDimensions).map(
-                      ([k, v]: [string, number]) => (
-                        <Tr>
+                      ([k, v]: [string, number], i: number) => (
+                        <Tr key={i}>
                           <Td>{k}</Td>
                           <Td isNumeric>{v}</Td>
                         </Tr>
-                      ),
+                      )
                     )}
                 </Tbody>
               </Table>
