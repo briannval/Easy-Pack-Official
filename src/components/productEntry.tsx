@@ -153,7 +153,7 @@ export default function ProductEntry({ product }: { product: Product }) {
             <Accordion allowToggle>
               <AccordionItem>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left" fontWeight={"semi"}>
+                  <Box flex="1" textAlign="left" fontWeight={"medium"}>
                     {l == "id" ? "Dimensi Produk" : "Product Dimensions"}
                   </Box>
                   <AccordionIcon />
@@ -186,7 +186,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               </AccordionItem>
               <AccordionItem>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left" fontWeight={"semi"}>
+                  <Box flex="1" textAlign="left" fontWeight={"medium"}>
                     {l == "id" ? "Jumlah Pack / Karton" : "Packs / Carton"}
                   </Box>
                   <AccordionIcon />
@@ -195,7 +195,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               </AccordionItem>
               <AccordionItem>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left" fontWeight={"semi"}>
+                  <Box flex="1" textAlign="left" fontWeight={"medium"}>
                     {l == "id" ? "Total Kuantitas" : "Total Quantity"}
                   </Box>
                   <AccordionIcon />
