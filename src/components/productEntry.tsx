@@ -196,7 +196,7 @@ export default function ProductEntry({ product }: { product: Product }) {
               <AccordionItem>
                 <AccordionButton>
                   <Box flex="1" textAlign="left" fontWeight={"medium"}>
-                    {l == "id" ? "Total Kuantitas" : "Total Quantity"}
+                    {l == "id" ? "Kuantitas / Karton" : "Quantity / Carton"}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
