@@ -144,8 +144,16 @@ export default function ProductEntry({ product }: { product: Product }) {
       <Modal onClose={onClose} isOpen={isOpen} isCentered size={"sm"}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader fontWeight={"bold"} fontSize={"xl"}>
-            {localizedText.productName}
+          <ModalHeader fontWeight={"bold"} fontSize={"lg"}>
+            {localizedText.productName.split("NEWLINE").map((line, index) => (
+              <span key={index}>
+                {line}
+                {index <
+                  localizedText.productName.split("NEWLINE").length - 1 && (
+                  <br />
+                )}
+              </span>
+            ))}
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
