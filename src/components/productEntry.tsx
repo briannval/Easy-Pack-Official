@@ -191,24 +191,28 @@ export default function ProductEntry({ product }: { product: Product }) {
                   </TableContainer>
                 </AccordionPanel>
               </AccordionItem>
-              <AccordionItem>
-                <AccordionButton>
-                  <Box flex="1" textAlign="left" fontWeight={"medium"}>
-                    {l == "id" ? "Jumlah Pack / Karton" : "Packs / Carton"}
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-                <AccordionPanel>{productPacksPerCarton}</AccordionPanel>
-              </AccordionItem>
-              <AccordionItem>
-                <AccordionButton>
-                  <Box flex="1" textAlign="left" fontWeight={"medium"}>
-                    {l == "id" ? "Kuantitas / Karton" : "Quantity / Carton"}
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-                <AccordionPanel>{productTotalQuantity}</AccordionPanel>
-              </AccordionItem>
+              {productPacksPerCarton && (
+                <AccordionItem>
+                  <AccordionButton>
+                    <Box flex="1" textAlign="left" fontWeight={"medium"}>
+                      {l == "id" ? "Jumlah Pack / Karton" : "Packs / Carton"}
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel>{productPacksPerCarton}</AccordionPanel>
+                </AccordionItem>
+              )}
+              {productTotalQuantity && (
+                <AccordionItem>
+                  <AccordionButton>
+                    <Box flex="1" textAlign="left" fontWeight={"medium"}>
+                      {l == "id" ? "Kuantitas / Karton" : "Quantity / Carton"}
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel>{productTotalQuantity}</AccordionPanel>
+                </AccordionItem>
+              )}
             </Accordion>
           </ModalBody>
           <ModalFooter>
