@@ -18,7 +18,7 @@ export default function ImageSlider({ images }: { images: string[] }) {
   return (
     <Box
       position={"relative"}
-      height={"400px"}
+      height={{ base: "300px", md: "400px" }}
       width={"full"}
       overflow={"hidden"}
     >
@@ -36,9 +36,10 @@ export default function ImageSlider({ images }: { images: string[] }) {
         {images.map((url, index) => (
           <Image
             key={index}
-            h={"400px"}
+            h={{ base: "300px", md: "400px" }}
             position="relative"
             src={url}
+            objectFit={"cover"}
             borderRadius={"xl"}
           />
         ))}
