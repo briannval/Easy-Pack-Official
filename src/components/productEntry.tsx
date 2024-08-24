@@ -141,10 +141,15 @@ export default function ProductEntry({ product }: { product: Product }) {
         </Center>
       </Box>
 
-      <Modal onClose={onClose} isOpen={isOpen} isCentered size={"sm"}>
+      <Modal
+        onClose={onClose}
+        isOpen={isOpen}
+        isCentered
+        size={{ base: "sm", md: "md" }}
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader fontWeight={"bold"} fontSize={"lg"}>
+          <ModalHeader fontWeight={"bold"} fontSize={{ base: "md", md: "lg" }}>
             {localizedText.productName.replace("NEWLINE", " ")}
           </ModalHeader>
           <ModalCloseButton />
@@ -160,7 +165,12 @@ export default function ProductEntry({ product }: { product: Product }) {
             <Accordion allowToggle>
               <AccordionItem>
                 <AccordionButton>
-                  <Box flex="1" textAlign="left" fontWeight={"medium"}>
+                  <Box
+                    flex="1"
+                    textAlign="left"
+                    fontWeight={"medium"}
+                    fontSize={{ base: "sm", md: "md" }}
+                  >
                     {localizedText.dimensionLabel}
                   </Box>
                   <AccordionIcon />
@@ -222,12 +232,17 @@ export default function ProductEntry({ product }: { product: Product }) {
               {localizedText.productPacksPerCarton && (
                 <AccordionItem>
                   <AccordionButton>
-                    <Box flex="1" textAlign="left" fontWeight={"medium"}>
+                    <Box
+                      flex="1"
+                      textAlign="left"
+                      fontWeight={"medium"}
+                      fontSize={{ base: "sm", md: "md" }}
+                    >
                       {localizedText.packsPerCartonLabel}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
-                  <AccordionPanel>
+                  <AccordionPanel fontSize={{ base: "sm", md: "md" }}>
                     {localizedText.productPacksPerCarton
                       .split("NEWLINE")
                       .map((line, index) => (
@@ -245,12 +260,17 @@ export default function ProductEntry({ product }: { product: Product }) {
               {localizedText.productTotalQuantity && (
                 <AccordionItem>
                   <AccordionButton>
-                    <Box flex="1" textAlign="left" fontWeight={"medium"}>
+                    <Box
+                      flex="1"
+                      textAlign="left"
+                      fontWeight={"medium"}
+                      fontSize={{ base: "sm", md: "md" }}
+                    >
                       {localizedText.quantityPerCartonLabel}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
-                  <AccordionPanel>
+                  <AccordionPanel fontSize={{ base: "sm", md: "md" }}>
                     {localizedText.productTotalQuantity
                       .split("NEWLINE")
                       .map((line, index) => (
@@ -268,12 +288,19 @@ export default function ProductEntry({ product }: { product: Product }) {
               {productQuantityPerPack && (
                 <AccordionItem>
                   <AccordionButton>
-                    <Box flex="1" textAlign="left" fontWeight={"medium"}>
+                    <Box
+                      flex="1"
+                      textAlign="left"
+                      fontWeight={"medium"}
+                      fontSize={{ base: "sm", md: "md" }}
+                    >
                       {localizedText.quantityPerPackLabel}
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
-                  <AccordionPanel>{productQuantityPerPack}</AccordionPanel>
+                  <AccordionPanel fontSize={{ base: "sm", md: "md" }}>
+                    {productQuantityPerPack}
+                  </AccordionPanel>
                 </AccordionItem>
               )}
             </Accordion>
