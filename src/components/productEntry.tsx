@@ -228,7 +228,17 @@ export default function ProductEntry({ product }: { product: Product }) {
                     <AccordionIcon />
                   </AccordionButton>
                   <AccordionPanel>
-                    {localizedText.productPacksPerCarton}
+                    {localizedText.productPacksPerCarton
+                      .split("NEWLINE")
+                      .map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index <
+                            localizedText.productPacksPerCarton.split("NEWLINE")
+                              .length -
+                              1 && <br />}
+                        </span>
+                      ))}
                   </AccordionPanel>
                 </AccordionItem>
               )}
@@ -241,7 +251,14 @@ export default function ProductEntry({ product }: { product: Product }) {
                     <AccordionIcon />
                   </AccordionButton>
                   <AccordionPanel>
-                    {localizedText.productTotalQuantity}
+                    {localizedText.productTotalQuantity
+                      .split("NEWLINE")
+                      .map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index < 1 && <br />}
+                        </span>
+                      ))}
                   </AccordionPanel>
                 </AccordionItem>
               )}
