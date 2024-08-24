@@ -256,7 +256,10 @@ export default function ProductEntry({ product }: { product: Product }) {
                       .map((line, index) => (
                         <span key={index}>
                           {line}
-                          {index < 1 && <br />}
+                          {index <
+                            localizedText.productTotalQuantity.split("NEWLINE")
+                              .length -
+                              1 && <br />}
                         </span>
                       ))}
                   </AccordionPanel>
