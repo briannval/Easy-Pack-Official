@@ -180,7 +180,7 @@ export default function ProductEntry({ product }: { product: Product }) {
                   <TableContainer
                     overflowY={"scroll"}
                     overflowX={"hidden"}
-                    maxH={"200px"}
+                    maxH={"150px"}
                     sx={{
                       "::-webkit-scrollbar": {
                         width: "10px",
