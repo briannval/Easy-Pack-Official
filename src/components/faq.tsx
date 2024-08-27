@@ -9,8 +9,8 @@ import {
   AccordionIcon,
   AccordionPanel,
   Stack,
+  Heading,
 } from "@chakra-ui/react";
-import AnimatedHeading from "./animatedHeading";
 import { useTranslations } from "next-intl";
 import ImageSlider from "./imageSlider";
 import { AccordionElementProps } from "@/types/components";
@@ -67,7 +67,9 @@ export default function Faq() {
     <Container maxW={"container.xl"} py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} minH={"50vh"}>
         <Stack spacing={4}>
-          <AnimatedHeading text={t("heading")} size="2xl" my={2} />
+          <Heading size={"2xl"} my={2} as={"h1"}>
+            {t("heading")}
+          </Heading>
           <Accordion allowToggle>
             {faqs.map((faq, index) => (
               <AccordionElement key={index} title={faq.title}>
@@ -79,7 +81,7 @@ export default function Faq() {
         <ImageSlider
           images={Array.from(
             { length: 3 },
-            (_, i) => `/container${i + 4}.jpeg`,
+            (_, i) => `/container${i + 4}.jpeg`
           )}
         />
       </SimpleGrid>

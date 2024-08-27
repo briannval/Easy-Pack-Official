@@ -6,37 +6,14 @@ import {
   SimpleGrid,
   Text,
   VStack,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaShieldAlt, FaStar } from "react-icons/fa";
 import { FaBoxesStacked } from "react-icons/fa6";
-import AnimatedHeading from "./animatedHeading";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { QualityProps } from "@/types/components";
 
-const itemVariants = {
-  hidden: { opacity: 0, scale: 1.2 },
-  visible: { opacity: 1, scale: 1 },
-};
-
-const MotionSimpleGrid = motion(SimpleGrid);
-
 function QualitiesGrid() {
-  const ref = useRef(null);
-  const inViewAmount = useBreakpointValue({ base: 0.3, md: 0.7 });
-  const controls = useAnimation();
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const isInView = useInView(ref, { amount: inViewAmount });
   const t = useTranslations("Components.Qualities");
-
-  useEffect(() => {
-    if (isInView && !hasAnimated) {
-      controls.start("visible");
-      setHasAnimated(true);
-    }
-  }, [hasAnimated, controls, isInView]);
 
   const qualities: QualityProps[] = [
     {
@@ -57,32 +34,28 @@ function QualitiesGrid() {
   ];
 
   return (
-    <MotionSimpleGrid
-      ref={ref}
+    <SimpleGrid
       columns={{ base: 1, md: 3 }}
       spacing={{ base: 20, md: 24 }}
-      initial="hidden"
-      animate={controls}
-      transition={{ staggerChildren: 0.1 }}
       aria-hidden
     >
       {qualities.map((quality, index) => (
-        <motion.div key={index} variants={itemVariants}>
-          <VStack>
-            <Icon as={quality.icon} width={10} h={10} color={"gold.400"} />
-            <AnimatedHeading text={quality.title} size="lg" my={4} />
-            <Text
-              align={"center"}
-              maxW={"80%"}
-              as={"h3"}
-              id="quality-description"
-            >
-              {quality.description}
-            </Text>
-          </VStack>
-        </motion.div>
+        <VStack key={index}>
+          <Icon as={quality.icon} width={10} h={10} color={"gold.400"} />
+          <Heading size={"lg"} my={4} as={"h1"}>
+            {quality.title}
+          </Heading>
+          <Text
+            align={"center"}
+            maxW={"80%"}
+            as={"h3"}
+            id="quality-description"
+          >
+            {quality.description}
+          </Text>
+        </VStack>
       ))}
-    </MotionSimpleGrid>
+    </SimpleGrid>
   );
 }
 

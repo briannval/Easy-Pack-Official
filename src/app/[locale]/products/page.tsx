@@ -9,7 +9,6 @@ import { useTranslations, useLocale } from "next-intl";
 import { redirect } from "next/navigation";
 import { Product } from "@/types/contentful";
 
-// Dynamically import components
 const NoProducts = dynamic(() => import("@/components/noProducts"));
 const Pagination = dynamic(() => import("@/components/pagination"));
 const ProductEntries = dynamic(() => import("@/components/productEntries"), {

@@ -8,10 +8,10 @@ import {
   StackDivider,
   Icon,
   useColorModeValue,
+  Heading,
 } from "@chakra-ui/react";
 import { BiCake, BiKnife } from "react-icons/bi";
 import { GoContainer } from "react-icons/go";
-import AnimatedHeading from "./animatedHeading";
 import { useTranslations } from "next-intl";
 import ImageSlider from "./imageSlider";
 import { FeatureProps } from "@/types/components";
@@ -51,11 +51,13 @@ export default function Mission() {
         <ImageSlider
           images={Array.from(
             { length: 3 },
-            (_, i) => `/container${i + 1}.jpeg`,
+            (_, i) => `/container${i + 1}.jpeg`
           )}
         />
         <Stack spacing={4}>
-          <AnimatedHeading text={t("heading")} size="2xl" my={2} />
+          <Heading size={"2xl"} my={2} as={"h1"}>
+            {t("heading")}
+          </Heading>
           <Text
             color={"gray.500"}
             fontSize={"lg"}
