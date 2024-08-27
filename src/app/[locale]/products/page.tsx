@@ -8,9 +8,10 @@ import { useEffect, useReducer } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { redirect } from "next/navigation";
 import { Product } from "@/types/contentful";
+import Pagination from "@/components/pagination";
 
+// Can be either so dynamic
 const NoProducts = dynamic(() => import("@/components/noProducts"));
-const Pagination = dynamic(() => import("@/components/pagination"));
 const ProductEntries = dynamic(() => import("@/components/productEntries"), {
   loading: () => <ProductEntriesSkeleton />,
 });
