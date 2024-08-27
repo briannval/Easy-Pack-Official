@@ -1,9 +1,16 @@
 "use client";
-import RotatingImages from "@/components/rotatingImages";
-import RotatingWords from "@/components/rotatingWords";
+import dynamic from "next/dynamic";
 import { Box, Button, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { FaQuestion, FaUtensils } from "react-icons/fa";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
+
+const RotatingImages = dynamic(() => import("@/components/rotatingImages"), {
+  ssr: false,
+});
+
+const RotatingWords = dynamic(() => import("@/components/rotatingWords"), {
+  ssr: false,
+});
 
 export default function Home() {
   const t = useTranslations("Pages.Home");

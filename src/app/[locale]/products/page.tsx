@@ -1,15 +1,20 @@
 "use client";
+import dynamic from "next/dynamic";
 import fetchProducts from "@/actions/fetchProducts";
-import NoProducts from "@/components/noProducts";
-import Pagination from "@/components/pagination";
-import ProductEntries from "@/components/productEntries";
 import ProductEntriesSkeleton from "@/components/productEntriesSkeleton";
 import Search from "@/components/search";
-import { Product } from "@/types/contentful";
 import { Box, Center, Heading, VStack } from "@chakra-ui/react";
 import { useEffect, useReducer } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { redirect } from "next/navigation";
+import { Product } from "@/types/contentful";
+
+// Dynamically import components
+const NoProducts = dynamic(() => import("@/components/noProducts"));
+const Pagination = dynamic(() => import("@/components/pagination"));
+const ProductEntries = dynamic(() => import("@/components/productEntries"), {
+  loading: () => <ProductEntriesSkeleton />,
+});
 
 interface ProductsState {
   products: Product[];
@@ -33,7 +38,7 @@ const initialState: ProductsState = {
 
 const productsReducer = (
   state: ProductsState,
-  action: ProductsAction,
+  action: ProductsAction
 ): ProductsState => {
   switch (action.type) {
     case "FETCH_START":
@@ -74,7 +79,7 @@ export default function Products({
         const { products, totalPages } = await fetchProducts(
           query,
           currentPage,
-          l,
+          l
         );
         dispatch({ type: "FETCH_SUCCESS", payload: { products, totalPages } });
       } catch (error) {

@@ -1,10 +1,12 @@
 "use client";
-import Faq from "@/components/faq";
-import Mission from "@/components/mission";
-import Qualities from "@/components/qualities";
+import dynamic from "next/dynamic";
 import { Button, Container, Icon, VStack } from "@chakra-ui/react";
 import { FaUtensils } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+
+const Mission = dynamic(() => import("@/components/mission"), {});
+const Qualities = dynamic(() => import("@/components/qualities"), {});
+const Faq = dynamic(() => import("@/components/faq"));
 
 export default function About() {
   const t = useTranslations("Pages.About");
