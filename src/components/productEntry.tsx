@@ -132,8 +132,8 @@ export default function ProductEntry({ product }: { product: Product }) {
                   {line}
                   {index <
                     localizedText.productName.split("NEWLINE").length - 1 && (
-                    <br />
-                  )}
+                      <br />
+                    )}
                 </span>
               ))}
             </Heading>
@@ -200,7 +200,7 @@ export default function ProductEntry({ product }: { product: Product }) {
                       <Thead>
                         <Tr>
                           <Th>{localizedText.dimensionHeader}</Th>
-                          <Th isNumeric>{localizedText.measurementHeader}</Th>
+                          <Th>{localizedText.measurementHeader}</Th>
                         </Tr>
                       </Thead>
                       <Tbody>
@@ -214,13 +214,13 @@ export default function ProductEntry({ product }: { product: Product }) {
                                 v.map((v_el: string | number, i_el: number) => (
                                   <Tr key={i_el}>
                                     <Td>{k}</Td>
-                                    <Td isNumeric>{v_el}</Td>
+                                    <Td>{v_el}</Td>
                                   </Tr>
                                 ))
                               ) : (
                                 <Tr key={i}>
                                   <Td>{k}</Td>
-                                  <Td isNumeric>{v}</Td>
+                                  <Td>{v}</Td>
                                 </Tr>
                               )
                           )}
@@ -251,7 +251,7 @@ export default function ProductEntry({ product }: { product: Product }) {
                           {index <
                             localizedText.productPacksPerCarton.split("NEWLINE")
                               .length -
-                              1 && <br />}
+                            1 && <br />}
                         </span>
                       ))}
                   </AccordionPanel>
@@ -279,7 +279,7 @@ export default function ProductEntry({ product }: { product: Product }) {
                           {index <
                             localizedText.productTotalQuantity.split("NEWLINE")
                               .length -
-                              1 && <br />}
+                            1 && <br />}
                         </span>
                       ))}
                   </AccordionPanel>
