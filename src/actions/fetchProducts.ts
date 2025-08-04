@@ -33,7 +33,7 @@ export default async function fetchProducts(
   const products: EntryCollection<ProductFieldsSkeleton, undefined, string> =
     await client.getEntries<ProductFieldsSkeleton>({
       ...getContentfulQuery,
-      order: ["sys.createdAt"],
+      order: ["-sys.updatedAt"],
     });
 
   const res: ProductsActionResult = {
