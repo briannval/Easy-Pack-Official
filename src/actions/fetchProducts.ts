@@ -32,8 +32,8 @@ export default async function fetchProducts(
 
   const products: EntryCollection<ProductFieldsSkeleton, undefined, string> =
     await client.getEntries<ProductFieldsSkeleton>({
-      ...getContentfulQuery,
-      order: ["sys.createdAt"],
+      ...(getContentfulQuery as any),
+      order: ["fields.orderKey"]
     });
 
   const res: ProductsActionResult = {
@@ -51,6 +51,7 @@ export default async function fetchProducts(
       totalQuantity: product.fields.totalQuantity,
       indonesianTotalQuantity: product.fields.indonesianTotalQuantity,
       quantityPerPack: product.fields.quantityPerPack,
+      orderKey: product.fields.orderKey
     })),
     totalPages: Math.ceil(Number(products.total) / PRODUCTS_PER_PAGE),
   };

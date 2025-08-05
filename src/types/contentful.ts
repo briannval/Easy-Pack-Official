@@ -11,6 +11,7 @@ export interface ProductFields {
   totalQuantity: EntryFields.Text;
   indonesianTotalQuantity: EntryFields.Text;
   quantityPerPack: EntryFields.Text;
+  orderKey: EntryFields.Number;
 }
 
 export type ProductFieldsSkeleton = EntrySkeletonType<
@@ -30,6 +31,7 @@ export interface Product {
   totalQuantity: string;
   indonesianTotalQuantity: string;
   quantityPerPack: string;
+  orderKey: number;
 }
 
 export interface FetchProductsResult {
@@ -38,19 +40,7 @@ export interface FetchProductsResult {
 }
 
 export interface ProductsActionResult {
-  products: {
-    id: string;
-    name: string;
-    dimensions: Record<string, number | string[] | number[]>;
-    image_url: string;
-    indonesianName: string;
-    indonesianDimensions: Record<string, number | string[] | number[]>;
-    packsPerCarton: string;
-    indonesianPacksPerCarton: string;
-    totalQuantity: string;
-    indonesianTotalQuantity: string;
-    quantityPerPack: string;
-  }[];
+  products: Product[];
   totalPages: number;
 }
 
